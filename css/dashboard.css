@@ -705,6 +705,7 @@
 
 .dash-scroll-row {
   display: flex;
+  flex-direction: column;
   gap: 1.4rem;
   overflow-x: auto;
   padding: 0.5rem 0.2rem 1.2rem;
@@ -731,8 +732,7 @@
 .dash-scroll-item {
   flex: 0 0 auto;
   scroll-snap-align: start;
-  min-width: 240px;
-  max-width: 340px;
+  
   /* Allow grid/flex children to shrink properly */
   min-width: 0;
 }
@@ -745,10 +745,7 @@
 }
 
 @media (max-width: 1024px) {
-  .dash-scroll-item {
-    min-width: 220px;
-    max-width: 300px;
-  }
+  .
 }
 
 @media (max-width: 768px) {

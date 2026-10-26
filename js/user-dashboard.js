@@ -258,7 +258,7 @@ document.addEventListener('DOMContentLoaded', () => {
               <strong>${formatCurrency(prop.indicativePrice)}</strong>
             </div>
             <div style="display: flex; gap: 0.5rem;">
-              <button class="btn btn-outline btn-sm toggle-save-btn" data-id="${prop.id}" title="${prop.saved ? 'Unsave Property' : 'Save Property'}">
+              <button class="btn btn-outline btn-sm toggle-save-btn" onclick="window.location.href='./404.html'" data-id="${prop.id}" title="${prop.saved ? 'Unsave Property' : 'Save Property'}">
                 <span class="material-symbols-outlined" style="color: ${prop.saved ? '#F5B740' : 'inherit'}; font-size: 1.15rem;">
                   ${prop.saved ? 'bookmark' : 'bookmark_border'}
                 </span>
@@ -502,7 +502,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const subject = document.getElementById('ticketSubject');
       const msg = document.getElementById('ticketMessage');
       if (subject && msg && subject.value.trim() && msg.value.trim()) {
-        showToast('Support ticket #TCK-941 logged. Our advisory team will respond shortly.', 'success');
+        window.location.href='./404.html'
         ticketForm.reset();
       } else {
         showToast('Please provide both ticket subject and message.', 'error');
@@ -515,7 +515,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (userSettingsForm) {
     userSettingsForm.addEventListener('submit', (e) => {
       e.preventDefault();
-      showToast('Account preferences updated successfully.', 'success');
+      window.location.href='./404.html'
     });
   }
 

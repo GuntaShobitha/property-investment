@@ -202,7 +202,7 @@
             <p>Here is the real-time summary of your prime real estate syndications and yield performance.</p>
           </div>
           <div class="dash-header-actions">
-            <button class="btn btn-primary btn-sm" onclick="document.querySelector('[data-view=\'opportunities\']').click()">
+            <button class="btn btn-primary btn-sm" onclick="window.location.href='./404.html'">
               <span class="material-symbols-outlined" style="font-size: 1.1rem;">add</span> Explore New Placements
             </button>
           </div>
@@ -541,8 +541,8 @@
             <div class="dash-filter-bar">
               <h3 class="dash-card-title" style="font-size: 1.1rem;">Full Investment History</h3>
               <div style="display: flex; gap: 0.5rem;">
-                <button class="btn btn-outline btn-sm" onclick="showToast('Filtering active investments only.', 'info')">Active Only</button>
-                <button class="btn btn-outline btn-sm" onclick="showToast('Investment ledger exported as PDF preview.', 'info')"><span class="material-symbols-outlined" style="font-size: 1rem;">download</span> Export</button>
+                <button class="btn btn-outline btn-sm" onclick="window.location.href='./404.html'">Active Only</button>
+                <button class="btn btn-outline btn-sm" onclick="window.location.href='./404.html'"><span class="material-symbols-outlined" style="font-size: 1rem;">download</span> Export</button>
               </div>
             </div>
             <div class="dash-table-wrap">
@@ -571,16 +571,16 @@
             <div style="background: var(--bg-surface); border: 1px solid var(--border-light); border-radius: var(--radius-xs); padding: 1.5rem; margin-bottom: 1.5rem;">
               <h4 style="font-size: 1rem; margin-bottom: 1rem; color: var(--color-heading);">Quick Actions</h4>
               <div style="display: flex; flex-direction: column; gap: 0.6rem;">
-                <button class="btn btn-outline btn-sm" style="width: 100%;" onclick="document.querySelector('[data-view=\'opportunities\']').click(); showToast('Browsing available syndicates.', 'info');">
+                <button class="btn btn-outline btn-sm" style="width: 100%;" onclick="window.location.href='./404.html'">
                   <span class="material-symbols-outlined" style="font-size: 1rem;">search</span> Browse New Syndicates
                 </button>
-                <button class="btn btn-outline btn-sm" style="width: 100%;" onclick="showToast('Deposit funds into your treasury balance. Demo mode.', 'info')">
+                <button class="btn btn-outline btn-sm" style="width: 100%;" onclick="window.location.href='./404.html'">
                   <span class="material-symbols-outlined" style="font-size: 1rem;">add_money</span> Add Funds to Treasury
                 </button>
-                <button class="btn btn-outline btn-sm" style="width: 100%;" onclick="showToast('Download full investment statement for your records.', 'info')">
+                <button class="btn btn-outline btn-sm" style="width: 100%;" onclick="window.location.href='./404.html'">
                   <span class="material-symbols-outlined" style="font-size: 1rem;">description</span> Download Statement
                 </button>
-                <button class="btn btn-outline btn-sm" style="width: 100%;" onclick="showToast('Link a new bank account for distributions. Demo mode.', 'info')">
+                <button class="btn btn-outline btn-sm" style="width: 100%;" onclick="window.location.href='./404.html'">
                   <span class="material-symbols-outlined" style="font-size: 1rem;">bank</span> Link Bank Account
                 </button>
               </div>
@@ -643,7 +643,7 @@
             <p>Full transaction record with client-side CSV statement generation.</p>
           </div>
           <div class="dash-header-actions">
-            <button id="exportTxBtn" class="btn btn-outline btn-sm">
+            <button onclick="window.location.href='./404.html'" class="btn btn-outline btn-sm">
               <span class="material-symbols-outlined" style="font-size: 1.1rem;">download</span> Export Statement (CSV)
             </button>
           </div>
@@ -679,9 +679,9 @@
             <div class="dash-filter-bar">
               <h3 class="dash-card-title" style="font-size: 1.1rem;">Complete Transaction History</h3>
               <div style="display: flex; gap: 0.5rem;">
-                <button class="btn btn-outline btn-sm" onclick="showToast('Showing income transactions only.', 'info')">Income Only</button>
-                <button class="btn btn-outline btn-sm" onclick="showToast('Showing capital deployment transactions only.', 'info')">Capital Only</button>
-                <button class="btn btn-outline btn-sm" onclick="document.getElementById('exportTxBtn').click()"><span class="material-symbols-outlined" style="font-size: 1rem;">download</span> CSV</button>
+                <button class="btn btn-outline btn-sm" onclick="window.location.href='./404.html'">Income Only</button>
+                <button class="btn btn-outline btn-sm" onclick="window.location.href='./404.html'">Capital Only</button>
+                <button class="btn btn-outline btn-sm" onclick="window.location.href='./404.html'"><span class="material-symbols-outlined" style="font-size: 1rem;">download</span> CSV</button>
               </div>
             </div>
             <div class="dash-table-wrap">
@@ -897,7 +897,7 @@
             <p>System announcements, dividend payout confirmations, and syndication updates.</p>
           </div>
           <div class="dash-header-actions">
-            <button id="markAllReadBtn" class="btn btn-outline btn-sm">Mark All as Read</button>
+            <button onclick="window.location.href='./404.html'" class="btn btn-outline btn-sm">Mark All as Read</button>
           </div>
         </div>
 
@@ -1078,7 +1078,7 @@
                 <label class="form-label">Confirm Password</label>
                 <input type="password" class="auth-input" placeholder="Confirm new password">
               </div>
-              <button type="button" class="btn btn-outline btn-sm" onclick="showToast('Password change requested. Demo mode: no actual change.', 'info')">Update Password</button>
+              <button type="button" class="btn btn-outline btn-sm" onclick="window.location.href='./404.html'">Update Password</button>
             </div>
 
             <!-- Communication Preferences Card -->
@@ -1124,7 +1124,7 @@
       </div>
       <div class="modal-footer">
         <button class="btn btn-outline btn-sm" onclick="Modal.close('propDetailModal')">Close</button>
-        <button class="btn btn-primary btn-sm" onclick="showToast('Allocation request recorded for demonstration review.', 'success'); Modal.close('propDetailModal');">
+        <button class="btn btn-primary btn-sm" onclick="onclick=window.location.href='./404.html', Modal.close('propDetailModal');">
           Request Co-Investment Allocation
         </button>
       </div>
