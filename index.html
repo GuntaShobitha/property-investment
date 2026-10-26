@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>STACKLY | Premier Luxury Property Investment & Wealth Advisory</title>
+  <meta name="description" content="STACKLY curates prime residential, commercial, and high-yield real estate investments for private clients and institutional family offices globally.">
+
+  <!-- Favicon / Meta -->
+  <link rel="icon" type="image/webp" href="./images/logo-dark.webp">
+
+  <!-- Google Fonts & Material Symbols -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+  <!-- Core Stylesheets -->
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="./css/animations.css">
+  <link rel="stylesheet" href="./css/responsive.css">
+</head>
+<body>
+
+  <!-- ==========================================================================
+       GLOBAL NAVIGATION HEADER
+       ========================================================================== -->
+  <header class="header-site">
+    <div class="container header-inner">
+      <!-- Brand Logo -->
+      <a href="index.html" class="nav-logo">
+        <img src="./images/logo-dark.webp" alt="STACKLY Logo" class="nav-logo-img" />
+      </a>
+
+      <!-- Desktop Navigation Links -->
+      <nav class="nav-menu" aria-label="Main Navigation">
+        <a href="index.html" class="nav-link active">Home</a>
+        <a href="about.html" class="nav-link">About Us</a>
+        <a href="services.html" class="nav-link">Investment Services</a>
+        <a href="blog.html" class="nav-link">Insights</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </nav>
+
+      <!-- Right CTAs -->
+      <div class="nav-actions">
+        <a href="login.html" class="nav-login-btn">Investor Portal</a>
+        <button class="hamburger-btn" aria-label="Toggle navigation drawer" aria-expanded="false">
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Navigation Drawer -->
+  <div class="mobile-nav-backdrop"></div>
+  <aside class="mobile-nav-drawer" aria-label="Mobile Navigation Drawer">
+    <div>
+      <div style="margin-bottom: 2.5rem;">
+        <a href="index.html" class="nav-logo">
+          <img src="./images/logo-dark.webp" alt="STACKLY Logo" class="nav-logo-img" style="height: 34px;" />
+        </a>
+      </div>
+      <nav class="mobile-nav-menu">
+        <a href="index.html" class="mobile-nav-link active">Home</a>
+        <a href="about.html" class="mobile-nav-link">About Us</a>
+        <a href="services.html" class="mobile-nav-link">Investment Services</a>
+        <a href="blog.html" class="mobile-nav-link">Insights & Market Trends</a>
+        <a href="contact.html" class="mobile-nav-link">Contact Advisory</a>
+      </nav>
+    </div>
+    <div class="mobile-nav-actions">
+      <a href="login.html" class="btn btn-primary" style="width: 100%;">Investor Login</a>
+      <a href="register.html" class="btn btn-outline" style="width: 100%;">Request Access</a>
+    </div>
+  </aside>
+
+  <main id="main-content">
+
+    <!-- ==========================================================================
+         SECTION 1: HERO
+         ========================================================================== -->
+    <section class="section hero-home" style="padding-top: 10.5rem; padding-bottom: 6rem; background-color: var(--bg-primary);">
+      <div class="container">
+        <div class="split-layout">
+          <div class="hero-content">
+            <span class="eyebrow">Institutional Real Estate Sourcing</span>
+            <h1 class="hero-title" style="margin-bottom: 1.5rem;">Investing in Exceptional Prime Properties.</h1>
+            <p class="hero-lead lead-text" style="margin-bottom: 2.5rem; max-width: 520px;">
+              STACKLY partners with private investors, sovereign family offices, and wealth institutions to acquire, manage, and optimize prime residential and commercial real estate portfolios across Tier-1 global capitals.
+            </p>
+            <div class="hero-cta-group" style="display: flex; gap: 1.2rem; align-items: center; margin-bottom: 3.5rem;">
+              <a href="#featured-opportunities" class="btn btn-primary">
+                Explore Investments
+                <span class="material-symbols-outlined">arrow_forward</span>
+              </a>
+              <a href="about.html" class="btn btn-outline">Our Approach</a>
+            </div>
+
+            <!-- Scroll Cue -->
+            <a href="#investment-intro" class="scroll-cue">
+              <span>Scroll to Explore</span>
+              <div class="scroll-cue-line"></div>
+            </a>
+          </div>
+
+          <div class="hero-media">
+            <div class="image-reveal-wrap" style="border-radius: var(--radius-xs); box-shadow: var(--shadow-lg);">
+              <img src="./images/hero-home.webp" alt="Prime architectural residence curated by STACKLY" class="hero-main-img" style="width: 100%; height: 580px; object-fit: cover;" fetchpriority="high">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SECTION 2: INVESTMENT INTRODUCTION & PHILOSOPHY
+         ========================================================================== -->
+    <section id="investment-intro" class="section section-secondary">
+      <div class="container">
+        <div class="split-layout split-layout-reverse">
+          <div class="split-media">
+            <div class="image-reveal-wrap" style="position: relative;">
+              <img src="./images/about-intro.webp" alt="Private estate advisory meeting" style="width: 100%; height: 520px; object-fit: cover; border-radius: var(--radius-xs);" loading="lazy">
+              <div style="position: absolute; bottom: -1.5rem; right: -1.5rem; background: var(--color-heading); color: #FFFFFF; padding: 1.8rem 2.2rem; border-radius: var(--radius-xs); box-shadow: var(--shadow-lg); max-width: 260px;">
+                <div style="font-family: var(--font-serif); font-size: 2.2rem; line-height: 1; color: var(--accent-gold); margin-bottom: 0.3rem;">25+</div>
+                <div style="font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--color-muted-light);">Years Combined Investment Leadership</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="split-content reveal-init">
+            <span class="eyebrow">Investment Philosophy</span>
+            <h2>Where Architectural Heritage Meets Disciplined Capital.</h2>
+            <p class="lead-text" style="margin-bottom: 1.2rem;">
+              We view prime real estate not simply as square footage, but as generational wealth anchors protected by supply scarcity, enduring architectural prestige, and resilient rental demand.
+            </p>
+            <p style="margin-bottom: 1.8rem;">
+              Every investment opportunity in our pipeline undergoes rigorous financial stress-testing, zoning scrutiny, environmental audit, and institutional co-investment structuring before single capital allocations are admitted.
+            </p>
+            <ul style="display: flex; flex-direction: column; gap: 0.9rem; margin-bottom: 2.2rem;">
+              <li style="display: flex; align-items: center; gap: 0.75rem; font-weight: 500;">
+                <span class="material-symbols-outlined" style="color: var(--accent-gold-dark);">verified</span>
+                Direct ownership structures with institutional co-investment parity
+              </li>
+              <li style="display: flex; align-items: center; gap: 0.75rem; font-weight: 500;">
+                <span class="material-symbols-outlined" style="color: var(--accent-gold-dark);">verified</span>
+                Rigorous downside capital preservation algorithms
+              </li>
+              <li style="display: flex; align-items: center; gap: 0.75rem; font-weight: 500;">
+                <span class="material-symbols-outlined" style="color: var(--accent-gold-dark);">verified</span>
+                Transparent real-time investor analytics and audit-ready distributions
+              </li>
+            </ul>
+            <a href="about.html" class="btn-link">
+              Read Our Investment Thesis
+              <span class="material-symbols-outlined">arrow_forward</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SECTION 3: INVESTMENT PERFORMANCE & METRICS
+         ========================================================================== -->
+    <section class="section section-dark">
+      <div class="container">
+        <div class="section-header text-center reveal-init">
+          <span class="eyebrow eyebrow-light eyebrow-center">Demonstrated Discipline</span>
+          <h2>Institutional Portfolio Benchmarks</h2>
+          <p class="text-light" style="max-width: 620px; margin: 0 auto;">
+            Our syndication parameters are engineered to deliver consistent capital appreciation paired with tax-advantaged quarterly rental disbursements.
+          </p>
+        </div>
+
+        <div class="stats-grid-row" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; background-color: var(--bg-dark-card); border: 1px solid var(--border-dark); border-radius: var(--radius-xs);">
+          <div class="stat-item">
+            <div class="stat-number stat-number-light counter-val" data-target="142" data-prefix="$" data-suffix="M+">$0</div>
+            <div class="stat-label" style="color: #FFFFFF;">Illustrative Portfolio AUM</div>
+            <div class="stat-sub">Across 4 European jurisdictions</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number stat-number-light counter-val" data-target="48" data-suffix="">0</div>
+            <div class="stat-label" style="color: #FFFFFF;">Curated Prime Assets</div>
+            <div class="stat-sub">Residential & Grade-A Commercial</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number stat-number-light counter-val" data-target="8.7" data-suffix="%" data-decimals="1">0%</div>
+            <div class="stat-label" style="color: #FFFFFF;">Target Net Annual Yield</div>
+            <div class="stat-sub">Quarterly cashflow distribution</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number stat-number-light counter-val" data-target="100" data-suffix="%">0%</div>
+            <div class="stat-label" style="color: #FFFFFF;">Senior Capital Preservation</div>
+            <div class="stat-sub">Zero principal impairment recorded</div>
+          </div>
+        </div>
+
+        <div class="disclaimer-banner" style="margin-top: 2rem;">
+          <strong>*Illustrative Demo Notice:</strong> The performance metrics, valuations, and portfolio statistics shown across this website are simulated demonstration figures designed to illustrate the platform's visual presentation and reporting architecture. They do not constitute financial advice or audited historical guarantees.
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SECTION 4: FEATURED INVESTMENT OPPORTUNITIES
+         ========================================================================== -->
+    <section id="featured-opportunities" class="section">
+      <div class="container">
+        <div class="flex-between section-header reveal-init" style="flex-wrap: wrap; gap: 1.5rem;">
+          <div>
+            <span class="eyebrow">Private Placements</span>
+            <h2>Featured Property Opportunities</h2>
+            <p class="text-muted" style="max-width: 540px;">
+              Exclusively vetted property acquisitions currently accessible for syndication and co-investment allocations.
+            </p>
+          </div>
+          <a href="services.html" class="btn btn-outline">
+            View All Asset Classes
+            <span class="material-symbols-outlined">east</span>
+          </a>
+        </div>
+
+        <div class="stagger-grid property-grid-3" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem;">
+          <!-- Card 1 -->
+          <div class="property-card">
+            <div class="property-image-wrap">
+              <img src="./images/property-1.webp" alt="The Aurum Penthouse Mayfair" class="property-image" loading="lazy">
+              <span class="property-badge">Residential</span>
+              <span class="property-status">Active</span>
+            </div>
+            <div class="property-body">
+              <div class="property-location"><span class="material-symbols-outlined">location_on</span> London, W1K</div>
+              <h3 class="property-title">The Aurum Penthouse - Mayfair</h3>
+              <div class="property-meta-grid">
+                <div class="meta-item">
+                  <span class="meta-label">Est. Yield</span>
+                  <span class="meta-value">8.4%</span>
+                </div>
+                <div class="meta-item">
+                  <span class="meta-label">Term</span>
+                  <span class="meta-value">3-5 Yrs</span>
+                </div>
+                <div class="meta-item">
+                  <span class="meta-label">Min. Allocation</span>
+                  <span class="meta-value">$50,000</span>
+                </div>
+              </div>
+              <div class="property-footer">
+                <div class="property-indicative-price">
+                  Asset Valuation
+                  <strong>$12,500,000</strong>
+                </div>
+                <a href="login.html" class="btn btn-primary btn-sm">Invest Now</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="property-card">
+            <div class="property-image-wrap">
+              <img src="./images/property-2.webp" alt="Kensington Garden Residences" class="property-image" loading="lazy">
+              <span class="property-badge">Residential</span>
+              <span class="property-status">Active</span>
+            </div>
+            <div class="property-body">
+              <div class="property-location"><span class="material-symbols-outlined">location_on</span> London, W8</div>
+              <h3 class="property-title">Kensington Garden Residences</h3>
+              <div class="property-meta-grid">
+                <div class="meta-item">
+                  <span class="meta-label">Est. Yield</span>
+                  <span class="meta-value">7.8%</span>
+                </div>
+                <div class="meta-item">
+                  <span class="meta-label">Term</span>
+                  <span class="meta-value">4-6 Yrs</span>
+                </div>
+                <div class="meta-item">
+                  <span class="meta-label">Min. Allocation</span>
+                  <span class="meta-value">$35,000</span>
+                </div>
+              </div>
+              <div class="property-footer">
+                <div class="property-indicative-price">
+                  Asset Valuation
+                  <strong>$8,900,000</strong>
+                </div>
+                <a href="login.html" class="btn btn-primary btn-sm">Invest Now</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="property-card">
+            <div class="property-image-wrap">
+              <img src="./images/property-3.webp" alt="Grandview Financial Plaza Frankfurt" class="property-image" loading="lazy">
+              <span class="property-badge">Commercial</span>
+              <span class="property-status">Active</span>
+            </div>
+            <div class="property-body">
+              <div class="property-location"><span class="material-symbols-outlined">location_on</span> Frankfurt, CBD</div>
+              <h3 class="property-title">Grandview Financial Plaza</h3>
+              <div class="property-meta-grid">
+                <div class="meta-item">
+                  <span class="meta-label">Est. Yield</span>
+                  <span class="meta-value">9.2%</span>
+                </div>
+                <div class="meta-item">
+                  <span class="meta-label">Term</span>
+                  <span class="meta-value">5-7 Yrs</span>
+                </div>
+                <div class="meta-item">
+                  <span class="meta-label">Min. Allocation</span>
+                  <span class="meta-value">$100,000</span>
+                </div>
+              </div>
+              <div class="property-footer">
+                <div class="property-indicative-price">
+                  Asset Valuation
+                  <strong>$34,000,000</strong>
+                </div>
+                <a href="login.html" class="btn btn-primary btn-sm">Invest Now</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SECTION 5: WHY INVEST WITH STACKLY
+         ========================================================================== -->
+    <section class="section section-secondary">
+      <div class="container">
+        <div class="split-layout">
+          <div class="split-content reveal-init">
+            <span class="eyebrow">The STACKLY Edge</span>
+            <h2>Engineered for Discerning Real Estate Investors</h2>
+            <p class="lead-text" style="margin-bottom: 1.5rem;">
+              We eliminate intermediaries and combine institutional research depth with direct asset access, granting private capital the same structural advantages historically reserved for sovereign institutions.
+            </p>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.8rem; margin-top: 2rem;">
+              <div>
+                <div style="width: 44px; height: 44px; background: var(--color-heading); color: var(--accent-gold-light); display: flex; align-items: center; justify-content: center; border-radius: var(--radius-xs); margin-bottom: 1rem;">
+                  <span class="material-symbols-outlined">analytics</span>
+                </div>
+                <h4 style="font-size: 1.15rem; margin-bottom: 0.4rem;">Research-Led Sourcing</h4>
+                <p style="font-size: 0.9rem; color: var(--color-muted);">Predictive demographic forecasting and municipal zoning analysis identify unpriced value early.</p>
+              </div>
+
+              <div>
+                <div style="width: 44px; height: 44px; background: var(--color-heading); color: var(--accent-gold-light); display: flex; align-items: center; justify-content: center; border-radius: var(--radius-xs); margin-bottom: 1rem;">
+                  <span class="material-symbols-outlined">pie_chart</span>
+                </div>
+                <h4 style="font-size: 1.15rem; margin-bottom: 0.4rem;">Risk Diversification</h4>
+                <p style="font-size: 0.9rem; color: var(--color-muted);">Diversify across prime residential, commercial offices, and seasonal hospitality portfolios.</p>
+              </div>
+
+              <div>
+                <div style="width: 44px; height: 44px; background: var(--color-heading); color: var(--accent-gold-light); display: flex; align-items: center; justify-content: center; border-radius: var(--radius-xs); margin-bottom: 1rem;">
+                  <span class="material-symbols-outlined">visibility</span>
+                </div>
+                <h4 style="font-size: 1.15rem; margin-bottom: 0.4rem;">Complete Transparency</h4>
+                <p style="font-size: 0.9rem; color: var(--color-muted);">Full access to property title deeds, third-party appraisals, structural engineering surveys, and escrow audit records.</p>
+              </div>
+
+              <div>
+                <div style="width: 44px; height: 44px; background: var(--color-heading); color: var(--accent-gold-light); display: flex; align-items: center; justify-content: center; border-radius: var(--radius-xs); margin-bottom: 1rem;">
+                  <span class="material-symbols-outlined">dashboard</span>
+                </div>
+                <h4 style="font-size: 1.15rem; margin-bottom: 0.4rem;">Investor Portal</h4>
+                <p style="font-size: 0.9rem; color: var(--color-muted);">Live performance telemetry, dividend tracking, automated tax reporting, and document vaults.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="split-media">
+            <div class="image-reveal-wrap">
+              <img src="./images/why-invest.webp" alt="High-rise architectural structure in financial center" style="width: 100%; height: 540px; object-fit: cover; border-radius: var(--radius-xs);" loading="lazy">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SECTION 6: INVESTMENT PROCESS
+         ========================================================================== -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header text-center reveal-init">
+          <span class="eyebrow eyebrow-center">Step-by-Step Pathway</span>
+          <h2>The STACKLY Investment Journey</h2>
+          <p class="text-muted" style="max-width: 620px; margin: 0 auto;">
+            A transparent four-phase lifecycle designed to guide private capital from initial deal underwriting to ongoing quarterly liquidity.
+          </p>
+        </div>
+
+        <div class="steps-grid stagger-grid" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.8rem;">
+          <div class="step-card">
+            <div class="step-number">01</div>
+            <h3 class="step-title">Deal Sourcing</h3>
+            <p class="step-desc">Our acquisitions committee screens over 250 off-market property packages quarterly, advancing only those meeting strict capital preservation criteria.</p>
+          </div>
+
+          <div class="step-card">
+            <div class="step-number">02</div>
+            <h3 class="step-title">Due Diligence</h3>
+            <p class="step-desc">Independent architectural appraisals, title examination, ESG compliance checks, and stress-tested financial modeling are executed.</p>
+          </div>
+
+          <div class="step-card">
+            <div class="step-number">03</div>
+            <h3 class="step-title">Direct Allocation</h3>
+            <p class="step-desc">Investors review detailed offering memorandums, select desired allocation amounts, and fund via segregated institutional escrow accounts.</p>
+          </div>
+
+          <div class="step-card">
+            <div class="step-number">04</div>
+            <h3 class="step-title">Asset Management</h3>
+            <p class="step-desc">Dedicated asset managers oversee leasing, tenant operations, and capital works, distributing quarterly yields directly to investor accounts.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SECTION 7: PROPERTY CATEGORIES
+         ========================================================================== -->
+    <section class="section section-secondary">
+      <div class="container">
+        <div class="section-header text-center reveal-init">
+          <span class="eyebrow eyebrow-center">Asset Class Coverage</span>
+          <h2>Specialized Real Estate Sectors</h2>
+          <p class="text-muted" style="max-width: 600px; margin: 0 auto;">
+            Custom portfolio weightings tailored to meet distinct investor objectives for steady income, value appreciation, or tax optimization.
+          </p>
+        </div>
+
+        <div class="category-grid" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem;">
+          <!-- Category 1 -->
+          <a href="services.html" class="category-card">
+            <img src="./images/property-cat-residential.webp" alt="Residential Luxury Properties" class="category-bg" loading="lazy">
+            <div class="category-overlay"></div>
+            <div class="category-content">
+              <div class="category-subtitle">Prime Living</div>
+              <h3 class="category-title">Residential</h3>
+              <div class="category-link-arrow">
+                Explore Portfolio <span class="material-symbols-outlined">arrow_forward</span>
+              </div>
+            </div>
+          </a>
+
+          <!-- Category 2 -->
+          <a href="services.html" class="category-card">
+            <img src="./images/property-cat-commercial.webp" alt="Commercial Office Assets" class="category-bg" loading="lazy">
+            <div class="category-overlay"></div>
+            <div class="category-content">
+              <div class="category-subtitle">Grade-A Corporate</div>
+              <h3 class="category-title">Commercial</h3>
+              <div class="category-link-arrow">
+                Explore Portfolio <span class="material-symbols-outlined">arrow_forward</span>
+              </div>
+            </div>
+          </a>
+
+          <!-- Category 3 -->
+          <a href="services.html" class="category-card">
+            <img src="./images/property-cat-mixed.webp" alt="Mixed-Use Developments" class="category-bg" loading="lazy">
+            <div class="category-overlay"></div>
+            <div class="category-content">
+              <div class="category-subtitle">Urban Lifestyle</div>
+              <h3 class="category-title">Mixed-Use</h3>
+              <div class="category-link-arrow">
+                Explore Portfolio <span class="material-symbols-outlined">arrow_forward</span>
+              </div>
+            </div>
+          </a>
+
+          <!-- Category 4 -->
+          <a href="services.html" class="category-card">
+            <img src="./images/property-cat-rental.webp" alt="High-Yield Rental Estates" class="category-bg" loading="lazy">
+            <div class="category-overlay"></div>
+            <div class="category-content">
+              <div class="category-subtitle">Hospitality & Yield</div>
+              <h3 class="category-title">Rental Estates</h3>
+              <div class="category-link-arrow">
+                Explore Portfolio <span class="material-symbols-outlined">arrow_forward</span>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SECTION 8: MARKET INSIGHTS
+         ========================================================================== -->
+    <section class="section">
+      <div class="container">
+        <div class="flex-between section-header reveal-init" style="flex-wrap: wrap; gap: 1.5rem;">
+          <div>
+            <span class="eyebrow">Intellectual Capital</span>
+            <h2>Property Market Intelligence</h2>
+            <p class="text-muted" style="max-width: 520px;">
+              Thought leadership and macro real estate research written by our in-house investment committee.
+            </p>
+          </div>
+          <a href="blog.html" class="btn btn-outline">
+            Visit Research Journal
+            <span class="material-symbols-outlined">east</span>
+          </a>
+        </div>
+
+        <div class="blog-grid-3 stagger-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem;">
+          <!-- Article 1 -->
+          <article class="blog-card">
+            <div class="blog-image-wrap">
+              <img src="./images/blog-1.webp" alt="Luxury apartment architecture" class="blog-image" loading="lazy">
+            </div>
+            <div class="blog-body">
+              <div class="blog-meta">
+                <span class="blog-cat">Residential</span>
+                <span>•</span>
+                <span>October 2026</span>
+              </div>
+              <h3 class="blog-title">Prime Residential Sourcing in London: Capital Preservation in Tier-1 Enclaves</h3>
+              <p class="blog-excerpt">Analyzing why Belgravia, Mayfair, and Kensington continue to outperform broader regional metrics amid global economic rebalancing.</p>
+              <div class="blog-footer">
+                <a href="blog-details.html" class="btn-link">Read Full Briefing <span class="material-symbols-outlined">arrow_forward</span></a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Article 2 -->
+          <article class="blog-card">
+            <div class="blog-image-wrap">
+              <img src="./images/blog-2.webp" alt="Financial district skyscrapers" class="blog-image" loading="lazy">
+            </div>
+            <div class="blog-body">
+              <div class="blog-meta">
+                <span class="blog-cat">Commercial</span>
+                <span>•</span>
+                <span>September 2026</span>
+              </div>
+              <h3 class="blog-title">European Commercial Real Estate: Sourcing Flight-to-Quality Grade-A Hubs</h3>
+              <p class="blog-excerpt">How long-term inflation-linked corporate leases provide resilient cashflows and hedge against macro volatility.</p>
+              <div class="blog-footer">
+                <a href="blog-details.html" class="btn-link">Read Full Briefing <span class="material-symbols-outlined">arrow_forward</span></a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Article 3 -->
+          <article class="blog-card">
+            <div class="blog-image-wrap">
+              <img src="./images/blog-3.webp" alt="Modern coastal architecture" class="blog-image" loading="lazy">
+            </div>
+            <div class="blog-body">
+              <div class="blog-meta">
+                <span class="blog-cat">Portfolio Strategy</span>
+                <span>•</span>
+                <span>August 2026</span>
+              </div>
+              <h3 class="blog-title">Navigating Shifting Interest Rates: Real Estate Structuring for Family Offices</h3>
+              <p class="blog-excerpt">A deep dive into conservative debt structures, fixed covenants, and equity-first syndication frameworks.</p>
+              <div class="blog-footer">
+                <a href="blog-details.html" class="btn-link">Read Full Briefing <span class="material-symbols-outlined">arrow_forward</span></a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SECTION 9: INVESTOR TESTIMONIALS (CAROUSEL / SLIDER)
+         ========================================================================== -->
+    <section class="section section-secondary">
+      <div class="container">
+        <div class="section-header text-center reveal-init">
+          <span class="eyebrow eyebrow-center">Client Perspectives</span>
+          <h2>Trusted by Discerning Capital Allocators</h2>
+          <p class="text-muted" style="max-width: 600px; margin: 0 auto;">
+            Sample representative feedback from private co-investors and family office principals who partner with STACKLY.
+          </p>
+        </div>
+
+        <div class="testimonial-slider" style="max-width: 860px; margin: 0 auto;">
+          <div class="testimonial-slide">
+            <div class="testimonial-card">
+              <div class="testimonial-quote-icon">“</div>
+              <p class="testimonial-text">
+                STACKLY's underwriting depth and direct asset visibility are unmatched. We have co-invested across both London residential and Frankfurt commercial tranches, and the reporting rigor and prompt quarterly distributions have consistently exceeded our expectations.
+              </p>
+              <div class="testimonial-author">
+                <img src="./images/avatar-1.webp" alt="Julian Sterling" class="testimonial-avatar">
+                <div class="testimonial-info">
+                  <h4>Julian Sterling</h4>
+                  <p>Managing Principal, Sterling Family Holdings (Sample Review)</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-slide" style="display: none;">
+            <div class="testimonial-card">
+              <div class="testimonial-quote-icon">“</div>
+              <p class="testimonial-text">
+                The level of transparency STACKLY provides in their digital investor portal is extraordinary. Every title deed, building valuation, and escrow settlement is accessible with complete clarity. They have truly democratized institutional property syndication.
+              </p>
+              <div class="testimonial-author">
+                <img src="./images/avatar-2.webp" alt="Camilla Dupont" class="testimonial-avatar">
+                <div class="testimonial-info">
+                  <h4>Camilla Dupont</h4>
+                  <p>Chief Investment Officer, Geneva Alpine Trust (Sample Review)</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-slide" style="display: none;">
+            <div class="testimonial-card">
+              <div class="testimonial-quote-icon">“</div>
+              <p class="testimonial-text">
+                As long-term real estate investors, downside risk management is our primary mandate. STACKLY's strict conservatism, low leverage requirements, and exceptional property locations make them our preferred private placement partner.
+              </p>
+              <div class="testimonial-author">
+                <img src="./images/avatar-3.webp" alt="Henrik Lindqvist" class="testimonial-avatar">
+                <div class="testimonial-info">
+                  <h4>Henrik Lindqvist</h4>
+                  <p>Private Wealth Trustee, Stockholm (Sample Review)</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Carousel Controls -->
+          <div style="display: flex; justify-content: center; gap: 1rem; margin-top: 2rem;">
+            <button class="btn btn-outline btn-sm testimonial-prev" aria-label="Previous testimonial">
+              <span class="material-symbols-outlined">arrow_back</span>
+            </button>
+            <button class="btn btn-outline btn-sm testimonial-next" aria-label="Next testimonial">
+              <span class="material-symbols-outlined">arrow_forward</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SECTION 10: FREQUENTLY ASKED QUESTIONS (ACCORDION)
+         ========================================================================== -->
+    <section class="section">
+      <div class="container" style="max-width: 900px;">
+        <div class="section-header text-center reveal-init">
+          <span class="eyebrow eyebrow-center">Investor Inquiries</span>
+          <h2>Frequently Asked Questions</h2>
+          <p class="text-muted">Essential considerations regarding our property selection criteria, syndication structures, and investor safeguards.</p>
+        </div>
+
+        <div class="accordion">
+          <div class="accordion-item">
+            <button class="accordion-header" aria-expanded="true">
+              <span>What is the minimum investment threshold for STACKLY offerings?</span>
+              <span class="accordion-icon material-symbols-outlined">expand_more</span>
+            </button>
+            <div class="accordion-body">
+              <p>Minimum co-investment allocations typically range between $35,000 and $100,000 depending on the asset class and syndicate size. Institutional and family office tranches often commence at $500,000 or greater with tailored bespoke advisory agreements.</p>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <button class="accordion-header" aria-expanded="false">
+              <span>How are property acquisitions screened and audited?</span>
+              <span class="accordion-icon material-symbols-outlined">expand_more</span>
+            </button>
+            <div class="accordion-body">
+              <p>Every asset passes through a four-stage vetting committee. We commission independent RICS valuations, legal title searches by top-tier legal counsels, structural engineering audits, and proprietary demographic tenant demand simulations before structuring each syndicate.</p>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <button class="accordion-header" aria-expanded="false">
+              <span>How are rental distributions and capital gains paid out?</span>
+              <span class="accordion-icon material-symbols-outlined">expand_more</span>
+            </button>
+            <div class="accordion-body">
+              <p>Rental yields are disbursed quarterly directly to investor bank accounts or stored in their platform treasury balance. Upon asset refinancing or scheduled maturity liquidation, principal return and accrued capital appreciation are settled via regulated escrow accounts.</p>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <button class="accordion-header" aria-expanded="false">
+              <span>Are international investors eligible to participate?</span>
+              <span class="accordion-icon material-symbols-outlined">expand_more</span>
+            </button>
+            <div class="accordion-body">
+              <p>Yes. STACKLY structures syndicates through recognized special purpose vehicles (SPVs) that comply with cross-border tax treaties, facilitating participation for accredited investors in the UK, Europe, North America, the Middle East, and Asia-Pacific.</p>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <button class="accordion-header" aria-expanded="false">
+              <span>What protections exist against property market downturns?</span>
+              <span class="accordion-icon material-symbols-outlined">expand_more</span>
+            </button>
+            <div class="accordion-body">
+              <p>We maintain strict maximum debt-to-value (LTV) limits—generally not exceeding 55%—and maintain dedicated cash reserves for every asset. By acquiring properties in prime supply-constrained locations, our holdings exhibit superior historical pricing resilience.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SECTION 11: FINAL CALL TO ACTION
+         ========================================================================== -->
+    <section class="section section-dark" style="position: relative; overflow: hidden; padding: 7rem 0;">
+      <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0.18; pointer-events: none;">
+        <img src="./images/cta-bg.webp" alt="Background architectural silhouette" style="width: 100%; height: 100%; object-fit: cover;">
+      </div>
+      <div class="container" style="position: relative; z-index: 2; text-align: center; max-width: 800px;">
+        <span class="eyebrow eyebrow-light eyebrow-center">Begin Your Co-Investment Journey</span>
+        <h2 style="font-size: clamp(2.5rem, 4.5vw, 4rem); margin-bottom: 1.5rem;">Access Prime Institutional Real Estate Opportunities Today.</h2>
+        <p class="text-light lead-text" style="margin-bottom: 2.8rem;">
+          Join an exclusive network of private capital partners benefiting from institutional property sourcing, direct asset ownership, and transparent quarterly returns.
+        </p>
+        <div style="display: flex; gap: 1.2rem; justify-content: center; flex-wrap: wrap;">
+          <a href="contact.html" class="btn btn-gold btn-lg">Schedule Private Consultation</a>
+          <a href="services.html" class="btn btn-outline-light btn-lg">Explore Services</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==========================================================================
+       GLOBAL FOOTER
+       ========================================================================== -->
+  <footer class="footer-site">
+    <div class="container">
+      <div class="footer-top">
+        <!-- Brand Info -->
+        <div class="footer-brand">
+          <a href="index.html" class="nav-logo">
+            <img src="./images/logo-dark.webp" alt="STACKLY Logo" class="nav-logo-img" style="filter: brightness(0) invert(1);" />
+          </a>
+          <p>
+            STACKLY is an international property investment and real estate advisory firm specializing in direct syndication of prime residential, commercial, and hospitality assets.
+          </p>
+          <div class="social-links">
+            <a href="404.html" class="social-icon-btn" aria-label="LinkedIn Profile">
+              <span class="material-symbols-outlined">share</span>
+            </a>
+            <a href="404.html" class="social-icon-btn" aria-label="X (Twitter) Profile">
+              <span class="material-symbols-outlined">public</span>
+            </a>
+            <a href="404.html" class="social-icon-btn" aria-label="Instagram Profile">
+              <span class="material-symbols-outlined">photo_camera</span>
+            </a>
+            <a href="404.html" class="social-icon-btn" aria-label="YouTube Channel">
+              <span class="material-symbols-outlined">smart_display</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Col 1: Platform Links -->
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="services.html">Investment Services</a></li>
+            <li><a href="blog.html">Market Insights</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 2: Services -->
+        <div class="footer-col">
+          <h4>Asset Classes</h4>
+          <ul class="footer-links">
+            <li><a href="services.html#residential">Prime Residential</a></li>
+            <li><a href="services.html#commercial">Commercial Grade-A</a></li>
+            <li><a href="services.html#rental">Rental Estates</a></li>
+            <li><a href="services.html#advisory">Wealth Advisory</a></li>
+            <li><a href="services.html#research">Market Intelligence</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Portal Access -->
+        <div class="footer-col">
+          <h4>Investor Portal</h4>
+          <ul class="footer-links">
+            <li><a href="login.html">Investor Login</a></li>
+            <li><a href="register.html">Register Account</a></li>
+            <li><a href="forgot-password.html">Password Recovery</a></li>
+            <li><a href="user-dashboard.html">Investor Dashboard</a></li>
+            <li><a href="admin-dashboard.html">Executive Portal</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Newsletter -->
+        <div class="footer-col footer-newsletter">
+          <h4>Private Briefings</h4>
+          <p>Receive confidential quarterly real estate market reports and off-market placement notifications.</p>
+          <form class="newsletter-form">
+            <input type="email" class="newsletter-input" placeholder="Your executive email..." required aria-label="Email Address">
+            <button type="submit" class="newsletter-btn" aria-label="Subscribe">
+              <span class="material-symbols-outlined">arrow_forward</span>
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <div class="disclaimer-banner">
+        <strong>Regulatory & Demonstration Disclosure:</strong> STACKLY Property Investment operates as a demonstration platform showcasing luxury real estate syndication systems. All investment metrics, property names, historical yields, and financial simulations presented herein are for demonstration and portfolio modeling purposes only. Nothing on this website constitutes a public offer of securities. Real estate co-investment involves risk, including potential illiquidity and loss of capital.
+      </div>
+
+      <div class="footer-bottom">
+        <div>&copy; 2026 STACKLY Property Investment Ltd. All rights reserved.</div>
+        <div class="footer-legal-links">
+          <a href="404.html">Confidentiality Policy</a>
+          <a href="404.html">Terms of Syndication</a>
+          <a href="404.html">Regulatory Filings</a>
+          <a href="404.html">ESG Commitment</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="./js/components.js"></script>
+  <script src="./js/animations.js"></script>
+  <script src="./js/main.js"></script>
+</body>
+</html>

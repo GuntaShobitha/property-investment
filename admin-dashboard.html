@@ -1,0 +1,917 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Executive Admin Dashboard | STACKLY Platform Management</title>
+  <meta name="description" content="Executive management portal for property inventory, syndication subscriptions, enquiries, and platform analytics.">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/webp" href="./images/logo-dark.webp">
+
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="./css/dashboard.css">
+  <link rel="stylesheet" href="./css/responsive.css">
+</head>
+<body class="dashboard-layout">
+
+  <!-- ==========================================================================
+       PERSISTENT ADMIN SIDEBAR (13 NAVIGATION ITEMS)
+       ========================================================================== -->
+  <aside class="dash-sidebar" aria-label="Executive Admin Sidebar">
+    <div class="dash-sidebar-header">
+      <a href="index.html" class="nav-logo">
+        <img src="./images/logo-dark.webp" alt="STACKLY Logo" class="dash-logo-img" />
+      </a>
+      <span class="dash-role-tag admin">Executive</span>
+    </div>
+
+    <nav class="dash-sidebar-nav" aria-label="Admin Navigation">
+      <div class="dash-nav-group-title">Operations & Assets</div>
+
+      <!-- 1. Overview -->
+      <button class="dash-nav-btn active" data-view="overview">
+        <span class="material-symbols-outlined">analytics</span>
+        <span>Overview</span>
+      </button>
+
+      <!-- 2. Property Management -->
+      <button class="dash-nav-btn" data-view="properties">
+        <span class="material-symbols-outlined">domain</span>
+        <span>Property Inventory</span>
+      </button>
+
+      <!-- 3. Investment Management -->
+      <button class="dash-nav-btn" data-view="investments">
+        <span class="material-symbols-outlined">account_balance</span>
+        <span>Investments</span>
+      </button>
+
+      <!-- 4. Investor Management -->
+      <button class="dash-nav-btn" data-view="investors">
+        <span class="material-symbols-outlined">group</span>
+        <span>Investor Registry</span>
+      </button>
+
+      <!-- 5. Transactions -->
+      <button class="dash-nav-btn" data-view="transactions">
+        <span class="material-symbols-outlined">receipt_long</span>
+        <span>Transactions</span>
+      </button>
+
+      <div class="dash-nav-group-title">Content & Communications</div>
+
+      <!-- 6. Content Management -->
+      <button class="dash-nav-btn" data-view="content">
+        <span class="material-symbols-outlined">web</span>
+        <span>Content Manager</span>
+      </button>
+
+      <!-- 7. Blog Management -->
+      <button class="dash-nav-btn" data-view="blog">
+        <span class="material-symbols-outlined">article</span>
+        <span>Research Articles</span>
+      </button>
+
+      <!-- 8. Enquiries -->
+      <button class="dash-nav-btn" data-view="enquiries">
+        <span class="material-symbols-outlined">contact_mail</span>
+        <span>Client Enquiries</span>
+        <span class="dash-nav-badge">3 New</span>
+      </button>
+
+      <!-- 9. Support Tickets -->
+      <button class="dash-nav-btn" data-view="tickets">
+        <span class="material-symbols-outlined">confirmation_number</span>
+        <span>Support Tickets</span>
+      </button>
+
+      <div class="dash-nav-group-title">System & Governance</div>
+
+      <!-- 10. Reports and Analytics -->
+      <button class="dash-nav-btn" data-view="reports">
+        <span class="material-symbols-outlined">monitoring</span>
+        <span>Reports & AUM</span>
+      </button>
+
+      <!-- 11. Notifications -->
+      <button class="dash-nav-btn" data-view="notifications">
+        <span class="material-symbols-outlined">notifications</span>
+        <span>System Alerts</span>
+      </button>
+
+      <!-- 12. Settings -->
+      <button class="dash-nav-btn" data-view="settings">
+        <span class="material-symbols-outlined">tune</span>
+        <span>Platform Settings</span>
+      </button>
+
+      <!-- 13. Logout -->
+      <button class="dash-nav-btn" data-view="logout" style="margin-top: 1rem; color: var(--accent-rust, #E06840);">
+        <span class="material-symbols-outlined" style="color: var(--accent-rust, #E06840);">logout</span>
+        <span>Sign Out</span>
+      </button>
+    </nav>
+
+    <!-- Sidebar Admin Footer -->
+    <div class="dash-sidebar-footer">
+      <div class="dash-user-chip">
+        <img src="./images/team-2.webp" alt="Eleanor Vance" class="dash-user-avatar">
+        <div class="dash-user-meta">
+          <h5>Eleanor Vance</h5>
+          <p>Managing Director</p>
+        </div>
+      </div>
+      <button class="dash-logout-btn" title="Sign Out" onclick="document.querySelector('[data-view=\'logout\']').click()">
+        <span class="material-symbols-outlined">logout</span>
+      </button>
+    </div>
+  </aside>
+
+  <!-- ==========================================================================
+       MAIN CONTENT AREA & TOPBAR
+       ========================================================================== -->
+  <div class="dash-main-area">
+    <header class="dash-topbar">
+      <div class="dash-topbar-left">
+        <button class="dash-sidebar-toggle-btn" aria-label="Toggle navigation drawer">
+          <span class="material-symbols-outlined">menu</span>
+        </button>
+        <div class="dash-breadcrumbs">Executive Portal / Overview</div>
+      </div>
+
+      <div class="dash-topbar-right">
+        <button class="dash-action-icon-btn" title="System Alerts" onclick="document.querySelector('[data-view=\'notifications\']').click()">
+          <span class="material-symbols-outlined">notifications</span>
+          <span class="notification-indicator"></span>
+        </button>
+        <a href="index.html" class="btn btn-outline btn-sm" style="margin-left: 0.5rem;">
+          <span class="material-symbols-outlined" style="font-size: 1.1rem;">public</span> View Public Website
+        </a>
+      </div>
+    </header>
+
+    <div class="dash-content-container">
+
+      <!-- ====================================================================
+           VIEW 1: OVERVIEW
+           ==================================================================== -->
+      <section id="view-overview" class="dash-view-section active">
+        <div class="dash-page-header">
+          <div class="dash-page-title">
+            <h2>Executive Platform Command</h2>
+            <p>Institutional portfolio oversight, syndication activity, and client pipeline status.</p>
+          </div>
+          <div class="dash-header-actions">
+            <button class="btn btn-primary btn-sm" onclick="document.querySelector('[data-view=\'properties\']').click(); document.getElementById('openAddPropModalBtn').click();">
+              <span class="material-symbols-outlined" style="font-size: 1.1rem;">add</span> Add New Property Asset
+            </button>
+          </div>
+        </div>
+
+        <div class="demo-data-banner">
+          <span class="material-symbols-outlined">shield_person</span>
+          <div><strong>Executive Mode:</strong> You are viewing the platform demonstration administration panel. Modifications made to properties or status updates will persist in client demonstration memory.</div>
+        </div>
+
+        <!-- 4 Stat Summary Cards -->
+        <div class="dash-stat-grid">
+          <div class="dash-stat-card">
+            <div class="dash-stat-icon-wrap"><span class="material-symbols-outlined">domain</span></div>
+            <div class="dash-stat-label">Total Curated Assets</div>
+            <div class="dash-stat-val">6 Properties</div>
+            <div class="dash-stat-sub">5 Active • 1 Under Review</div>
+          </div>
+
+          <div class="dash-stat-card">
+            <div class="dash-stat-icon-wrap"><span class="material-symbols-outlined">group</span></div>
+            <div class="dash-stat-label">Accredited Co-Investors</div>
+            <div class="dash-stat-val">328 Members</div>
+            <div class="dash-stat-sub">+18 this month</div>
+          </div>
+
+          <div class="dash-stat-card">
+            <div class="dash-stat-icon-wrap"><span class="material-symbols-outlined">payments</span></div>
+            <div class="dash-stat-label">Total Syndicated AUM</div>
+            <div class="dash-stat-val">$142,500,000</div>
+            <div class="dash-stat-sub">Across 4 jurisdictions</div>
+          </div>
+
+          <div class="dash-stat-card">
+            <div class="dash-stat-icon-wrap"><span class="material-symbols-outlined">pending_actions</span></div>
+            <div class="dash-stat-label">Pending Client Enquiries</div>
+            <div class="dash-stat-val" style="color: var(--accent-rust, #E06840);">3 Pending</div>
+            <div class="dash-stat-sub neutral">Requires committee review</div>
+          </div>
+        </div>
+
+        <!-- Charts Grid -->
+        <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 1.8rem;" class="split-layout">
+          <div class="dash-chart-card">
+            <div class="dash-card-header">
+              <h3 class="dash-card-title">Quarterly Capital Deployment (AUM Trend)</h3>
+              <span style="font-size: 0.84rem; color: var(--accent-emerald, #208850); font-weight: 600;">+24.8% YoY</span>
+            </div>
+            <div class="dash-chart-wrapper">
+              <svg class="native-svg-chart" viewBox="0 0 500 200" preserveAspectRatio="none">
+                <defs>
+                  <linearGradient id="adminChartGrad" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="#F5B740" stop-opacity="0.30"/>
+                    <stop offset="100%" stop-color="#F5B740" stop-opacity="0.0"/>
+                  </linearGradient>
+                </defs>
+                <line x1="0" y1="40" x2="500" y2="40" stroke="rgba(16, 40, 24, 0.08)" stroke-width="1" />
+                <line x1="0" y1="90" x2="500" y2="90" stroke="rgba(16, 40, 24, 0.08)" stroke-width="1" />
+                <line x1="0" y1="140" x2="500" y2="140" stroke="rgba(16, 40, 24, 0.08)" stroke-width="1" />
+                <line x1="0" y1="190" x2="500" y2="190" stroke="rgba(16, 40, 24, 0.08)" stroke-width="1" />
+                <polygon points="0,175 100,150 200,120 300,95 400,60 500,30 500,200 0,200" fill="url(#adminChartGrad)" />
+                <path d="M0,175 L100,150 L200,120 L300,95 L400,60 L500,30" fill="none" stroke="#F5B740" stroke-width="3" stroke-linecap="round" />
+                <circle cx="200" cy="120" r="4" fill="#F5B740" stroke="#102818" stroke-width="2" />
+                <circle cx="500" cy="30" r="5" fill="#208850" stroke="#FFFFFF" stroke-width="2" />
+              </svg>
+            </div>
+            <div style="display: flex; justify-content: space-between; font-size: 0.78rem; color: var(--color-muted); margin-top: 0.8rem;">
+              <span>Q3 2025: $96M</span>
+              <span>Q4 2025: $108M</span>
+              <span>Q1 2026: $124M</span>
+              <span style="font-weight: 600; color: var(--color-heading, #102818);">Q3 2026: $142.5M</span>
+            </div>
+          </div>
+
+          <div class="dash-chart-card">
+            <div class="dash-card-header">
+              <h3 class="dash-card-title">Jurisdiction Exposure</h3>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 1.2rem; margin-top: 1rem;">
+              <div>
+                <div style="display: flex; justify-content: space-between; font-size: 0.85rem; margin-bottom: 0.35rem;">
+                  <strong>United Kingdom (London PCL)</strong>
+                  <span>42% ($59.8M)</span>
+                </div>
+                <div style="height: 8px; background: var(--bg-secondary); border-radius: 4px; overflow: hidden;">
+                  <div style="width: 42%; height: 100%; background: #102818;"></div>
+                </div>
+              </div>
+              <div>
+                <div style="display: flex; justify-content: space-between; font-size: 0.85rem; margin-bottom: 0.35rem;">
+                  <strong>Germany (Frankfurt Commercial)</strong>
+                  <span>32% ($45.6M)</span>
+                </div>
+                <div style="height: 8px; background: var(--bg-secondary); border-radius: 4px; overflow: hidden;">
+                  <div style="width: 32%; height: 100%; background: #F5B740;"></div>
+                </div>
+              </div>
+              <div>
+                <div style="display: flex; justify-content: space-between; font-size: 0.85rem; margin-bottom: 0.35rem;">
+                  <strong>Switzerland (Zurich Mixed-Use)</strong>
+                  <span>16% ($22.8M)</span>
+                </div>
+                <div style="height: 8px; background: var(--bg-secondary); border-radius: 4px; overflow: hidden;">
+                  <div style="width: 16%; height: 100%; background: #E06840;"></div>
+                </div>
+              </div>
+              <div>
+                <div style="display: flex; justify-content: space-between; font-size: 0.85rem; margin-bottom: 0.35rem;">
+                  <strong>France (Côte d'Azur Hospitality)</strong>
+                  <span>10% ($14.3M)</span>
+                </div>
+                <div style="height: 8px; background: var(--bg-secondary); border-radius: 4px; overflow: hidden;">
+                  <div style="width: 10%; height: 100%; background: #4090C0;"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           VIEW 2: PROPERTY MANAGEMENT (FULL CRUD WITH MODALS & LOCALSTORAGE)
+           ==================================================================== -->
+      <section id="view-properties" class="dash-view-section">
+        <div class="dash-page-header">
+          <div class="dash-page-title">
+            <h2>Property Inventory Management</h2>
+            <p>Create, update, and manage prime real estate assets published across the platform.</p>
+          </div>
+          <div class="dash-header-actions">
+            <button id="openAddPropModalBtn" class="btn btn-primary btn-sm">
+              <span class="material-symbols-outlined" style="font-size: 1.1rem;">add</span> Add New Property
+            </button>
+          </div>
+        </div>
+
+        <div class="dash-table-card">
+          <div class="dash-filter-bar">
+            <div class="dash-search-input-wrap">
+              <span class="material-symbols-outlined">search</span>
+              <input type="text" id="adminPropSearch" class="dash-search-input" placeholder="Search property name or city...">
+            </div>
+            <div class="dash-filters-group">
+              <select id="adminPropCategoryFilter" class="dash-filter-select">
+                <option value="All">All Categories</option>
+                <option value="Residential">Residential</option>
+                <option value="Commercial">Commercial</option>
+                <option value="Rental">Rental Estates</option>
+                <option value="Mixed-Use">Mixed-Use</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="dash-table-wrap">
+            <table class="dash-table">
+              <thead>
+                <tr>
+                  <th>Asset ID</th>
+                  <th>Property Name & Location</th>
+                  <th>Category</th>
+                  <th>Valuation</th>
+                  <th>Yield Target</th>
+                  <th>Status</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="adminPropTableBody">
+                <!-- Populated dynamically by admin-dashboard.js with Edit & Delete actions -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           VIEW 3: INVESTMENT MANAGEMENT
+           ==================================================================== -->
+      <section id="view-investments" class="dash-view-section">
+        <div class="dash-page-header">
+          <div class="dash-page-title">
+            <h2>Syndication Subscriptions & Allocations</h2>
+            <p>Track co-investor subscription contracts and update demonstration settlement states.</p>
+          </div>
+        </div>
+
+        <div class="dash-table-card">
+          <div class="dash-table-wrap">
+            <table class="dash-table">
+              <thead>
+                <tr>
+                  <th>Subscription ID</th>
+                  <th>Investor</th>
+                  <th>Target Asset</th>
+                  <th>Allocation Amount</th>
+                  <th>Date</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="font-family: monospace; font-weight: 600;">INV-8821</td>
+                  <td>Marcus Sterling</td>
+                  <td>The Aurum Penthouse - Mayfair</td>
+                  <td style="font-weight: 600;">$150,000</td>
+                  <td>2026-03-15</td>
+                  <td><span class="dash-status-pill status-completed">Active</span></td>
+                </tr>
+                <tr>
+                  <td style="font-family: monospace; font-weight: 600;">INV-7649</td>
+                  <td>Helena Beaumont</td>
+                  <td>Grandview Financial Plaza</td>
+                  <td style="font-weight: 600;">$250,000</td>
+                  <td>2026-01-20</td>
+                  <td><span class="dash-status-pill status-completed">Active</span></td>
+                </tr>
+                <tr>
+                  <td style="font-family: monospace; font-weight: 600;">INV-6512</td>
+                  <td>Arthur Pendelton</td>
+                  <td>Kensington Garden Residences</td>
+                  <td style="font-weight: 600;">$75,000</td>
+                  <td>2025-11-10</td>
+                  <td><span class="dash-status-pill status-completed">Active</span></td>
+                </tr>
+                <tr>
+                  <td style="font-family: monospace; font-weight: 600;">INV-5401</td>
+                  <td>Mayfair Capital Partners</td>
+                  <td>Skyline Mixed-Use Tower</td>
+                  <td style="font-weight: 600;">$500,000</td>
+                  <td>2025-08-04</td>
+                  <td><span class="dash-status-pill status-completed">Active</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           VIEW 4: INVESTOR MANAGEMENT
+           ==================================================================== -->
+      <section id="view-investors" class="dash-view-section">
+        <div class="dash-page-header">
+          <div class="dash-page-title">
+            <h2>Accredited Investor Directory</h2>
+            <p>Institutional members, sovereign family offices, and verified individual co-investors.</p>
+          </div>
+        </div>
+
+        <div class="dash-table-card">
+          <div class="dash-table-wrap">
+            <table class="dash-table">
+              <thead>
+                <tr>
+                  <th>Investor Name</th>
+                  <th>Classification</th>
+                  <th>Jurisdiction</th>
+                  <th>Total Deployed</th>
+                  <th>KYC/AML Status</th>
+                  <th>Joined</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <div style="font-weight: 600; color: var(--color-heading);">Marcus Sterling</div>
+                    <div style="font-size: 0.78rem; color: var(--color-muted);">m.sterling@holdings.co.uk</div>
+                  </td>
+                  <td>Family Office Trustee</td>
+                  <td>United Kingdom</td>
+                  <td style="font-weight: 600;">$475,000</td>
+                  <td><span class="dash-status-pill status-verified">Verified</span></td>
+                  <td>Oct 2025</td>
+                </tr>
+                <tr>
+                  <td>
+                    <div style="font-weight: 600; color: var(--color-heading);">Dr. Vivienne Rothschild</div>
+                    <div style="font-size: 0.78rem; color: var(--color-muted);">v.rothschild@geneva-trust.ch</div>
+                  </td>
+                  <td>Private Wealth Client</td>
+                  <td>Switzerland</td>
+                  <td style="font-weight: 600;">$750,000</td>
+                  <td><span class="dash-status-pill status-verified">Verified</span></td>
+                  <td>Jan 2026</td>
+                </tr>
+                <tr>
+                  <td>
+                    <div style="font-weight: 600; color: var(--color-heading);">Sebastian Thorne</div>
+                    <div style="font-size: 0.78rem; color: var(--color-muted);">thorne@thornepartners.com</div>
+                  </td>
+                  <td>Institutional Syndicate</td>
+                  <td>Monaco</td>
+                  <td style="font-weight: 600;">$1,200,000</td>
+                  <td><span class="dash-status-pill status-verified">Verified</span></td>
+                  <td>Mar 2026</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           VIEW 5: TRANSACTIONS (CSV EXPORT)
+           ==================================================================== -->
+      <section id="view-transactions" class="dash-view-section">
+        <div class="dash-page-header">
+          <div class="dash-page-title">
+            <h2>Master Platform Transaction Ledger</h2>
+            <p>All institutional syndication capital calls, dividends, and settlement records.</p>
+          </div>
+          <div class="dash-header-actions">
+            <button id="exportAdminTxBtn" class="btn btn-outline btn-sm">
+              <span class="material-symbols-outlined" style="font-size: 1.1rem;">download</span> Export Ledger (CSV)
+            </button>
+          </div>
+        </div>
+
+        <div class="dash-table-card">
+          <div class="dash-table-wrap">
+            <table class="dash-table">
+              <thead>
+                <tr>
+                  <th>Tx ID</th>
+                  <th>Investor</th>
+                  <th>Target Property</th>
+                  <th>Type</th>
+                  <th>Amount</th>
+                  <th>Date</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="font-family: monospace; font-weight: 600;">TX-1004</td>
+                  <td>Marcus Sterling</td>
+                  <td>The Aurum Penthouse</td>
+                  <td><span class="dash-status-pill status-active">Capital Call</span></td>
+                  <td style="font-weight: 600;">$150,000</td>
+                  <td>2026-03-15</td>
+                  <td><span class="dash-status-pill status-completed">Settled</span></td>
+                </tr>
+                <tr>
+                  <td style="font-family: monospace; font-weight: 600;">TX-1003</td>
+                  <td>Helena Beaumont</td>
+                  <td>Grandview Financial Plaza</td>
+                  <td><span class="dash-status-pill status-active">Capital Call</span></td>
+                  <td style="font-weight: 600;">$250,000</td>
+                  <td>2026-01-20</td>
+                  <td><span class="dash-status-pill status-completed">Settled</span></td>
+                </tr>
+                <tr>
+                  <td style="font-family: monospace; font-weight: 600;">TX-1002</td>
+                  <td>Arthur Pendelton</td>
+                  <td>Kensington Residences</td>
+                  <td><span class="dash-status-pill status-active">Capital Call</span></td>
+                  <td style="font-weight: 600;">$75,000</td>
+                  <td>2025-11-10</td>
+                  <td><span class="dash-status-pill status-completed">Settled</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           VIEW 6: CONTENT MANAGEMENT
+           ==================================================================== -->
+      <section id="view-content" class="dash-view-section">
+        <div class="dash-page-header">
+          <div class="dash-page-title">
+            <h2>Public Website Content Management</h2>
+            <p>Update homepage editorial announcements and marquee promotional copy.</p>
+          </div>
+        </div>
+
+        <div style="background: var(--bg-surface); padding: 2.5rem; border: 1px solid var(--border-light); border-radius: var(--radius-xs); max-width: 800px;">
+          <form onsubmit="event.preventDefault(); showToast('Homepage promotional text updated successfully.', 'success');">
+            <div class="form-group" style="margin-bottom: 1.2rem;">
+              <label class="form-label">Homepage Hero Headline</label>
+              <input type="text" class="auth-input" value="Investing in Exceptional Prime Properties.">
+            </div>
+            <div class="form-group" style="margin-bottom: 1.2rem;">
+              <label class="form-label">Hero Supporting Subtext</label>
+              <textarea class="auth-input" rows="3" style="height: auto; padding-left: 1rem;">STACKLY partners with private investors, sovereign family offices, and wealth institutions to acquire, manage, and optimize prime residential and commercial real estate portfolios across Tier-1 global capitals.</textarea>
+            </div>
+            <div class="form-group" style="margin-bottom: 1.5rem;">
+              <label class="form-label">Quarterly Benchmark Notice</label>
+              <input type="text" class="auth-input" value="Targeting 8.7% Net Annual Yield with zero senior principal impairment.">
+            </div>
+            <button type="submit" class="btn btn-primary">Publish Content Updates</button>
+          </form>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           VIEW 7: BLOG MANAGEMENT
+           ==================================================================== -->
+      <section id="view-blog" class="dash-view-section">
+        <div class="dash-page-header">
+          <div class="dash-page-title">
+            <h2>Research Articles & Market Editorial</h2>
+            <p>Draft, publish, and manage in-house investment committee dossiers.</p>
+          </div>
+        </div>
+
+        <div style="background: var(--bg-surface); padding: 2.2rem; border: 1px solid var(--border-light); border-radius: var(--radius-xs); margin-bottom: 2rem;">
+          <h3 style="font-size: 1.4rem; margin-bottom: 1rem;">Publish New Market Dossier</h3>
+          <form id="adminBlogForm" class="auth-form">
+            <div class="settings-form-grid">
+              <div class="form-group">
+                <label class="form-label">Article Title *</label>
+                <input type="text" id="blogPostTitle" class="auth-input" placeholder="e.g. Frankfurt Office Covenants in 2027" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Sector Category *</label>
+                <select class="auth-select">
+                  <option>Prime Residential</option>
+                  <option>Commercial Grade-A</option>
+                  <option>Portfolio Strategy</option>
+                  <option>Investor Education</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Executive Abstract *</label>
+              <textarea class="auth-input" rows="3" style="height: auto; padding-left: 1rem;" placeholder="Summarize the core underwriting thesis..." required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary" style="margin-top: 0.5rem;">Schedule & Publish Dossier</button>
+          </form>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           VIEW 8: ENQUIRIES (SHOWS SUBMISSIONS FROM CONTACT.HTML)
+           ==================================================================== -->
+      <section id="view-enquiries" class="dash-view-section">
+        <div class="dash-page-header">
+          <div class="dash-page-title">
+            <h2>Incoming Client Inquiries</h2>
+            <p>Confidential consultation requests dispatched through the contact page.</p>
+          </div>
+        </div>
+
+        <div class="dash-table-card">
+          <div class="dash-table-wrap">
+            <table class="dash-table">
+              <thead>
+                <tr>
+                  <th>Enquiry ID</th>
+                  <th>Client Name & Email</th>
+                  <th>Classification</th>
+                  <th>Message Preview</th>
+                  <th>Received Date</th>
+                  <th>Status Action</th>
+                </tr>
+              </thead>
+              <tbody id="enquiryTableBody">
+                <!-- Dynamically populated from demo_enquiries in localStorage -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           VIEW 9: SUPPORT TICKETS
+           ==================================================================== -->
+      <section id="view-tickets" class="dash-view-section">
+        <div class="dash-page-header">
+          <div class="dash-page-title">
+            <h2>Investor Concierge Support Tickets</h2>
+            <p>Operational requests, tax certificate inquiries, and banking details.</p>
+          </div>
+        </div>
+
+        <div class="dash-table-card">
+          <div class="dash-table-wrap">
+            <table class="dash-table">
+              <thead>
+                <tr>
+                  <th>Ticket ID</th>
+                  <th>Investor</th>
+                  <th>Subject</th>
+                  <th>Priority</th>
+                  <th>Resolution Status</th>
+                  <th>Logged Date</th>
+                </tr>
+              </thead>
+              <tbody id="adminTicketTableBody">
+                <!-- Dynamically populated from localStorage -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           VIEW 10: REPORTS AND ANALYTICS
+           ==================================================================== -->
+      <section id="view-reports" class="dash-view-section">
+        <div class="dash-page-header">
+          <div class="dash-page-title">
+            <h2>Institutional Reports & AUM Analytics</h2>
+            <p>Export historical capitalization metrics, yield distributions, and investor cohorts.</p>
+          </div>
+          <div class="dash-header-actions">
+            <button id="exportReportBtn" class="btn btn-outline btn-sm">
+              <span class="material-symbols-outlined" style="font-size: 1.1rem;">download</span> Export AUM Report (CSV)
+            </button>
+          </div>
+        </div>
+
+        <div class="dash-stat-grid">
+          <div class="dash-stat-card">
+            <div class="dash-stat-label">Average Deal Internal Rate of Return (IRR)</div>
+            <div class="dash-stat-val" style="color: var(--accent-emerald, #208850);">12.8%</div>
+            <div class="dash-stat-sub">Historical weighted return</div>
+          </div>
+          <div class="dash-stat-card">
+            <div class="dash-stat-label">Average Senior Leverage (LTV)</div>
+            <div class="dash-stat-val">46.5%</div>
+            <div class="dash-stat-sub">Strictly below 55% mandate</div>
+          </div>
+          <div class="dash-stat-card">
+            <div class="dash-stat-label">Repeat Allocation Rate</div>
+            <div class="dash-stat-val" style="color: var(--accent-emerald, #208850);">84.2%</div>
+            <div class="dash-stat-sub">Existing partners co-investing</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           VIEW 11: NOTIFICATIONS
+           ==================================================================== -->
+      <section id="view-notifications" class="dash-view-section">
+        <div class="dash-page-header">
+          <div class="dash-page-title">
+            <h2>Executive System Alerts</h2>
+            <p>Platform security logs, compliance certifications, and escrow events.</p>
+          </div>
+        </div>
+
+        <div style="background: var(--bg-surface); border: 1px solid var(--border-light); border-radius: var(--radius-xs); overflow: hidden;">
+          <div class="notification-item unread">
+            <div class="notif-dot"></div>
+            <div>
+              <div style="font-weight: 600; color: var(--color-heading); margin-bottom: 0.2rem;">Escrow Settlement Completed for Mayfair Syndicate</div>
+              <div style="font-size: 0.88rem; color: var(--color-body); margin-bottom: 0.3rem;">£12,500,000 senior escrow account closed and registered with UK Land Registry.</div>
+              <div style="font-size: 0.78rem; color: var(--color-muted);">Today at 11:00 AM</div>
+            </div>
+          </div>
+          <div class="notification-item unread">
+            <div class="notif-dot"></div>
+            <div>
+              <div style="font-weight: 600; color: var(--color-heading); margin-bottom: 0.2rem;">New High-Net-Worth KYC Submission</div>
+              <div style="font-size: 0.88rem; color: var(--color-body); margin-bottom: 0.3rem;">Dr. Vivienne Rothschild submitted verified Swiss passport dossier.</div>
+              <div style="font-size: 0.78rem; color: var(--color-muted);">Yesterday at 02:40 PM</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           VIEW 12: SETTINGS
+           ==================================================================== -->
+      <section id="view-settings" class="dash-view-section">
+        <div class="dash-page-header">
+          <div class="dash-page-title">
+            <h2>Executive Platform Configurations</h2>
+            <p>Syndication parameters, fee thresholds, and compliance switches.</p>
+          </div>
+        </div>
+
+        <div style="background: var(--bg-surface); padding: 2.5rem; border: 1px solid var(--border-light); border-radius: var(--radius-xs); max-width: 800px;">
+          <form id="adminSettingsForm" class="auth-form">
+            <div class="settings-form-grid">
+              <div class="form-group">
+                <label class="form-label">Platform Operating Currency</label>
+                <select class="auth-select">
+                  <option selected>USD ($)</option>
+                  <option>EUR (€)</option>
+                  <option>GBP (£)</option>
+                  <option>CHF (CHF)</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Maximum Senior Loan-To-Value (LTV)</label>
+                <input type="text" class="auth-input" value="55%">
+              </div>
+              <div class="form-group">
+                <label class="form-label">Default Quarterly Distribution Cycle</label>
+                <select class="auth-select">
+                  <option selected>Quarterly (Jan/Apr/Jul/Oct)</option>
+                  <option>Monthly</option>
+                  <option>Semi-Annual</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Escrow Custodian Bank</label>
+                <input type="text" class="auth-input" value="Barclays Corporate & UBS AG">
+              </div>
+            </div>
+            <button type="submit" class="btn btn-primary" style="margin-top: 1.5rem;">Save Platform Configurations</button>
+          </form>
+        </div>
+      </section>
+
+    </div>
+  </div>
+
+  <!-- ADD PROPERTY MODAL -->
+  <div id="addPropModal" class="modal-backdrop">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <h3 class="modal-title">Add Property to Inventory</h3>
+        <button class="modal-close-btn"><span class="material-symbols-outlined">close</span></button>
+      </div>
+      <form id="addPropertyForm">
+        <div class="modal-body auth-form">
+          <div class="form-group">
+            <label class="form-label">Property Title *</label>
+            <input type="text" id="newPropTitle" class="auth-input" placeholder="e.g. Belgravia Heritage Townhome" required>
+          </div>
+          <div class="settings-form-grid">
+            <div class="form-group">
+              <label class="form-label">Category *</label>
+              <select id="newPropCategory" class="auth-select" required>
+                <option value="Residential">Residential</option>
+                <option value="Commercial">Commercial</option>
+                <option value="Rental">Rental Estates</option>
+                <option value="Mixed-Use">Mixed-Use</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Location (City, Area) *</label>
+              <input type="text" id="newPropLocation" class="auth-input" placeholder="e.g. London, SW1X" required>
+            </div>
+          </div>
+          <div class="settings-form-grid">
+            <div class="form-group">
+              <label class="form-label">Asset Valuation (USD) *</label>
+              <input type="number" id="newPropPrice" class="auth-input" placeholder="e.g. 18500000" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Minimum Allocation (USD) *</label>
+              <input type="number" id="newPropMinInv" class="auth-input" placeholder="e.g. 50000" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Projected Annual Yield *</label>
+            <input type="text" id="newPropYield" class="auth-input" placeholder="e.g. 8.2%" required>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline btn-sm" onclick="Modal.close('addPropModal')">Cancel</button>
+          <button type="submit" class="btn btn-primary btn-sm">Save & Publish Asset</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- EDIT PROPERTY MODAL -->
+  <div id="editPropModal" class="modal-backdrop">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <h3 class="modal-title">Edit Property Asset</h3>
+        <button class="modal-close-btn"><span class="material-symbols-outlined">close</span></button>
+      </div>
+      <form id="editPropertyForm">
+        <input type="hidden" id="editPropId">
+        <div class="modal-body auth-form">
+          <div class="form-group">
+            <label class="form-label">Property Title *</label>
+            <input type="text" id="editPropTitle" class="auth-input" required>
+          </div>
+          <div class="settings-form-grid">
+            <div class="form-group">
+              <label class="form-label">Category *</label>
+              <select id="editPropCategory" class="auth-select">
+                <option value="Residential">Residential</option>
+                <option value="Commercial">Commercial</option>
+                <option value="Rental">Rental Estates</option>
+                <option value="Mixed-Use">Mixed-Use</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Location *</label>
+              <input type="text" id="editPropLocation" class="auth-input" required>
+            </div>
+          </div>
+          <div class="settings-form-grid">
+            <div class="form-group">
+              <label class="form-label">Asset Valuation (USD) *</label>
+              <input type="number" id="editPropPrice" class="auth-input" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Projected Yield *</label>
+              <input type="text" id="editPropYield" class="auth-input" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Syndicate Status *</label>
+            <select id="editPropStatus" class="auth-select">
+              <option value="Active">Active</option>
+              <option value="Under Review">Under Review</option>
+              <option value="Fully Funded">Fully Funded</option>
+            </select>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline btn-sm" onclick="Modal.close('editPropModal')">Cancel</button>
+          <button type="submit" class="btn btn-primary btn-sm">Update Asset</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- DELETE PROPERTY CONFIRMATION MODAL -->
+  <div id="deletePropModal" class="modal-backdrop">
+    <div class="modal-dialog" style="max-width: 480px;">
+      <div class="modal-header">
+        <h3 class="modal-title" style="color: var(--accent-rust, #E06840);">Delete Property Asset</h3>
+        <button class="modal-close-btn"><span class="material-symbols-outlined">close</span></button>
+      </div>
+      <div class="modal-body">
+        <p style="margin-bottom: 1rem;">Are you sure you want to permanently remove this property asset from the STACKLY platform?</p>
+        <p style="font-weight: 600; color: var(--color-heading); font-size: 1.1rem;" id="deletePropName">Property Title</p>
+        <p class="text-muted" style="font-size: 0.84rem; margin-top: 0.5rem;">This action will remove the asset from both executive inventory and active investor syndication opportunities.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline btn-sm" onclick="Modal.close('deletePropModal')">Cancel</button>
+        <button type="button" id="confirmDeletePropBtn" class="btn btn-primary btn-sm" style="background-color: var(--accent-rust, #E06840); border-color: var(--accent-rust, #E06840);">
+          Permanently Delete
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="./js/components.js"></script>
+  <script src="./js/admin-dashboard.js"></script>
+</body>
+</html>

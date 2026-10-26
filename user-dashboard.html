@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Investor Dashboard | STACKLY Property Investment Portal</title>
+  <meta name="description" content="Manage your property syndications, review dividend disbursements, and track portfolio asset valuations.">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/webp" href="./images/logo-dark.webp">
+
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="./css/dashboard.css">
+  <link rel="stylesheet" href="./css/responsive.css">
+</head>
+<body class="dashboard-layout">
+
+  <!-- ==========================================================================
+       PERSISTENT SIDEBAR NAVIGATION (12 ITEMS)
+       ========================================================================== -->
+  <aside class="dash-sidebar" aria-label="Investor Sidebar">
+    <div class="dash-sidebar-header">
+      <a href="index.html" class="nav-logo">
+        <img src="./images/logo-dark.webp" alt="STACKLY Logo" class="dash-logo-img" />
+      </a>
+      <span class="dash-role-tag">Investor</span>
+    </div>
+
+    <nav class="dash-sidebar-nav" aria-label="Portal Navigation">
+      <div class="dash-nav-group-title">Portfolio & Growth</div>
+      
+      <!-- 1. Overview -->
+      <button class="dash-nav-btn active" data-view="overview">
+        <span class="material-symbols-outlined">dashboard</span>
+        <span>Overview</span>
+      </button>
+
+      <!-- 2. Investment Opportunities -->
+      <button class="dash-nav-btn" data-view="opportunities">
+        <span class="material-symbols-outlined">real_estate_agent</span>
+        <span>Opportunities</span>
+        <span class="dash-nav-badge">6 New</span>
+      </button>
+
+      <!-- 3. My Portfolio -->
+      <button class="dash-nav-btn" data-view="portfolio">
+        <span class="material-symbols-outlined">pie_chart</span>
+        <span>My Portfolio</span>
+      </button>
+
+      <!-- 4. My Investments -->
+      <button class="dash-nav-btn" data-view="investments">
+        <span class="material-symbols-outlined">account_balance_wallet</span>
+        <span>My Investments</span>
+      </button>
+
+      <!-- 5. Transactions -->
+      <button class="dash-nav-btn" data-view="transactions">
+        <span class="material-symbols-outlined">receipt_long</span>
+        <span>Transactions</span>
+      </button>
+
+      <!-- 6. Returns and Performance -->
+      <button class="dash-nav-btn" data-view="returns">
+        <span class="material-symbols-outlined">trending_up</span>
+        <span>Returns & Yield</span>
+      </button>
+
+      <div class="dash-nav-group-title">Personal Workspace</div>
+
+      <!-- 7. Saved Properties -->
+      <button class="dash-nav-btn" data-view="saved">
+        <span class="material-symbols-outlined">bookmark</span>
+        <span>Saved Properties</span>
+        <span class="dash-nav-badge saved-count">2</span>
+      </button>
+
+      <!-- 8. Documents -->
+      <button class="dash-nav-btn" data-view="documents">
+        <span class="material-symbols-outlined">folder</span>
+        <span>Documents</span>
+      </button>
+
+      <!-- 9. Notifications -->
+      <button class="dash-nav-btn" data-view="notifications">
+        <span class="material-symbols-outlined">notifications</span>
+        <span>Notifications</span>
+        <span class="dash-nav-badge notif-count">3</span>
+      </button>
+
+      <!-- 10. Help & Support -->
+      <button class="dash-nav-btn" data-view="support">
+        <span class="material-symbols-outlined">support_agent</span>
+        <span>Help & Support</span>
+      </button>
+
+      <!-- 11. Settings -->
+      <button class="dash-nav-btn" data-view="settings">
+        <span class="material-symbols-outlined">settings</span>
+        <span>Settings</span>
+      </button>
+
+      <!-- 12. Logout -->
+      <button class="dash-nav-btn" data-view="logout" style="margin-top: 1rem; color: var(--accent-rust, #E06840);">
+        <span class="material-symbols-outlined" style="color: var(--accent-rust, #E06840);">logout</span>
+        <span>Sign Out</span>
+      </button>
+    </nav>
+
+    <!-- Sidebar User Footer -->
+    <div class="dash-sidebar-footer">
+      <div class="dash-user-chip">
+        <img src="./images/avatar-1.webp" alt="Marcus Sterling" class="dash-user-avatar">
+        <div class="dash-user-meta">
+          <h5 id="dashUserName">Marcus Sterling</h5>
+          <p id="dashUserTier">Accredited Co-Investor</p>
+        </div>
+      </div>
+      <button class="dash-logout-btn" title="Sign Out" onclick="document.querySelector('[data-view=\'logout\']').click()">
+        <span class="material-symbols-outlined">logout</span>
+      </button>
+    </div>
+  </aside>
+
+  <!-- ==========================================================================
+       MAIN CONTENT AREA & TOPBAR
+       ========================================================================== -->
+  <div class="dash-main-area">
+    <!-- Topbar -->
+    <header class="dash-topbar">
+      <div class="dash-topbar-left">
+        <button class="dash-sidebar-toggle-btn" aria-label="Toggle navigation drawer">
+          <span class="material-symbols-outlined">menu</span>
+        </button>
+        <div class="dash-breadcrumbs">Investor Portal / Overview</div>
+      </div>
+
+      <div class="dash-topbar-right">
+        <!-- Notification Icon -->
+        <button class="dash-action-icon-btn" title="Notifications" onclick="document.querySelector('[data-view=\'notifications\']').click()">
+          <span class="material-symbols-outlined">notifications</span>
+          <span class="notification-indicator"></span>
+        </button>
+
+        <!-- Settings Icon -->
+        <button class="dash-action-icon-btn" title="Account Settings" onclick="document.querySelector('[data-view=\'settings\']').click()">
+          <span class="material-symbols-outlined">settings</span>
+        </button>
+
+        <!-- Home Site Link -->
+        <a href="index.html" class="btn btn-outline btn-sm" style="margin-left: 0.5rem;">
+          <span class="material-symbols-outlined" style="font-size: 1.1rem;">public</span> Website
+        </a>
+      </div>
+    </header>
+
+    <!-- Content Views Container -->
+    <div class="dash-content-container">
+
+      <!-- ====================================================================
+           VIEW 1: OVERVIEW
+           ==================================================================== -->
+      <section id="view-overview" class="dash-view-section active">
+        <div class="dash-page-header">
+          <div class="dash-page-title">
+            <h2>Welcome, Marcus</h2>
+            <p>Here is the real-time summary of your prime real estate syndications and yield performance.</p>
+          </div>
+          <div class="dash-header-actions">
+            <button class="btn btn-primary btn-sm" onclick="document.querySelector('[data-view=\'opportunities\']').click()">
+              <span class="material-symbols-outlined" style="font-size: 1.1rem;">add</span> Explore New Placements
+            </button>
+          </div>
+        </div>
+
+        <div class="demo-data-banner">
+          <span class="material-symbols-outlined">info</span>
+          <div><strong>Demonstration Notice:</strong> Financial metrics, distributions, and valuations displayed in this portal are simulated model records for platform demonstration purposes.</div>
+        </div>
+
+        <!-- 4 Stat Summary Cards -->
+        <div class="dash-stat-grid">
+          <div class="dash-stat-card">
+            <div class="dash-stat-icon-wrap"><span class="material-symbols-outlined">account_balance_wallet</span></div>
+            <div class="dash-stat-label">Total Principal Invested</div>
+            <div class="dash-stat-val">$475,000</div>
+            <div class="dash-stat-sub">Across 3 Prime Assets</div>
+          </div>
+
+          <div class="dash-stat-card">
+            <div class="dash-stat-icon-wrap"><span class="material-symbols-outlined">real_estate_agent</span></div>
+            <div class="dash-stat-label">Current Portfolio Valuation</div>
+            <div class="dash-stat-val">$528,450</div>
+            <div class="dash-stat-sub"><span class="material-symbols-outlined" style="font-size: 1rem;">trending_up</span> +$53,450 (+11.25%)</div>
+          </div>
+
+          <div class="dash-stat-card">
+            <div class="dash-stat-icon-wrap"><span class="material-symbols-outlined">payments</span></div>
+            <div class="dash-stat-label">Annualized Yield Run-Rate</div>
+            <div class="dash-stat-val" style="color: var(--accent-emerald, #208850);">8.72%</div>
+            <div class="dash-stat-sub">Quarterly cashflow scheduled</div>
+          </div>
+
+          <div class="dash-stat-card">
+            <div class="dash-stat-icon-wrap"><span class="material-symbols-outlined">savings</span></div>
+            <div class="dash-stat-label">Total Distributions Received</div>
+            <div class="dash-stat-val" style="color: var(--accent-emerald, #208850);">$41,450</div>
+            <div class="dash-stat-sub">100% Tax Documented</div>
+          </div>
+        </div>
+
+        <!-- Charts Row -->
+        <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 1.8rem;" class="split-layout">
+          <!-- Portfolio Value Chart -->
+          <div class="dash-chart-card">
+            <div class="dash-card-header">
+              <h3 class="dash-card-title">Portfolio Capital Growth</h3>
+              <div class="time-pill-group">
+                <button class="time-pill active" data-period="1Y">1Y</button>
+                <button class="time-pill" data-period="6M">6M</button>
+                <button class="time-pill" data-period="ALL">ALL</button>
+              </div>
+            </div>
+            <div class="dash-chart-wrapper">
+              <!-- Native SVG Responsive Chart -->
+              <svg class="native-svg-chart" viewBox="0 0 500 200" preserveAspectRatio="none">
+                <defs>
+                  <linearGradient id="chartGradient" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="#F5B740" stop-opacity="0.35"/>
+                    <stop offset="100%" stop-color="#F5B740" stop-opacity="0.0"/>
+                  </linearGradient>
+                </defs>
+                <!-- Grid Lines -->
+                <line x1="0" y1="40" x2="500" y2="40" stroke="rgba(16, 40, 24, 0.06)" stroke-width="1" />
+                <line x1="0" y1="90" x2="500" y2="90" stroke="rgba(16, 40, 24, 0.06)" stroke-width="1" />
+                <line x1="0" y1="140" x2="500" y2="140" stroke="rgba(16, 40, 24, 0.06)" stroke-width="1" />
+                <line x1="0" y1="190" x2="500" y2="190" stroke="rgba(16, 40, 24, 0.06)" stroke-width="1" />
+                <!-- Area Fill -->
+                <polygon points="0,180 80,165 160,145 240,130 320,110 400,85 500,45 500,200 0,200" fill="url(#chartGradient)" />
+                <!-- Path Line -->
+                <path id="perfChartPath" d="M0,180 L80,165 L160,145 L240,130 L320,110 L400,85 L500,45" fill="none" stroke="#F5B740" stroke-width="3" stroke-linecap="round" />
+                <!-- Highlight Points -->
+                <circle cx="240" cy="130" r="4" fill="#102818" stroke="#F5B740" stroke-width="2" />
+                <circle cx="500" cy="45" r="5" fill="#208850" stroke="#FFFFFF" stroke-width="2" />
+              </svg>
+            </div>
+            <div style="display: flex; justify-content: space-between; font-size: 0.78rem; color: var(--color-muted); margin-top: 0.8rem;">
+              <span>Oct 2025: $475k</span>
+              <span>Jan 2026: $489k</span>
+              <span>May 2026: $506k</span>
+              <span style="font-weight: 600; color: var(--accent-emerald, #208850);">Current: $528.4k</span>
+            </div>
+          </div>
+
+          <!-- Allocation Breakdown Visual -->
+          <div class="dash-chart-card">
+            <div class="dash-card-header">
+              <h3 class="dash-card-title">Asset Class Allocation</h3>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 1.2rem; margin-top: 1rem;">
+              <div>
+                <div style="display: flex; justify-content: space-between; font-size: 0.86rem; margin-bottom: 0.35rem;">
+                  <strong>Commercial Grade-A (Frankfurt)</strong>
+                  <span>52.6% ($250k)</span>
+                </div>
+                <div style="height: 8px; background: var(--bg-secondary); border-radius: 4px; overflow: hidden;">
+                  <div style="width: 52.6%; height: 100%; background: #102818;"></div>
+                </div>
+              </div>
+
+              <div>
+                <div style="display: flex; justify-content: space-between; font-size: 0.86rem; margin-bottom: 0.35rem;">
+                  <strong>Prime Residential (Mayfair)</strong>
+                  <span>31.6% ($150k)</span>
+                </div>
+                <div style="height: 8px; background: var(--bg-secondary); border-radius: 4px; overflow: hidden;">
+                  <div style="width: 31.6%; height: 100%; background: #F5B740;"></div>
+                </div>
+              </div>
+
+              <div>
+                <div style="display: flex; justify-content: space-between; font-size: 0.86rem; margin-bottom: 0.35rem;">
+                  <strong>Heritage Residential (Kensington)</strong>
+                  <span>15.8% ($75k)</span>
+                </div>
+                <div style="height: 8px; background: var(--bg-secondary); border-radius: 4px; overflow: hidden;">
+                  <div style="width: 15.8%; height: 100%; background: #E06840;"></div>
+                </div>
+              </div>
+            </div>
+
+            <div style="background: var(--bg-secondary); padding: 1rem; border-radius: var(--radius-xs); margin-top: 2rem; font-size: 0.82rem; color: var(--color-muted);">
+              <span class="material-symbols-outlined" style="vertical-align: middle; font-size: 1rem; color: var(--accent-gold-dark);">verified</span>
+              Balanced income & equity growth profile across 2 tier-1 European jurisdictions.
+            </div>
+          </div>
+        </div>
+
+        <!-- Recent Transactions Table Preview -->
+        <div class="dash-table-card">
+          <div class="dash-filter-bar">
+            <h3 class="dash-card-title" style="font-size: 1.25rem;">Recent Quarterly Cashflow Activity</h3>
+            <button class="btn btn-outline btn-sm" onclick="document.querySelector('[data-view=\'transactions\']').click()">
+              View All Transactions
+            </button>
+          </div>
+          <div class="dash-table-wrap">
+            <table class="dash-table">
+              <thead>
+                <tr>
+                  <th>Transaction ID</th>
+                  <th>Date</th>
+                  <th>Description</th>
+                  <th>Category</th>
+                  <th>Amount</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="font-family: monospace; font-weight: 600;">TX-901</td>
+                  <td>2026-10-01</td>
+                  <td>Quarterly Rental Distribution — Aurum Penthouse</td>
+                  <td><span class="dash-status-pill status-active">Income</span></td>
+                  <td style="color: var(--accent-emerald, #208850); font-weight: 600;">+$3,150.00</td>
+                  <td><span class="dash-status-pill status-completed">Completed</span></td>
+                </tr>
+                <tr>
+                  <td style="font-family: monospace; font-weight: 600;">TX-874</td>
+                  <td>2026-09-15</td>
+                  <td>Quarterly Commercial Dividend — Financial Plaza</td>
+                  <td><span class="dash-status-pill status-active">Income</span></td>
+                  <td style="color: var(--accent-emerald, #208850); font-weight: 600;">+$5,750.00</td>
+                  <td><span class="dash-status-pill status-completed">Completed</span></td>
+                </tr>
+                <tr>
+                  <td style="font-family: monospace; font-weight: 600;">TX-812</td>
+                  <td>2026-03-15</td>
+                  <td>Co-Investment Allocation — INV-8821</td>
+                  <td><span class="dash-status-pill status-active">Capital</span></td>
+                  <td style="font-weight: 600;">-$150,000.00</td>
+                  <td><span class="dash-status-pill status-completed">Completed</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           VIEW 2: INVESTMENT OPPORTUNITIES
+           ==================================================================== -->
+      <section id="view-opportunities" class="dash-view-section">
+        <div class="dash-page-header">
+          <div class="dash-page-title">
+            <h2>Current Investment Opportunities</h2>
+            <p>Institutional property acquisitions open for syndication and private allocation.</p>
+          </div>
+        </div>
+
+        <div class="dash-filter-bar" style="background: var(--bg-surface); border: 1px solid var(--border-light); border-radius: var(--radius-xs); margin-bottom: 2rem;">
+          <div class="dash-search-input-wrap">
+            <span class="material-symbols-outlined">search</span>
+            <input type="text" id="oppsSearchInput" class="dash-search-input" placeholder="Search by property name or location...">
+          </div>
+          <div class="dash-filters-group">
+            <select id="oppsCategoryFilter" class="dash-filter-select">
+              <option value="All">All Property Categories</option>
+              <option value="Residential">Residential</option>
+              <option value="Commercial">Commercial</option>
+              <option value="Rental">Rental Estates</option>
+              <option value="Mixed-Use">Mixed-Use</option>
+            </select>
+          </div>
+        </div>
+
+        <div id="oppsGrid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 2rem;">
+          <!-- Dynamically populated by js/user-dashboard.js -->
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           VIEW 3: MY PORTFOLIO
+           ==================================================================== -->
+      <section id="view-portfolio" class="dash-view-section">
+        <div class="dash-page-header">
+          <div class="dash-page-title">
+            <h2>My Portfolio Holdings</h2>
+            <p>Direct ownership share in underlying special purpose vehicle properties.</p>
+          </div>
+        </div>
+
+        <div class="dash-stat-grid">
+          <div class="dash-stat-card">
+            <div class="dash-stat-label">Active Syndicates</div>
+            <div class="dash-stat-val">3 Holdings</div>
+            <div class="dash-stat-sub">100% Occupancy Rate</div>
+          </div>
+          <div class="dash-stat-card">
+            <div class="dash-stat-label">Total Current Value</div>
+            <div class="dash-stat-val">$528,450</div>
+            <div class="dash-stat-sub">+11.25% Unrealized Capital Gain</div>
+          </div>
+          <div class="dash-stat-card">
+            <div class="dash-stat-label">Avg Projected Term</div>
+            <div class="dash-stat-val">4.5 Years</div>
+            <div class="dash-stat-sub">Maturity 2029 - 2031</div>
+          </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.8rem;" class="stagger-grid">
+          <div class="property-card">
+            <div class="property-image-wrap">
+              <img src="./images/property-1.webp" alt="The Aurum Penthouse" class="property-image">
+              <span class="property-badge">Residential</span>
+            </div>
+            <div class="property-body">
+              <h3 class="property-title">The Aurum Penthouse - Mayfair</h3>
+              <p style="font-size: 0.88rem; color: var(--color-muted);">London, W1K • 1.2% Syndicate Ownership</p>
+              <div class="property-meta-grid">
+                <div class="meta-item"><span class="meta-label">Allocation</span><span class="meta-value">$150,000</span></div>
+                <div class="meta-item"><span class="meta-label">Current Value</span><span class="meta-value">$168,200</span></div>
+                <div class="meta-item"><span class="meta-label">Net Yield</span><span class="meta-value" style="color: var(--accent-emerald, #208850);">8.4%</span></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="property-card">
+            <div class="property-image-wrap">
+              <img src="./images/property-3.webp" alt="Grandview Financial Plaza" class="property-image">
+              <span class="property-badge">Commercial</span>
+            </div>
+            <div class="property-body">
+              <h3 class="property-title">Grandview Financial Plaza</h3>
+              <p style="font-size: 0.88rem; color: var(--color-muted);">Frankfurt, CBD • 0.74% Syndicate Ownership</p>
+              <div class="property-meta-grid">
+                <div class="meta-item"><span class="meta-label">Allocation</span><span class="meta-value">$250,000</span></div>
+                <div class="meta-item"><span class="meta-label">Current Value</span><span class="meta-value">$279,500</span></div>
+                <div class="meta-item"><span class="meta-label">Net Yield</span><span class="meta-value" style="color: var(--accent-emerald, #208850);">9.2%</span></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="property-card">
+            <div class="property-image-wrap">
+              <img src="./images/property-2.webp" alt="Kensington Garden Residences" class="property-image">
+              <span class="property-badge">Residential</span>
+            </div>
+            <div class="property-body">
+              <h3 class="property-title">Kensington Garden Residences</h3>
+              <p style="font-size: 0.88rem; color: var(--color-muted);">London, W8 • 0.84% Syndicate Ownership</p>
+              <div class="property-meta-grid">
+                <div class="meta-item"><span class="meta-label">Allocation</span><span class="meta-value">$75,000</span></div>
+                <div class="meta-item"><span class="meta-label">Current Value</span><span class="meta-value">$80,750</span></div>
+                <div class="meta-item"><span class="meta-label">Net Yield</span><span class="meta-value" style="color: var(--accent-emerald, #208850);">7.8%</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           VIEW 4: MY INVESTMENTS
+           ==================================================================== -->
+      <section id="view-investments" class="dash-view-section">
+        <div class="dash-page-header">
+          <div class="dash-page-title">
+            <h2>Investment Ledger</h2>
+            <p>Audited records of capital placement and historical distribution receipts.</p>
+          </div>
+        </div>
+
+        <div class="dash-table-card">
+          <div class="dash-table-wrap">
+            <table class="dash-table">
+              <thead>
+                <tr>
+                  <th>Investment Ref</th>
+                  <th>Property Asset</th>
+                  <th>Subscription Date</th>
+                  <th>Initial Capital</th>
+                  <th>Contracted Yield</th>
+                  <th>Accrued Return</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody id="invTableBody">
+                <!-- Dynamically populated by user-dashboard.js -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           VIEW 5: TRANSACTIONS & CSV EXPORT
+           ==================================================================== -->
+      <section id="view-transactions" class="dash-view-section">
+        <div class="dash-page-header">
+          <div class="dash-page-title">
+            <h2>Financial Transactions & Distributions</h2>
+            <p>Full transaction record with client-side CSV statement generation.</p>
+          </div>
+          <div class="dash-header-actions">
+            <button id="exportTxBtn" class="btn btn-outline btn-sm">
+              <span class="material-symbols-outlined" style="font-size: 1.1rem;">download</span> Export Statement (CSV)
+            </button>
+          </div>
+        </div>
+
+        <div class="dash-table-card">
+          <div class="dash-table-wrap">
+            <table class="dash-table">
+              <thead>
+                <tr>
+                  <th>Transaction ID</th>
+                  <th>Settlement Date</th>
+                  <th>Description</th>
+                  <th>Type</th>
+                  <th>Amount</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody id="txTableBody">
+                <!-- Populated dynamically -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           VIEW 6: RETURNS AND PERFORMANCE
+           ==================================================================== -->
+      <section id="view-returns" class="dash-view-section">
+        <div class="dash-page-header">
+          <div class="dash-page-title">
+            <h2>Returns & Historical Performance</h2>
+            <p>Quarterly yield progression, cash-on-cash metrics, and dividend telemetry.</p>
+          </div>
+        </div>
+
+        <div class="dash-stat-grid">
+          <div class="dash-stat-card">
+            <div class="dash-stat-label">2026 YTD Distributions</div>
+            <div class="dash-stat-val" style="color: var(--accent-emerald, #208850);">$28,500</div>
+            <div class="dash-stat-sub">100% On-Time Settlement</div>
+          </div>
+          <div class="dash-stat-card">
+            <div class="dash-stat-label">Next Scheduled Payout</div>
+            <div class="dash-stat-val">Jan 15, 2027</div>
+            <div class="dash-stat-sub">Est. $9,250 Quarterly Net</div>
+          </div>
+          <div class="dash-stat-card">
+            <div class="dash-stat-label">Combined Internal Rate of Return (IRR)</div>
+            <div class="dash-stat-val" style="color: var(--accent-emerald, #208850);">13.4%</div>
+            <div class="dash-stat-sub">Rental Yield + Asset Appreciation</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           VIEW 7: SAVED PROPERTIES
+           ==================================================================== -->
+      <section id="view-saved" class="dash-view-section">
+        <div class="dash-page-header">
+          <div class="dash-page-title">
+            <h2>Saved Properties Watchlist</h2>
+            <p>Opportunities you have bookmarked for syndication consideration.</p>
+          </div>
+        </div>
+
+        <div id="savedGrid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 2rem;">
+          <!-- Dynamically populated by js/user-dashboard.js -->
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           VIEW 8: DOCUMENTS
+           ==================================================================== -->
+      <section id="view-documents" class="dash-view-section">
+        <div class="dash-page-header">
+          <div class="dash-page-title">
+            <h2>Investor Documents & Legal Dossiers</h2>
+            <p>Access your investment offering memorandums, title extracts, and tax certificates.</p>
+          </div>
+        </div>
+
+        <div class="dash-docs-grid">
+          <!-- Document 1 -->
+          <div class="doc-card">
+            <div class="doc-icon"><span class="material-symbols-outlined">description</span></div>
+            <div class="doc-meta">
+              <div class="doc-title">Q3 2026 Portfolio Performance Report</div>
+              <div class="doc-sub">PDF • 2.4 MB • Published Oct 2026</div>
+              <button class="btn btn-outline btn-sm" onclick="showToast('Opened Q3 2026 Portfolio Report preview.', 'info')">Preview</button>
+            </div>
+          </div>
+
+          <!-- Document 2 -->
+          <div class="doc-card">
+            <div class="doc-icon"><span class="material-symbols-outlined">verified_user</span></div>
+            <div class="doc-meta">
+              <div class="doc-title">STACKLY Investment Prospectus 2026</div>
+              <div class="doc-sub">PDF • 4.1 MB • Institutional Mandate</div>
+              <button class="btn btn-outline btn-sm" onclick="showToast('Opened STACKLY Investment Prospectus preview.', 'info')">Preview</button>
+            </div>
+          </div>
+
+          <!-- Document 3 -->
+          <div class="doc-card">
+            <div class="doc-icon"><span class="material-symbols-outlined">receipt</span></div>
+            <div class="doc-meta">
+              <div class="doc-title">Annual Dividend Tax Withholding Summary</div>
+              <div class="doc-sub">PDF • 1.1 MB • Verified Audit Pack</div>
+              <button class="btn btn-outline btn-sm" onclick="showToast('Opened Tax Withholding Summary preview.', 'info')">Preview</button>
+            </div>
+          </div>
+
+          <!-- Document 4 -->
+          <div class="doc-card">
+            <div class="doc-icon"><span class="material-symbols-outlined">domain</span></div>
+            <div class="doc-meta">
+              <div class="doc-title">The Aurum Penthouse — RICS Appraisal</div>
+              <div class="doc-sub">PDF • 6.8 MB • Certified Independent Valuation</div>
+              <button class="btn btn-outline btn-sm" onclick="showToast('Opened Aurum Penthouse RICS Appraisal preview.', 'info')">Preview</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           VIEW 9: NOTIFICATIONS
+           ==================================================================== -->
+      <section id="view-notifications" class="dash-view-section">
+        <div class="dash-page-header">
+          <div class="dash-page-title">
+            <h2>Notifications & Placement Alerts</h2>
+            <p>System announcements, dividend payout confirmations, and syndication updates.</p>
+          </div>
+          <div class="dash-header-actions">
+            <button id="markAllReadBtn" class="btn btn-outline btn-sm">Mark All as Read</button>
+          </div>
+        </div>
+
+        <div style="background: var(--bg-surface); border: 1px solid var(--border-light); border-radius: var(--radius-xs); overflow: hidden;">
+          <div class="notification-item unread">
+            <div class="notif-dot"></div>
+            <div>
+              <div style="font-weight: 600; color: var(--color-heading); margin-bottom: 0.2rem;">Q3 Rental Dividend Disbursed ($8,900.00)</div>
+              <div style="font-size: 0.88rem; color: var(--color-body); margin-bottom: 0.3rem;">Quarterly dividends for Aurum Penthouse and Financial Plaza have been settled to your treasury balance.</div>
+              <div style="font-size: 0.78rem; color: var(--color-muted);">Today at 09:30 AM</div>
+            </div>
+          </div>
+
+          <div class="notification-item unread">
+            <div class="notif-dot"></div>
+            <div>
+              <div style="font-weight: 600; color: var(--color-heading); margin-bottom: 0.2rem;">New Placement: Azure Coastfront Villas</div>
+              <div style="font-size: 0.88rem; color: var(--color-body); margin-bottom: 0.3rem;">A luxury Côte d’Azur hospitality estate syndicate is now open for private co-investment allocations.</div>
+              <div style="font-size: 0.78rem; color: var(--color-muted);">Yesterday at 04:15 PM</div>
+            </div>
+          </div>
+
+          <div class="notification-item unread">
+            <div class="notif-dot"></div>
+            <div>
+              <div style="font-weight: 600; color: var(--color-heading); margin-bottom: 0.2rem;">2026 Semi-Annual RICS Valuation Published</div>
+              <div style="font-size: 0.88rem; color: var(--color-body); margin-bottom: 0.3rem;">Independent appraisals for all active portfolio assets have been uploaded to your Document Vault.</div>
+              <div style="font-size: 0.78rem; color: var(--color-muted);">3 days ago</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           VIEW 10: HELP & SUPPORT
+           ==================================================================== -->
+      <section id="view-support" class="dash-view-section">
+        <div class="dash-page-header">
+          <div class="dash-page-title">
+            <h2>Investor Concierge & Support</h2>
+            <p>Direct priority support channel for our accredited co-investors.</p>
+          </div>
+        </div>
+
+        <div class="split-layout">
+          <div style="background: var(--bg-surface); padding: 2.5rem; border: 1px solid var(--border-light); border-radius: var(--radius-xs);">
+            <h3 style="font-size: 1.5rem; margin-bottom: 1rem;">Log Private Advisory Ticket</h3>
+            <form id="supportTicketForm" class="auth-form" novalidate>
+              <div class="form-group">
+                <label for="ticketSubject" class="form-label">Ticket Subject *</label>
+                <input type="text" id="ticketSubject" class="auth-input" placeholder="e.g. Dividend bank routing adjustment" required>
+              </div>
+              <div class="form-group">
+                <label for="ticketMessage" class="form-label">Inquiry Details *</label>
+                <textarea id="ticketMessage" class="auth-input" rows="4" style="height: auto; padding-left: 1rem;" placeholder="Please describe your question or operational request..." required></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary" style="margin-top: 1rem;">Submit Support Ticket</button>
+            </form>
+          </div>
+
+          <div>
+            <h3 style="font-size: 1.4rem; margin-bottom: 1rem;">Direct Investor Lines</h3>
+            <div style="background: var(--bg-surface); border: 1px solid var(--border-light); padding: 1.8rem; border-radius: var(--radius-xs); margin-bottom: 1.5rem;">
+              <div style="font-weight: 600; margin-bottom: 0.3rem;">Senior Portfolio Banker:</div>
+              <div style="color: var(--accent-gold-dark); font-weight: 600;">Julian Sterling</div>
+              <div style="font-size: 0.88rem; color: var(--color-muted); margin-top: 0.5rem;">Direct: +44 20 7946 0912</div>
+              <div style="font-size: 0.88rem; color: var(--color-muted);">Email: j.sterling@stackly-investment.com</div>
+            </div>
+            <div class="demo-data-banner">
+              <span class="material-symbols-outlined">support</span>
+              <div>Client concierge response guaranteed within 4 hours during European market trading hours.</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           VIEW 11: SETTINGS
+           ==================================================================== -->
+      <section id="view-settings" class="dash-view-section">
+        <div class="dash-page-header">
+          <div class="dash-page-title">
+            <h2>Account & Advisory Settings</h2>
+            <p>Manage your investor profile, communication preferences, and security settings.</p>
+          </div>
+        </div>
+
+        <div style="background: var(--bg-surface); padding: 2.5rem; border: 1px solid var(--border-light); border-radius: var(--radius-xs); max-width: 800px;">
+          <form id="userSettingsForm" class="auth-form">
+            <div class="settings-form-grid">
+              <div class="form-group">
+                <label class="form-label">Full Legal Name</label>
+                <input type="text" class="auth-input" value="Marcus Sterling">
+              </div>
+              <div class="form-group">
+                <label class="form-label">Email Address</label>
+                <input type="email" class="auth-input" value="m.sterling@holdings.co.uk">
+              </div>
+              <div class="form-group">
+                <label class="form-label">Primary Telephone</label>
+                <input type="tel" class="auth-input" value="+44 7911 884210">
+              </div>
+              <div class="form-group">
+                <label class="form-label">Jurisdictional Residence</label>
+                <input type="text" class="auth-input" value="United Kingdom">
+              </div>
+            </div>
+
+            <div style="margin: 1.5rem 0; border-top: 1px solid var(--border-light); padding-top: 1.5rem;">
+              <h4 style="font-size: 1.15rem; margin-bottom: 0.8rem;">Notification Preferences</h4>
+              <div style="display: flex; flex-direction: column; gap: 0.8rem;">
+                <label class="remember-checkbox">
+                  <input type="checkbox" checked>
+                  <span>Email notification upon dividend disbursement settlement</span>
+                </label>
+                <label class="remember-checkbox">
+                  <input type="checkbox" checked>
+                  <span>Immediate notification of new off-market property syndicates</span>
+                </label>
+                <label class="remember-checkbox">
+                  <input type="checkbox" checked>
+                  <span>Monthly macro real estate research journal dispatch</span>
+                </label>
+              </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary" style="margin-top: 1rem;">Save Preferences</button>
+          </form>
+        </div>
+      </section>
+
+    </div>
+  </div>
+
+  <!-- Property Detail Modal -->
+  <div id="propDetailModal" class="modal-backdrop">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <h3 class="modal-title">Property Syndication Details</h3>
+        <button class="modal-close-btn" aria-label="Close modal">
+          <span class="material-symbols-outlined">close</span>
+        </button>
+      </div>
+      <div class="modal-body" id="propModalBody">
+        <!-- Injected dynamically -->
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-outline btn-sm" onclick="Modal.close('propDetailModal')">Close</button>
+        <button class="btn btn-primary btn-sm" onclick="showToast('Allocation request recorded for demonstration review.', 'success'); Modal.close('propDetailModal');">
+          Request Co-Investment Allocation
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="./js/components.js"></script>
+  <script src="./js/user-dashboard.js"></script>
+</body>
+</html>
