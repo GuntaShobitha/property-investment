@@ -130,7 +130,8 @@ document.addEventListener('DOMContentLoaded', () => {
       if (btn.getAttribute('data-view') === targetViewId) {
         btn.classList.add('active');
         if (breadcrumbEl) {
-          const viewTitle = btn.textContent.trim().replace(/[0-9]/g, '');
+          const labelEl = btn.querySelector('span:not(.material-symbols-outlined):not(.dash-nav-badge)');
+          const viewTitle = labelEl ? labelEl.textContent.trim() : btn.textContent.trim();
           breadcrumbEl.textContent = `Executive Portal / ${viewTitle}`;
         }
       }
@@ -434,12 +435,12 @@ document.addEventListener('DOMContentLoaded', () => {
   const exportAdminTxBtn = document.getElementById('exportAdminTxBtn');
   if (exportAdminTxBtn) {
     exportAdminTxBtn.addEventListener('click', () => {
-      const headers = ['Tx ID', 'Investor', 'Property', 'Type', 'Amount (USD)', 'Date', 'Status'];
+      const headers = ['Tx ID', 'Property / Payee', 'Category', 'Amount (USD)', 'Date', 'Status'];
       const rows = [
-        ['TX-1004', 'Marcus Sterling', 'The Aurum Penthouse', 'Capital Call', '150000', '2026-03-15', 'Settled'],
-        ['TX-1003', 'Helena Beaumont', 'Grandview Financial Plaza', 'Capital Call', '250000', '2026-01-20', 'Settled'],
-        ['TX-1002', 'Arthur Pendelton', 'Kensington Residences', 'Capital Call', '75000', '2025-11-10', 'Settled'],
-        ['TX-1001', 'Mayfair Syndicate', 'Belgravia Heritage', 'Syndication', '500000', '2025-09-04', 'Settled']
+        ['TX-1042', 'The Aurum Penthouse', 'Rent Receipt', '18500', '2026-10-24', 'Settled'],
+        ['TX-1041', 'Grandview Financial Plaza', 'Service Charge', '42300', '2026-10-22', 'Settled'],
+        ['TX-1038', 'Skyline Mixed-Use Tower', 'Maintenance Invoice', '7850', '2026-10-20', 'Pending'],
+        ['TX-1031', 'Kensington Garden Residences', 'Investor Distribution', '9600', '2026-10-15', 'Settled']
       ];
       exportToCSV('STACKLY_Admin_Master_Transactions', rows, headers);
     });

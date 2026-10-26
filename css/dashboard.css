@@ -699,6 +699,13 @@
   width: 100%;
 }
 
+/* Admin portal: keep the table + sidebar views side by side on desktop */
+@media (min-width: 1025px) {
+  .admin-layout .dash-view-section > div[style*="grid-template-columns: 1fr 300px"] {
+    grid-template-columns: 1fr 300px !important;
+  }
+}
+
 /* ==========================================================================
    HORIZONTAL SCROLL CARDS CONTAINER
    ========================================================================== */
@@ -742,10 +749,6 @@
   flex: 1 1 auto;
   min-width: 0;
   width: 100%;
-}
-
-@media (max-width: 1024px) {
-  .
 }
 
 @media (max-width: 768px) {
