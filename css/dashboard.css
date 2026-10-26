@@ -275,6 +275,7 @@
 
 .dash-view-section.active {
   display: block;
+  width: 72vw;
 }
 
 .dash-page-header {
@@ -689,4 +690,83 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 1.5rem;
+}
+
+/* Dashboard grid containers: stack on small screens */
+.dash-view-section > div[style*="grid-template-columns: 1fr"] {
+  grid-template-columns: 1fr !important;
+  gap: 1.2rem;
+  width: 100%;
+}
+
+/* ==========================================================================
+   HORIZONTAL SCROLL CARDS CONTAINER
+   ========================================================================== */
+
+.dash-scroll-row {
+  display: flex;
+  gap: 1.4rem;
+  overflow-x: auto;
+  padding: 0.5rem 0.2rem 1.2rem;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: thin;
+  scrollbar-color: var(--accent-gold) var(--bg-secondary);
+  -webkit-overflow-scrolling: touch;
+}
+
+.dash-scroll-row::-webkit-scrollbar {
+  height: 5px;
+}
+
+.dash-scroll-row::-webkit-scrollbar-track {
+  background: var(--bg-secondary);
+  border-radius: 10px;
+}
+
+.dash-scroll-row::-webkit-scrollbar-thumb {
+  background: var(--accent-gold);
+  border-radius: 10px;
+}
+
+.dash-scroll-item {
+  flex: 0 0 auto;
+  scroll-snap-align: start;
+  min-width: 240px;
+  max-width: 340px;
+  /* Allow grid/flex children to shrink properly */
+  min-width: 0;
+}
+
+/* Prevent grid container from squishing dash-scroll-row */
+.dash-view-section > .dash-scroll-row {
+  flex: 1 1 auto;
+  min-width: 0;
+  width: 100%;
+}
+
+@media (max-width: 1024px) {
+  .dash-scroll-item {
+    min-width: 220px;
+    max-width: 300px;
+  }
+}
+
+@media (max-width: 768px) {
+  .dash-scroll-item {
+    min-width: 200px;
+    max-width: 280px;
+  }
+}
+
+@media (max-width: 480px) {
+  .dash-scroll-item {
+    min-width: 180px;
+    max-width: 260px;
+  }
+  .dash-breadcrumbs {
+    display: none;
+  }
+  .dash-view-section.active {
+    width: 89vw;
+  }
 }

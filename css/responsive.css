@@ -186,6 +186,24 @@
     grid-template-columns: 1fr;
   }
 
+  /* Dashboard grid containers stack on mobile */
+  .dash-view-section > div[style*="grid-template-columns"][style*="1fr"] {
+    grid-template-columns: 1fr !important;
+    gap: 1.2rem !important;
+    width: 100% !important;
+  }
+
+  /* Horizontal scroll rows always visible */
+  .dash-scroll-row {
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+  }
+
+  .dash-scroll-item {
+    flex: 0 0 auto !important;
+    scroll-snap-align: start !important;
+  }
+
   .dash-content-container {
     padding: 1.2rem;
   }
@@ -225,7 +243,9 @@
   }
 }
 
-/* 480px, 430px, 390px, 375px and 320px (Mobile Screens) */
+/* Dashboard horizontal scroll items - mobile (handled by CSS min-width/max-width) */
+/* No fixed width overrides needed here */
+
 @media (max-width: 480px) {
   :root {
     --section-padding: 55px 0;

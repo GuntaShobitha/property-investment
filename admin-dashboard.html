@@ -27,7 +27,7 @@
        ========================================================================== -->
   <aside class="dash-sidebar" aria-label="Executive Admin Sidebar">
     <div class="dash-sidebar-header">
-      <a href="index.html" class="nav-logo">
+      <a href="admin-dashboard.html" class="nav-logo">
         <img src="./images/logo-dark.webp" alt="STACKLY Logo" class="dash-logo-img" />
       </a>
       <span class="dash-role-tag admin">Executive</span>
@@ -121,12 +121,12 @@
     </nav>
 
     <!-- Sidebar Admin Footer -->
-    <div class="dash-sidebar-footer">
-      <div class="dash-user-chip">
-        <img src="./images/team-2.webp" alt="Eleanor Vance" class="dash-user-avatar">
+    <div class="dash-sidebar-footer">        <div class="dash-user-chip">
+        <img src="./images/team-2.webp" alt="Admin" class="dash-user-avatar">
         <div class="dash-user-meta">
-          <h5>Eleanor Vance</h5>
-          <p>Managing Director</p>
+          <h5 id="adminDashUserName">Loading...</h5>
+          <p id="adminDashUserEmail">Loading...</p>
+          <p id="adminDashUserRole">Executive</p>
         </div>
       </div>
       <button class="dash-logout-btn" title="Sign Out" onclick="document.querySelector('[data-view=\'logout\']').click()">
@@ -181,33 +181,33 @@
           <div><strong>Executive Mode:</strong> You are viewing the platform demonstration administration panel. Modifications made to properties or status updates will persist in client demonstration memory.</div>
         </div>
 
-        <!-- 4 Stat Summary Cards -->
-        <div class="dash-stat-grid">
-          <div class="dash-stat-card">
-            <div class="dash-stat-icon-wrap"><span class="material-symbols-outlined">domain</span></div>
+        <!-- 4 Stat Summary Cards (Horizontal Scroll) -->
+        <div class="dash-scroll-row">
+          <div class="dash-scroll-item" style="background: var(--bg-surface); border: 1px solid var(--border-light); border-radius: var(--radius-xs); padding: 1.6rem;">
+            <div class="dash-stat-icon-wrap" style="margin-bottom: 1rem;"><span class="material-symbols-outlined">domain</span></div>
             <div class="dash-stat-label">Total Curated Assets</div>
-            <div class="dash-stat-val">6 Properties</div>
+            <div class="dash-stat-val" style="font-size: 1.8rem;">6 Properties</div>
             <div class="dash-stat-sub">5 Active • 1 Under Review</div>
           </div>
 
-          <div class="dash-stat-card">
-            <div class="dash-stat-icon-wrap"><span class="material-symbols-outlined">group</span></div>
+          <div class="dash-scroll-item" style="background: var(--bg-surface); border: 1px solid var(--border-light); border-radius: var(--radius-xs); padding: 1.6rem;">
+            <div class="dash-stat-icon-wrap" style="margin-bottom: 1rem;"><span class="material-symbols-outlined">group</span></div>
             <div class="dash-stat-label">Accredited Co-Investors</div>
-            <div class="dash-stat-val">328 Members</div>
+            <div class="dash-stat-val" style="font-size: 1.8rem;">328 Members</div>
             <div class="dash-stat-sub">+18 this month</div>
           </div>
 
-          <div class="dash-stat-card">
-            <div class="dash-stat-icon-wrap"><span class="material-symbols-outlined">payments</span></div>
+          <div class="dash-scroll-item" style="background: var(--bg-surface); border: 1px solid var(--border-light); border-radius: var(--radius-xs); padding: 1.6rem;">
+            <div class="dash-stat-icon-wrap" style="margin-bottom: 1rem;"><span class="material-symbols-outlined">payments</span></div>
             <div class="dash-stat-label">Total Syndicated AUM</div>
-            <div class="dash-stat-val">$142,500,000</div>
+            <div class="dash-stat-val" style="font-size: 1.8rem;">$142.5M</div>
             <div class="dash-stat-sub">Across 4 jurisdictions</div>
           </div>
 
-          <div class="dash-stat-card">
-            <div class="dash-stat-icon-wrap"><span class="material-symbols-outlined">pending_actions</span></div>
-            <div class="dash-stat-label">Pending Client Enquiries</div>
-            <div class="dash-stat-val" style="color: var(--accent-rust, #E06840);">3 Pending</div>
+          <div class="dash-scroll-item" style="background: var(--bg-surface); border: 1px solid var(--border-light); border-radius: var(--radius-xs); padding: 1.6rem;">
+            <div class="dash-stat-icon-wrap" style="margin-bottom: 1rem;"><span class="material-symbols-outlined">pending_actions</span></div>
+            <div class="dash-stat-label">Pending Enquiries</div>
+            <div class="dash-stat-val" style="font-size: 1.8rem; color: var(--accent-rust, #E06840);">3 Pending</div>
             <div class="dash-stat-sub neutral">Requires committee review</div>
           </div>
         </div>
@@ -307,40 +307,138 @@
           </div>
         </div>
 
-        <div class="dash-table-card">
-          <div class="dash-filter-bar">
-            <div class="dash-search-input-wrap">
-              <span class="material-symbols-outlined">search</span>
-              <input type="text" id="adminPropSearch" class="dash-search-input" placeholder="Search property name or city...">
+        <!-- Property Summary Cards -->
+        <div class="dash-scroll-row" style="margin-bottom: 2rem;">
+          <div class="dash-scroll-item" style="background: var(--bg-surface); border: 1px solid var(--border-light); border-radius: var(--radius-xs); padding: 1.4rem;">
+            <div class="dash-stat-icon-wrap" style="margin-bottom: 1rem;"><span class="material-symbols-outlined">domain</span></div>
+            <div class="dash-stat-label">Total Properties</div>
+            <div class="dash-stat-val" style="font-size: 1.6rem;">6</div>
+            <div class="dash-stat-sub">5 Active • 1 Under Review</div>
+          </div>
+          <div class="dash-scroll-item" style="background: var(--bg-surface); border: 1px solid var(--border-light); border-radius: var(--radius-xs); padding: 1.4rem;">
+            <div class="dash-stat-icon-wrap" style="margin-bottom: 1rem;"><span class="material-symbols-outlined">alp</div></div>
+            <div class="dash-stat-label">Total Portfolio Value</div>
+            <div class="dash-stat-val" style="font-size: 1.6rem;">$133.9M</div>
+            <div class="dash-stat-sub">Across 4 jurisdictions</div>
+          </div>
+          <div class="dash-scroll-item" style="background: var(--bg-surface); border: 1px solid var(--border-light); border-radius: var(--radius-xs); padding: 1.4rem;">
+            <div class="dash-stat-icon-wrap" style="margin-bottom: 1rem;"><span class="material-symbols-outlined">trending_up</span></div>
+            <div class="dash-stat-label">Avg Projected Yield</div>
+            <div class="dash-stat-val" style="font-size: 1.6rem; color: var(--accent-emerald, #208850);">8.68%</div>
+            <div class="dash-stat-sub">Weighted average</div>
+          </div>
+          <div class="dash-scroll-item" style="background: var(--bg-surface); border: 1px solid var(--border-light); border-radius: var(--radius-xs); padding: 1.4rem;">
+            <div class="dash-stat-icon-wrap" style="margin-bottom: 1rem;"><span class="material-symbols-outlined">emoji_events</span></div>
+            <div class="dash-stat-label">Fully Funded</div>
+            <div class="dash-stat-val" style="font-size: 1.6rem;">4</div>
+            <div class="dash-stat-sub">2 open for allocation</div>
+          </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 300px; gap: 1.8rem; align-items: start;">
+          <!-- Main Table -->
+          <div class="dash-table-card">
+            <div class="dash-filter-bar">
+              <div class="dash-search-input-wrap">
+                <span class="material-symbols-outlined">search</span>
+                <input type="text" id="adminPropSearch" class="dash-search-input" placeholder="Search property name or city...">
+              </div>
+              <div class="dash-filters-group">
+                <select id="adminPropCategoryFilter" class="dash-filter-select">
+                  <option value="All">All Categories</option>
+                  <option value="Residential">Residential</option>
+                  <option value="Commercial">Commercial</option>
+                  <option value="Rental">Rental Estates</option>
+                  <option value="Mixed-Use">Mixed-Use</option>
+                </select>
+                <button id="openAddPropModalBtn" class="btn btn-primary btn-sm">
+                  <span class="material-symbols-outlined" style="font-size: 1rem;">add</span> Add New
+                </button>
+              </div>
             </div>
-            <div class="dash-filters-group">
-              <select id="adminPropCategoryFilter" class="dash-filter-select">
-                <option value="All">All Categories</option>
-                <option value="Residential">Residential</option>
-                <option value="Commercial">Commercial</option>
-                <option value="Rental">Rental Estates</option>
-                <option value="Mixed-Use">Mixed-Use</option>
-              </select>
+            <div class="dash-table-wrap">
+              <table class="dash-table">
+                <thead>
+                  <tr>
+                    <th>Asset ID</th>
+                    <th>Property Name & Location</th>
+                    <th>Category</th>
+                    <th>Valuation</th>
+                    <th>Yield Target</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="adminPropTableBody">
+                  <!-- Populated dynamically by admin-dashboard.js with Edit & Delete actions -->
+                </tbody>
+              </table>
             </div>
           </div>
 
-          <div class="dash-table-wrap">
-            <table class="dash-table">
-              <thead>
-                <tr>
-                  <th>Asset ID</th>
-                  <th>Property Name & Location</th>
-                  <th>Category</th>
-                  <th>Valuation</th>
-                  <th>Yield Target</th>
-                  <th>Status</th>
-                  <th>Actions</th>
-                </tr>
-              </thead>
-              <tbody id="adminPropTableBody">
-                <!-- Populated dynamically by admin-dashboard.js with Edit & Delete actions -->
-              </tbody>
-            </table>
+          <!-- Sidebar: Quick Stats & Category Breakdown -->
+          <div>
+            <!-- Category Breakdown -->
+            <div style="background: var(--bg-surface); border: 1px solid var(--border-light); border-radius: var(--radius-xs); padding: 1.5rem; margin-bottom: 1.5rem;">
+              <h4 style="font-size: 1rem; margin-bottom: 1rem; color: var(--color-heading);">By Category</h4>
+              <div style="display: flex; flex-direction: column; gap: 1rem;">
+                <div>
+                  <div style="display: flex; justify-content: space-between; font-size: 0.85rem; margin-bottom: 0.3rem;">
+                    <strong>Residential</strong>
+                    <span>3 Properties</span>
+                  </div>
+                  <div style="height: 6px; background: var(--bg-secondary); border-radius: 3px; overflow: hidden;">
+                    <div style="width: 50%; height: 100%; background: #102818;"></div>
+                  </div>
+                </div>
+                <div>
+                  <div style="display: flex; justify-content: space-between; font-size: 0.85rem; margin-bottom: 0.3rem;">
+                    <strong>Commercial</strong>
+                    <span>1 Property</span>
+                  </div>
+                  <div style="height: 6px; background: var(--bg-secondary); border-radius: 3px; overflow: hidden;">
+                    <div style="width: 16.6%; height: 100%; background: #F5B740;"></div>
+                  </div>
+                </div>
+                <div>
+                  <div style="display: flex; justify-content: space-between; font-size: 0.85rem; margin-bottom: 0.3rem;">
+                    <strong>Rental Estates</strong>
+                    <span>1 Property</span>
+                  </div>
+                  <div style="height: 6px; background: var(--bg-secondary); border-radius: 3px; overflow: hidden;">
+                    <div style="width: 16.6%; height: 100%; background: #E06840;"></div>
+                  </div>
+                </div>
+                <div>
+                  <div style="display: flex; justify-content: space-between; font-size: 0.85rem; margin-bottom: 0.3rem;">
+                    <strong>Mixed-Use</strong>
+                    <span>1 Property</span>
+                  </div>
+                  <div style="height: 6px; background: var(--bg-secondary); border-radius: 3px; overflow: hidden;">
+                    <div style="width: 16.6%; height: 100%; background: #4090C0;"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Quick Actions -->
+            <div style="background: var(--bg-surface); border: 1px solid var(--border-light); border-radius: var(--radius-xs); padding: 1.5rem;">
+              <h4 style="font-size: 1rem; margin-bottom: 1rem; color: var(--color-heading);">Quick Actions</h4>
+              <div style="display: flex; flex-direction: column; gap: 0.6rem;">
+                <button class="btn btn-outline btn-sm" style="width: 100%;" onclick="document.getElementById('openAddPropModalBtn').click();">
+                  <span class="material-symbols-outlined" style="font-size: 1rem;">add</span> Add New Property
+                </button>
+                <button class="btn btn-outline btn-sm" style="width: 100%;" onclick="showToast('Property import tool. Demo mode.', 'info')">
+                  <span class="material-symbols-outlined" style="font-size: 1rem;">upload</span> Import Properties (CSV)
+                </button>
+                <button class="btn btn-outline btn-sm" style="width: 100%;" onclick="showToast('Property valuation report generated. Demo mode.', 'info')">
+                  <span class="material-symbols-outlined" style="font-size: 1rem;">analytics</span> Valuation Report
+                </button>
+                <button class="btn btn-outline btn-sm" style="width: 100%;" onclick="showToast('Bulk status update mode. Demo mode.', 'info')">
+                  <span class="material-symbols-outlined" style="font-size: 1rem;">touch_app</span> Bulk Status Update
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -356,54 +454,145 @@
           </div>
         </div>
 
-        <div class="dash-table-card">
-          <div class="dash-table-wrap">
-            <table class="dash-table">
-              <thead>
-                <tr>
-                  <th>Subscription ID</th>
-                  <th>Investor</th>
-                  <th>Target Asset</th>
-                  <th>Allocation Amount</th>
-                  <th>Date</th>
-                  <th>Status</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td style="font-family: monospace; font-weight: 600;">INV-8821</td>
-                  <td>Marcus Sterling</td>
-                  <td>The Aurum Penthouse - Mayfair</td>
-                  <td style="font-weight: 600;">$150,000</td>
-                  <td>2026-03-15</td>
-                  <td><span class="dash-status-pill status-completed">Active</span></td>
-                </tr>
-                <tr>
-                  <td style="font-family: monospace; font-weight: 600;">INV-7649</td>
-                  <td>Helena Beaumont</td>
-                  <td>Grandview Financial Plaza</td>
-                  <td style="font-weight: 600;">$250,000</td>
-                  <td>2026-01-20</td>
-                  <td><span class="dash-status-pill status-completed">Active</span></td>
-                </tr>
-                <tr>
-                  <td style="font-family: monospace; font-weight: 600;">INV-6512</td>
-                  <td>Arthur Pendelton</td>
-                  <td>Kensington Garden Residences</td>
-                  <td style="font-weight: 600;">$75,000</td>
-                  <td>2025-11-10</td>
-                  <td><span class="dash-status-pill status-completed">Active</span></td>
-                </tr>
-                <tr>
-                  <td style="font-family: monospace; font-weight: 600;">INV-5401</td>
-                  <td>Mayfair Capital Partners</td>
-                  <td>Skyline Mixed-Use Tower</td>
-                  <td style="font-weight: 600;">$500,000</td>
-                  <td>2025-08-04</td>
-                  <td><span class="dash-status-pill status-completed">Active</span></td>
-                </tr>
-              </tbody>
-            </table>
+        <!-- Investment Summary Cards -->
+        <div class="dash-scroll-row" style="margin-bottom: 2rem;">
+          <div class="dash-scroll-item" style="background: var(--bg-surface); border: 1px solid var(--border-light); border-radius: var(--radius-xs); padding: 1.4rem;">
+            <div class="dash-stat-label">Total Subscriptions</div>
+            <div class="dash-stat-val" style="font-size: 1.6rem;">4</div>
+            <div class="dash-stat-sub">All actively funded</div>
+          </div>
+          <div class="dash-scroll-item" style="background: var(--bg-surface); border: 1px solid var(--border-light); border-radius: var(--radius-xs); padding: 1.4rem;">
+            <div class="dash-stat-label">Total Capital Called</div>
+            <div class="dash-stat-val" style="font-size: 1.6rem;">$975,000</div>
+            <div class="dash-stat-sub">Across 4 syndicates</div>
+          </div>
+          <div class="dash-scroll-item" style="background: var(--bg-surface); border: 1px solid var(--border-light); border-radius: var(--radius-xs); padding: 1.4rem;">
+            <div class="dash-stat-label">All Active</div>
+            <div class="dash-stat-val" style="font-size: 1.6rem; color: var(--accent-emerald, #208850);">100%</div>
+            <div class="dash-stat-sub">Zero defaults</div>
+          </div>
+          <div class="dash-scroll-item" style="background: var(--bg-surface); border: 1px solid var(--border-light); border-radius: var(--radius-xs); padding: 1.4rem;">
+            <div class="dash-stat-label">Avg Allocation Size</div>
+            <div class="dash-stat-val" style="font-size: 1.6rem;">$243,750</div>
+            <div class="dash-stat-sub">Per investor subscription</div>
+          </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 300px; gap: 1.8rem; align-items: start;">
+          <!-- Main Table -->
+          <div class="dash-table-card">
+            <div class="dash-filter-bar">
+              <h3 class="dash-card-title" style="font-size: 1.1rem;">All Subscription Contracts</h3>
+              <div style="display: flex; gap: 0.5rem;">
+                <button class="btn btn-outline btn-sm" onclick="showToast('Filtering active subscriptions only.', 'info')">Active Only</button>
+                <button class="btn btn-outline btn-sm" onclick="showToast('Investment subscriptions exported as PDF.', 'info')"><span class="material-symbols-outlined" style="font-size: 1rem;">download</span> Export</button>
+              </div>
+            </div>
+            <div class="dash-table-wrap">
+              <table class="dash-table">
+                <thead>
+                  <tr>
+                    <th>Subscription ID</th>
+                    <th>Investor</th>
+                    <th>Target Asset</th>
+                    <th>Allocation Amount</th>
+                    <th>Date</th>
+                    <th>Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td style="font-family: monospace; font-weight: 600;">INV-8821</td>
+                    <td>Marcus Sterling</td>
+                    <td>The Aurum Penthouse - Mayfair</td>
+                    <td style="font-weight: 600;">$150,000</td>
+                    <td>2026-03-15</td>
+                    <td><span class="dash-status-pill status-completed">Active</span></td>
+                  </tr>
+                  <tr>
+                    <td style="font-family: monospace; font-weight: 600;">INV-7649</td>
+                    <td>Helena Beaumont</td>
+                    <td>Grandview Financial Plaza</td>
+                    <td style="font-weight: 600;">$250,000</td>
+                    <td>2026-01-20</td>
+                    <td><span class="dash-status-pill status-completed">Active</span></td>
+                  </tr>
+                  <tr>
+                    <td style="font-family: monospace; font-weight: 600;">INV-6512</td>
+                    <td>Arthur Pendelton</td>
+                    <td>Kensington Garden Residences</td>
+                    <td style="font-weight: 600;">$75,000</td>
+                    <td>2025-11-10</td>
+                    <td><span class="dash-status-pill status-completed">Active</span></td>
+                  </tr>
+                  <tr>
+                    <td style="font-family: monospace; font-weight: 600;">INV-5401</td>
+                    <td>Mayfair Capital Partners</td>
+                    <td">Skyline Mixed-Use Tower</td>
+                    <td style="font-weight: 600;">$500,000</td>
+                    <td>2025-08-04</td>
+                    <td><span class="dash-status-pill status-completed">Active</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Sidebar: Allocation Overview & Quick Actions -->
+          <div>
+            <!-- Allocation Overview -->
+            <div style="background: var(--bg-surface); border: 1px solid var(--border-light); border-radius: var(--radius-xs); padding: 1.5rem; margin-bottom: 1.5rem;">
+              <h4 style="font-size: 1rem; margin-bottom: 1rem; color: var(--color-heading);">Allocation Overview</h4>
+              <div style="display: flex; flex-direction: column; gap: 0.9rem;">
+                <div style="display: flex; justify-content: space-between; font-size: 0.85rem; margin-bottom: 0.2rem;">
+                  <strong>The Aurum Penthouse</strong>
+                  <span style="color: var(--accent-emerald); font-weight: 600;">$150,000</span>
+                </div>
+                <div style="height: 5px; background: var(--bg-secondary); border-radius: 3px; overflow: hidden;">
+                  <div style="width: 40%; height: 100%; background: #102818;"></div>
+                </div>
+                <div style="display: flex; justify-content: space-between; font-size: 0.85rem; margin-bottom: 0.2rem;">
+                  <strong>Grandview Financial Plaza</strong>
+                  <span style="color: var(--accent-emerald); font-weight: 600;">$250,000</span>
+                </div>
+                <div style="height: 5px; background: var(--bg-secondary); border-radius: 3px; overflow: hidden;">
+                  <div style="width: 35%; height: 100%; background: #F5B740;"></div>
+                </div>
+                <div style="display: flex; justify-content: space-between; font-size: 0.85rem; margin-bottom: 0.2rem;">
+                  <strong>Kensington Garden Residences</strong>
+                  <span style="color: var(--accent-emerald); font-weight: 600;">$75,000</span>
+                </div>
+                <div style="height: 5px; background: var(--bg-secondary); border-radius: 3px; overflow: hidden;">
+                  <div style="width: 20%; height: 100%; background: #E06840;"></div>
+                </div>
+                <div style="display: flex; justify-content: space-between; font-size: 0.85rem;">
+                  <strong>Skyline Mixed-Use Tower</strong>
+                  <span style="color: var(--accent-emerald); font-weight: 600;">$500,000</span>
+                </div>
+                <div style="height: 5px; background: var(--bg-secondary); border-radius: 3px; overflow: hidden;">
+                  <div style="width: 25%; height: 100%; background: #4090C0;"></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Quick Actions -->
+            <div style="background: var(--bg-surface); border: 1px solid var(--border-light); border-radius: var(--radius-xs); padding: 1.5rem;">
+              <h4 style="font-size: 1rem; margin-bottom: 1rem; color: var(--color-heading);">Quick Actions</h4>
+              <div style="display: flex; flex-direction: column; gap: 0.6rem;">
+                <button class="btn btn-outline btn-sm" style="width: 100%;" onclick="showToast('New subscription contract draft created. Demo mode.', 'info')">
+                  <span class="material-symbols-outlined" style="font-size: 1rem;">add</span> New Subscription
+                </button>
+                <button class="btn btn-outline btn-sm" style="width: 100%;" onclick="showToast('Inviting co-investors to syndicate. Demo mode.', 'info')">
+                  <span class="material-symbols-outlined" style="font-size: 1rem;">group_add</span> Invite Co-Investors
+                </button>
+                <button class="btn btn-outline btn-sm" style="width: 100%;" onclick="showToast('Subscription contract PDF generated. Demo mode.', 'info')">
+                  <span class="material-symbols-outlined" style="font-size: 1rem;">description</span> Generate Contract PDF
+                </button>
+                <button class="btn btn-outline btn-sm" style="width: 100%;" onclick="showToast('Marking all pending subscriptions as reviewed. Demo mode.', 'info')">
+                  <span class="material-symbols-outlined" style="font-size: 1rem;">check_circle</span> Mark All Reviewed
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -417,57 +606,166 @@
             <h2>Accredited Investor Directory</h2>
             <p>Institutional members, sovereign family offices, and verified individual co-investors.</p>
           </div>
+          <div class="dash-header-actions">
+            <button class="btn btn-primary btn-sm" onclick="showToast('Add new investor form opened. Demo mode.', 'info')">
+              <span class="material-symbols-outlined" style="font-size: 1.1rem;">person_add</span> Add Investor
+            </button>
+          </div>
         </div>
 
-        <div class="dash-table-card">
-          <div class="dash-table-wrap">
-            <table class="dash-table">
-              <thead>
-                <tr>
-                  <th>Investor Name</th>
-                  <th>Classification</th>
-                  <th>Jurisdiction</th>
-                  <th>Total Deployed</th>
-                  <th>KYC/AML Status</th>
-                  <th>Joined</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>
-                    <div style="font-weight: 600; color: var(--color-heading);">Marcus Sterling</div>
-                    <div style="font-size: 0.78rem; color: var(--color-muted);">m.sterling@holdings.co.uk</div>
-                  </td>
-                  <td>Family Office Trustee</td>
-                  <td>United Kingdom</td>
-                  <td style="font-weight: 600;">$475,000</td>
-                  <td><span class="dash-status-pill status-verified">Verified</span></td>
-                  <td>Oct 2025</td>
-                </tr>
-                <tr>
-                  <td>
-                    <div style="font-weight: 600; color: var(--color-heading);">Dr. Vivienne Rothschild</div>
-                    <div style="font-size: 0.78rem; color: var(--color-muted);">v.rothschild@geneva-trust.ch</div>
-                  </td>
-                  <td>Private Wealth Client</td>
-                  <td>Switzerland</td>
-                  <td style="font-weight: 600;">$750,000</td>
-                  <td><span class="dash-status-pill status-verified">Verified</span></td>
-                  <td>Jan 2026</td>
-                </tr>
-                <tr>
-                  <td>
-                    <div style="font-weight: 600; color: var(--color-heading);">Sebastian Thorne</div>
-                    <div style="font-size: 0.78rem; color: var(--color-muted);">thorne@thornepartners.com</div>
-                  </td>
-                  <td>Institutional Syndicate</td>
-                  <td>Monaco</td>
-                  <td style="font-weight: 600;">$1,200,000</td>
-                  <td><span class="dash-status-pill status-verified">Verified</span></td>
-                  <td>Mar 2026</td>
-                </tr>
-              </tbody>
-            </table>
+        <!-- Investor Summary Cards -->
+        <div class="dash-scroll-row" style="margin-bottom: 2rem;">
+          <div class="dash-scroll-item" style="background: var(--bg-surface); border: 1px solid var(--border-light); border-radius: var(--radius-xs); padding: 1.4rem;">
+            <div class="dash-stat-icon-wrap" style="margin-bottom: 1rem;"><span class="material-symbols-outlined">group</span></div>
+            <div class="dash-stat-label">Total Investors</div>
+            <div class="dash-stat-val" style="font-size: 1.6rem;">328</div>
+            <div class="dash-stat-sub">+18 this month</div>
+          </div>
+          <div class="dash-scroll-item" style="background: var(--bg-surface); border: 1px solid var(--border-light); border-radius: var(--radius-xs); padding: 1.4rem;">
+            <div class="dash-stat-icon-wrap" style="margin-bottom: 1rem;"><span class="material-symbols-outlined">verified_user</span></div>
+            <div class="dash-stat-label">KYC Verified</div>
+            <div class="dash-stat-val" style="font-size: 1.6rem; color: var(--accent-emerald, #208850);">97.6%</div>
+            <div class="dash-stat-sub">320 of 328 verified</div>
+          </div>
+          <div class="dash-scroll-item" style="background: var(--bg-surface); border: 1px solid var(--border-light); border-radius: var(--radius-xs); padding: 1.4rem;">
+            <div class="dash-stat-icon-wrap" style="margin-bottom: 1rem;"><span class="material-symbols-outlined">payments</span></div>
+            <div class="dash-stat-label">Total Deployed Capital</div>
+            <div class="dash-stat-val" style="font-size: 1.6rem;">$142.5M</div>
+            <div class="dash-stat-sub">Across all syndicates</div>
+          </div>
+          <div class="dash-scroll-item" style="background: var(--bg-surface); border: 1px solid var(--border-light); border-radius: var(--radius-xs); padding: 1.4rem;">
+            <div class="dash-stat-icon-wrap" style="margin-bottom: 1rem;"><span class="material-symbols-outlined">trending_up</span></div>
+            <div class="dash-stat-label">Repeat Investors</div>
+            <div class="dash-stat-val" style="font-size: 1.6rem; color: var(--accent-emerald, #208850);">84.2%</div>
+            <div class="dash-stat-sub">Co-investing in new deals</div>
+          </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 300px; gap: 1.8rem; align-items: start;">
+          <!-- Main Table -->
+          <div class="dash-table-card">
+            <div class="dash-filter-bar">
+              <div class="dash-search-input-wrap">
+                <span class="material-symbols-outlined">search</span>
+                <input type="text" class="dash-search-input" placeholder="Search investor name or email...">
+              </div>
+              <div class="dash-filters-group">
+                <select class="dash-filter-select">
+                  <option value="All">All Classifications</option>
+                  <option value="Family Office">Family Office</option>
+                  <option value="Private Wealth">Private Wealth</option>
+                  <option value="Institutional">Institutional</option>
+                </select>
+                <button class="btn btn-primary btn-sm" onclick="showToast('Add investor form opened. Demo mode.', 'info')">
+                  <span class="material-symbols-outlined" style="font-size: 1rem;">person_add</span> Add
+                </button>
+              </div>
+            </div>
+            <div class="dash-table-wrap">
+              <table class="dash-table">
+                <thead>
+                  <tr>
+                    <th>Investor Name</th>
+                    <th>Classification</th>
+                    <th>Jurisdiction</th>
+                    <th>Total Deployed</th>
+                    <th>KYC/AML Status</th>
+                    <th>Joined</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <div style="font-weight: 600; color: var(--color-heading);">Marcus Sterling</div>
+                      <div style="font-size: 0.78rem; color: var(--color-muted);">m.sterling@holdings.co.uk</div>
+                    </td>
+                    <td>Family Office Trustee</td>
+                    <td>United Kingdom</td>
+                    <td style="font-weight: 600;">$475,000</td>
+                    <td><span class="dash-status-pill status-verified">Verified</span></td>
+                    <td>Oct 2025</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div style="font-weight: 600; color: var(--color-heading);">Dr. Vivienne Rothschild</div>
+                      <div style="font-size: 0.78rem; color: var(--color-muted);">v.rothschild@geneva-trust.ch</div>
+                    </td>
+                    <td>Private Wealth Client</td>
+                    <td>Switzerland</td>
+                    <td style="font-weight: 600;">$750,000</td>
+                    <td><span class="dash-status-pill status-verified">Verified</span></td>
+                    <td>Jan 2026</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div style="font-weight: 600; color: var(--color-heading);">Sebastian Thorne</div>
+                      <div style="font-size: 0.78rem; color: var(--color-muted);">thorne@thornepartners.com</div>
+                    </td>
+                    <td>Institutional Syndicate</td>
+                    <td>Monaco</td>
+                    <td style="font-weight: 600;">$1,200,000</td>
+                    <td><span class="dash-status-pill status-verified">Verified</span></td>
+                    <td>Mar 2026</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Sidebar: Investor Stats & Quick Actions -->
+          <div>
+            <!-- Investor Classification Breakdown -->
+            <div style="background: var(--bg-surface); border: 1px solid var(--border-light); border-radius: var(--radius-xs); padding: 1.5rem; margin-bottom: 1.5rem;">
+              <h4 style="font-size: 1rem; margin-bottom: 1rem; color: var(--color-heading);">By Classification</h4>
+              <div style="display: flex; flex-direction: column; gap: 0.9rem;">
+                <div>
+                  <div style="display: flex; justify-content: space-between; font-size: 0.85rem; margin-bottom: 0.2rem;">
+                    <strong>Family Offices</strong>
+                    <span>124 Investors</span>
+                  </div>
+                  <div style="height: 5px; background: var(--bg-secondary); border-radius: 3px; overflow: hidden;">
+                    <div style="width: 38%; height: 100%; background: #102818;"></div>
+                  </div>
+                </div>
+                <div>
+                  <div style="display: flex; justify-content: space-between; font-size: 0.85rem; margin-bottom: 0.2rem;">
+                    <strong>Private Wealth Clients</strong>
+                    <span>168 Investors</span>
+                  </div>
+                  <div style="height: 5px; background: var(--bg-secondary); border-radius: 3px; overflow: hidden;">
+                    <div style="width: 51%; height: 100%; background: #F5B740;"></div>
+                  </div>
+                </div>
+                <div>
+                  <div style="display: flex; justify-content: space-between; font-size: 0.85rem; margin-bottom: 0.2rem;">
+                    <strong>Institutional Syndicates</strong>
+                    <span>36 Investors</span>
+                  </div>
+                  <div style="height: 5px; background: var(--bg-secondary); border-radius: 3px; overflow: hidden;">
+                    <div style="width: 11%; height: 100%; background: #E06840;"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Quick Actions -->
+            <div style="background: var(--bg-surface); border: 1px solid var(--border-light); border-radius: var(--radius-xs); padding: 1.5rem;">
+              <h4 style="font-size: 1rem; margin-bottom: 1rem; color: var(--color-heading);">Quick Actions</h4>
+              <div style="display: flex; flex-direction: column; gap: 0.6rem;">
+                <button class="btn btn-outline btn-sm" style="width: 100%;" onclick="showToast('New investor registration form opened. Demo mode.', 'info')">
+                  <span class="material-symbols-outlined" style="font-size: 1rem;">person_add</span> Register New Investor
+                </button>
+                <button class="btn btn-outline btn-sm" style="width: 100%;" onclick="showToast('KYC verification batch tool opened. Demo mode.', 'info')">
+                  <span class="material-symbols-outlined" style="font-size: 1rem;">verified</span> Batch KYC Review
+                </button>
+                <button class="btn btn-outline btn-sm" style="width: 100%;" onclick="showToast('Investor distribution report generated. Demo mode.', 'info')">
+                  <span class="material-symbols-outlined" style="font-size: 1rem;">download</span> Distribution Report
+                </button>
+                <button class="btn btn-outline btn-sm" style="width: 100%;" onclick="showToast('Investor communication draft opened. Demo mode.', 'info')">
+                  <span class="material-symbols-outlined" style="font-size: 1rem;">mail</span> Send Platform Update
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -488,50 +786,148 @@
           </div>
         </div>
 
-        <div class="dash-table-card">
-          <div class="dash-table-wrap">
-            <table class="dash-table">
-              <thead>
-                <tr>
-                  <th>Tx ID</th>
-                  <th>Investor</th>
-                  <th>Target Property</th>
-                  <th>Type</th>
-                  <th>Amount</th>
+        <!-- Transaction Summary Cards -->
+        <div class="dash-scroll-row" style="margin-bottom: 2rem;">
+          <div class="dash-scroll-item" style="background: var(--bg-surface); border: 1px solid var(--border-light); border-radius: var(--radius-xs); padding: 1.4rem;">
+            <div class="dash-stat-icon-wrap" style="margin-bottom: 1rem;"><span class="material-symbols-outlined">payments</span></div>
+            <div class="dash-stat-label">Total Transactions</div>
+            <div class="dash-stat-val" style="font-size: 1.6rem;">3</div>
+            <div class="dash-stat-sub">This quarter</div>
+          </div>
+          <div class="dash-scroll-item" style="background: var(--bg-surface); border: 1px solid var(--border-light); border-radius: var(--radius-xs); padding: 1.4rem;">
+            <div class="dash-stat-icon-wrap" style="margin-bottom: 1rem;"><span class="material-symbols-outlined">call_received</span></div>
+            <div class="dash-stat-label">Total Capital Called</div>
+            <div class="dash-stat-val" style="font-size: 1.6rem;">$475,000</div>
+            <div class="dash-stat-sub">Across 3 investors</div>
+          </div>
+          <div class="dash-scroll-item" style="background: var(--bg-surface); border: 1px solid var(--border-light); border-radius: var(--radius-xs); padding: 1.4rem;">
+            <div class="dash-stat-icon-wrap" style="margin-bottom: 1rem;"><span class="material-symbols-outlined" style="color: var(--accent-emerald);">check_circle</span></div>
+            <div class="dash-stat-label">Settled Amount</div>
+            <div class="dash-stat-val" style="font-size: 1.6rem; color: var(--accent-emerald, #208850);">$475,000</div>
+            <div class="dash-stat-sub">100% settlement rate</div>
+          </div>
+          <div class="dash-scroll-item" style="background: var(--bg-surface); border: 1px solid var(--border-light); border-radius: var(--radius-xs); padding: 1.4rem;">
+            <div class="dash-stat-icon-wrap" style="margin-bottom: 1rem;"><span class="material-symbols-outlined" style="color: var(--accent-rust);">pending_actions</span></div>
+            <div class="dash-stat-label">Pending Settlements</div>
+            <div class="dash-stat-val" style="font-size: 1.6rem; color: var(--accent-rust, #E06840);">0</div>
+            <div class="dash-stat-sub">All cleared</div>
+          </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 300px; gap: 1.8rem; align-items: start;">
+          <!-- Main Table -->
+          <div class="dash-table-card">
+            <div class="dash-filter-bar">
+              <div class="dash-search-input-wrap">
+                <span class="material-symbols-outlined">search</span>
+                <input type="text" class="dash-search-input" placeholder="Search by Tx ID, investor, or property...">
+              </div>
+              <div class="dash-filters-group">
+                <select class="dash-filter-select">
+                  <option value="All">All Types</option>
+                  <option value="Capital Call">Capital Calls</option>
+                  <option value="Dividend">Dividends</option>
+                  <option value="Fee">Fees & Charges</option>
+                </select>
+                <button id="exportAdminTxBtn" class="btn btn-outline btn-sm">
+                  <span class="material-symbols-outlined" style="font-size: 1rem;">download</span> CSV
+                </button>
+              </div>
+            </div>
+            <div class="dash-table-wrap">
+              <table class="dash-table">
+                <thead>
+                  <tr>
+                    <th>Tx ID</th>
+                    <th>Investor</th>
+                    <th>Target Property</th>
+                    <th>Type</th>
+                    <th>Amount</th>
+
                   <th>Date</th>
-                  <th>Status</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td style="font-family: monospace; font-weight: 600;">TX-1004</td>
-                  <td>Marcus Sterling</td>
-                  <td>The Aurum Penthouse</td>
-                  <td><span class="dash-status-pill status-active">Capital Call</span></td>
-                  <td style="font-weight: 600;">$150,000</td>
-                  <td>2026-03-15</td>
-                  <td><span class="dash-status-pill status-completed">Settled</span></td>
-                </tr>
-                <tr>
-                  <td style="font-family: monospace; font-weight: 600;">TX-1003</td>
-                  <td>Helena Beaumont</td>
-                  <td>Grandview Financial Plaza</td>
-                  <td><span class="dash-status-pill status-active">Capital Call</span></td>
-                  <td style="font-weight: 600;">$250,000</td>
-                  <td>2026-01-20</td>
-                  <td><span class="dash-status-pill status-completed">Settled</span></td>
-                </tr>
-                <tr>
-                  <td style="font-family: monospace; font-weight: 600;">TX-1002</td>
-                  <td>Arthur Pendelton</td>
-                  <td>Kensington Residences</td>
-                  <td><span class="dash-status-pill status-active">Capital Call</span></td>
-                  <td style="font-weight: 600;">$75,000</td>
-                  <td>2025-11-10</td>
-                  <td><span class="dash-status-pill status-completed">Settled</span></td>
-                </tr>
-              </tbody>
-            </table>
+                    <th>Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td style="font-family: monospace; font-weight: 600;">TX-1004</td>
+                    <td>Marcus Sterling</td>
+                    <td>The Aurum Penthouse</td>
+                    <td><span class="dash-status-pill status-active">Capital Call</span></td>
+                    <td style="font-weight: 600;">$150,000</td>
+                    <td>2026-03-15</td>
+                    <td><span class="dash-status-pill status-completed">Settled</span></td>
+                  </tr>
+                  <tr>
+                    <td style="font-family: monospace; font-weight: 600;">TX-1003</td>
+                    <td>Helena Beaumont</td>
+                    <td>Grandview Financial Plaza</td>
+                    <td><span class="dash-status-pill status-active">Capital Call</span></td>
+                    <td style="font-weight: 600;">$250,000</td>
+                    <td>2026-01-20</td>
+                    <td><span class="dash-status-pill status-completed">Settled</span></td>
+                  </tr>
+                  <tr>
+                    <td style="font-family: monospace; font-weight: 600;">TX-1002</td>
+                    <td>Arthur Pendelton</td>
+                    <td>Kensington Residences</td>
+                    <td><span class="dash-status-pill status-active">Capital Call</span></td>
+                    <td style="font-weight: 600;">$75,000</td>
+                    <td>2025-11-10</td>
+                    <td><span class="dash-status-pill status-completed">Settled</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Sidebar: Settlement Stats & Quick Actions -->
+          <div>
+            <!-- Settlement Overview -->
+            <div style="background: var(--bg-surface); border: 1px solid var(--border-light); border-radius: var(--radius-xs); padding: 1.5rem; margin-bottom: 1.5rem;">
+              <h4 style="font-size: 1rem; margin-bottom: 1rem; color: var(--color-heading);">Settlement Overview</h4>
+              <div style="display: flex; flex-direction: column; gap: 0.9rem;">
+                <div style="display: flex; justify-content: space-between; font-size: 0.85rem; margin-bottom: 0.2rem;">
+                  <span>Capital Calls Issued</span>
+                  <span style="font-weight: 600;">3</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; font-size: 0.85rem; margin-bottom: 0.2rem;">
+                  <span>Capital Calls Settled</span>
+                  <span style="color: var(--accent-emerald); font-weight: 600;">3</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; font-size: 0.85rem; margin-bottom: 0.2rem;">
+                  <span>Settlement Rate</span>
+                  <span style="color: var(--accent-emerald); font-weight: 600;">100%</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; font-size: 0.85rem; margin-bottom: 0.2rem;">
+                  <span>Avg Settlement Time</span>
+                  <span style="font-weight: 600;">1.2 days</span>
+                </div>
+                <div style="display: flex; justify-content: space-between;">
+                  <span>Failed Settlements</span>
+                  <span style="color: var(--accent-emerald); font-weight: 600;">0</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Quick Actions -->
+            <div style="background: var(--bg-surface); border: 1px solid var(--border-light); border-radius: var(--radius-xs); padding: 1.5rem;">
+              <h4 style="font-size: 1rem; margin-bottom: 1rem; color: var(--color-heading);">Quick Actions</h4>
+              <div style="display: flex; flex-direction: column; gap: 0.6rem;">
+                <button class="btn btn-outline btn-sm" style="width: 100%;" onclick="showToast('Batch capital call wizard opened. Demo mode.', 'info')">
+                  <span class="material-symbols-outlined" style="font-size: 1rem;">add</span> Issue Capital Call
+                </button>
+                <button class="btn btn-outline btn-sm" style="width: 100%;" onclick="showToast('Transaction reconciliation tool opened. Demo mode.', 'info')">
+                  <span class="material-symbols-outlined" style="font-size: 1rem;">sync</span> Reconcile Transactions
+                </button>
+                <button class="btn btn-outline btn-sm" style="width: 100%;" onclick="showToast('Custom date range report. Demo mode.', 'info')">
+                  <span class="material-symbols-outlined" style="font-size: 1rem;">date_range</span> Custom Date Range
+                </button>
+                <button class="btn btn-outline btn-sm" style="width: 100%;" onclick="document.getElementById('exportAdminTxBtn').click()">
+                  <span class="material-symbols-outlined" style="font-size: 1rem;">download</span> Export Full Ledger
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -547,22 +943,63 @@
           </div>
         </div>
 
-        <div style="background: var(--bg-surface); padding: 2.5rem; border: 1px solid var(--border-light); border-radius: var(--radius-xs); max-width: 800px;">
-          <form onsubmit="event.preventDefault(); showToast('Homepage promotional text updated successfully.', 'success');">
-            <div class="form-group" style="margin-bottom: 1.2rem;">
-              <label class="form-label">Homepage Hero Headline</label>
-              <input type="text" class="auth-input" value="Investing in Exceptional Prime Properties.">
+        <div class="dash-scroll-row">
+          <!-- Content Card 1: Homepage -->
+          <div class="dash-scroll-item" style="background: var(--bg-primary); border: 1px solid var(--border-light); border-radius: var(--radius-xs); padding: 1.6rem;">
+            <div style="display: flex; align-items: center; gap: 0.6rem; margin-bottom: 1rem;">
+              <span class="material-symbols-outlined" style="color: var(--accent-gold-dark);">web</span>
+              <h4 style="font-size: 1rem; color: var(--color-heading);">Homepage Content</h4>
             </div>
-            <div class="form-group" style="margin-bottom: 1.2rem;">
-              <label class="form-label">Hero Supporting Subtext</label>
-              <textarea class="auth-input" rows="3" style="height: auto; padding-left: 1rem;">STACKLY partners with private investors, sovereign family offices, and wealth institutions to acquire, manage, and optimize prime residential and commercial real estate portfolios across Tier-1 global capitals.</textarea>
+            <form onsubmit="event.preventDefault(); showToast('Homepage content updated.', 'success');">
+              <div class="form-group" style="margin-bottom: 0.8rem;">
+                <label class="form-label" style="font-size: 0.8rem;">Hero Headline</label>
+                <input type="text" class="auth-input" value="Investing in Exceptional Prime Properties." style="font-size: 0.85rem;">
+              </div>
+              <div class="form-group" style="margin-bottom: 0.8rem;">
+                <label class="form-label" style="font-size: 0.8rem;">Supporting Subtext</label>
+                <textarea class="auth-input" rows="2" style="height: auto; padding-left: 1rem; font-size: 0.85rem;">STACKLY partners with private investors to acquire prime real estate across Tier-1 global capitals.</textarea>
+              </div>
+              <button type="submit" class="btn btn-primary btn-sm" style="width: 100%;">Update</button>
+            </form>
+          </div>
+
+          <!-- Content Card 2: Marquee -->
+          <div class="dash-scroll-item" style="background: var(--bg-primary); border: 1px solid var(--border-light); border-radius: var(--radius-xs); padding: 1.6rem;">
+            <div style="display: flex; align-items: center; gap: 0.6rem; margin-bottom: 1rem;">
+              <span class="material-symbols-outlined" style="color: var(--accent-gold-dark);">tag</span>
+              <h4 style="font-size: 1rem; color: var(--color-heading);">Marquee Banner</h4>
             </div>
-            <div class="form-group" style="margin-bottom: 1.5rem;">
-              <label class="form-label">Quarterly Benchmark Notice</label>
-              <input type="text" class="auth-input" value="Targeting 8.7% Net Annual Yield with zero senior principal impairment.">
+            <form onsubmit="event.preventDefault(); showToast('Marquee banner updated.', 'success');">
+              <div class="form-group" style="margin-bottom: 0.8rem;">
+                <label class="form-label" style="font-size: 0.8rem;">Banner Text</label>
+                <input type="text" class="auth-input" value="Now Accepting Q4 Accredited Allocations" style="font-size: 0.85rem;">
+              </div>
+              <div class="form-group" style="margin-bottom: 0.8rem;">
+                <label class="form-label" style="font-size: 0.8rem;">CTA Button Label</label>
+                <input type="text" class="auth-input" value="View Opportunities" style="font-size: 0.85rem;">
+              </div>
+              <button type="submit" class="btn btn-primary btn-sm" style="width: 100%;">Update</button>
+            </form>
+          </div>
+
+          <!-- Content Card 3: Footer -->
+          <div class="dash-scroll-item" style="background: var(--bg-primary); border: 1px solid var(--border-light); border-radius: var(--radius-xs); padding: 1.6rem;">
+            <div style="display: flex; align-items: center; gap: 0.6rem; margin-bottom: 1rem;">
+              <span class="material-symbols-outlined" style="color: var(--accent-gold-dark);">footer</span>
+              <h4 style="font-size: 1rem; color: var(--color-heading);">Footer Content</h4>
             </div>
-            <button type="submit" class="btn btn-primary">Publish Content Updates</button>
-          </form>
+            <form onsubmit="event.preventDefault(); showToast('Footer content updated.', 'success');">
+              <div class="form-group" style="margin-bottom: 0.8rem;">
+                <label class="form-label" style="font-size: 0.8rem;">Footer Headline</label>
+                <input type="text" class="auth-input" value="STACKLY Property Investment" style="font-size: 0.85rem;">
+              </div>
+              <div class="form-group" style="margin-bottom: 0.8rem;">
+                <label class="form-label" style="font-size: 0.8rem;">Description</label>
+                <textarea class="auth-input" rows="2" style="height: auto; padding-left: 1rem; font-size: 0.85rem;">Prime real estate syndication for accredited investors.</textarea>
+              </div>
+              <button type="submit" class="btn btn-primary btn-sm" style="width: 100%;">Update</button>
+            </form>
+          </div>
         </div>
       </section>
 
@@ -577,30 +1014,96 @@
           </div>
         </div>
 
-        <div style="background: var(--bg-surface); padding: 2.2rem; border: 1px solid var(--border-light); border-radius: var(--radius-xs); margin-bottom: 2rem;">
-          <h3 style="font-size: 1.4rem; margin-bottom: 1rem;">Publish New Market Dossier</h3>
-          <form id="adminBlogForm" class="auth-form">
-            <div class="settings-form-grid">
-              <div class="form-group">
-                <label class="form-label">Article Title *</label>
-                <input type="text" id="blogPostTitle" class="auth-input" placeholder="e.g. Frankfurt Office Covenants in 2027" required>
+        <div class="dash-scroll-row">
+          <!-- Blog Card 1: Publish New -->
+          <div class="dash-scroll-item" style="background: var(--bg-primary); border: 1px solid var(--border-light); border-radius: var(--radius-xs); padding: 1.6rem;">
+            <div style="display: flex; align-items: center; gap: 0.6rem; margin-bottom: 1rem;">
+              <span class="material-symbols-outlined" style="color: var(--accent-gold-dark);">add_circle</span>
+              <h4 style="font-size: 1rem; color: var(--color-heading);">Publish New Dossier</h4>
+            </div>
+            <form id="adminBlogForm" class="auth-form" onsubmit="event.preventDefault(); showToast('Article scheduled for publication.', 'success');">
+              <div class="form-group" style="margin-bottom: 0.8rem;">
+                <label class="form-label" style="font-size: 0.8rem;">Article Title *</label>
+                <input type="text" id="blogPostTitle" class="auth-input" placeholder="e.g. Frankfurt Office Covenants in 2027" required style="font-size: 0.85rem;">
               </div>
-              <div class="form-group">
-                <label class="form-label">Sector Category *</label>
-                <select class="auth-select">
+              <div class="form-group" style="margin-bottom: 0.8rem;">
+                <label class="form-label" style="font-size: 0.8rem;">Category *</label>
+                <select class="auth-select" style="font-size: 0.85rem;">
                   <option>Prime Residential</option>
                   <option>Commercial Grade-A</option>
                   <option>Portfolio Strategy</option>
                   <option>Investor Education</option>
                 </select>
               </div>
+              <div class="form-group" style="margin-bottom: 0.8rem;">
+                <label class="form-label" style="font-size: 0.8rem;">Abstract</label>
+                <textarea class="auth-input" rows="2" style="height: auto; padding-left: 1rem; font-size: 0.85rem;" placeholder="Summarize the thesis..." required></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary btn-sm" style="width: 100%;">Schedule & Publish</button>
+            </form>
+          </div>
+
+          <!-- Blog Card 2: Scheduled -->
+          <div class="dash-scroll-item" style="background: var(--bg-primary); border: 1px solid var(--border-light); border-radius: var(--radius-xs); padding: 1.6rem;">
+            <div style="display: flex; align-items: center; gap: 0.6rem; margin-bottom: 1rem;">
+              <span class="material-symbols-outlined" style="color: var(--accent-emerald);">schedule</span>
+              <h4 style="font-size: 1rem; color: var(--color-heading);">Scheduled Articles</h4>
             </div>
-            <div class="form-group">
-              <label class="form-label">Executive Abstract *</label>
-              <textarea class="auth-input" rows="3" style="height: auto; padding-left: 1rem;" placeholder="Summarize the core underwriting thesis..." required></textarea>
+            <div style="display: flex; flex-direction: column; gap: 0.7rem;">
+              <div style="display: flex; justify-content: space-between; align-items: center; padding: 0.6rem; background: var(--bg-secondary); border-radius: var(--radius-xs);">
+                <div>
+                  <div style="font-size: 0.85rem; font-weight: 600;">Q4 Office Market Analysis</div>
+                  <div style="font-size: 0.72rem; color: var(--color-muted);">Scheduled Dec 15, 2026</div>
+                </div>
+                <span class="dash-status-pill status-active" style="font-size: 0.7rem;">Scheduled</span>
+              </div>
+              <div style="display: flex; justify-content: space-between; align-items: center; padding: 0.6rem; background: var(--bg-secondary); border-radius: var(--radius-xs);">
+                <div>
+                  <div style="font-size: 0.85rem; font-weight: 600;">Prime Residential Outlook 2027</div>
+                  <div style="font-size: 0.72rem; color: var(--color-muted);">Scheduled Jan 10, 2027</div>
+                </div>
+                <span class="dash-status-pill status-active" style="font-size: 0.7rem;">Scheduled</span>
+              </div>
+              <div style="display: flex; justify-content: space-between; align-items: center; padding: 0.6rem; background: var(--bg-secondary); border-radius: var(--radius-xs);">
+                <div>
+                  <div style="font-size: 0.85rem; font-weight: 600;">Investor Education: Yield Analysis</div>
+                  <div style="font-size: 0.72rem; color: var(--color-muted);">Scheduled Feb 5, 2027</div>
+                </div>
+                <span class="dash-status-pill status-active" style="font-size: 0.7rem;">Scheduled</span>
+              </div>
             </div>
-            <button type="submit" class="btn btn-primary" style="margin-top: 0.5rem;">Schedule & Publish Dossier</button>
-          </form>
+          </div>
+
+          <!-- Blog Card 3: Published -->
+          <div class="dash-scroll-item" style="background: var(--bg-primary); border: 1px solid var(--border-light); border-radius: var(--radius-xs); padding: 1.6rem;">
+            <div style="display: flex; align-items: center; gap: 0.6rem; margin-bottom: 1rem;">
+              <span class="material-symbols-outlined" style="color: var(--accent-emerald);">check_circle</span>
+              <h4 style="font-size: 1rem; color: var(--color-heading);">Recently Published</h4>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 0.7rem;">
+              <div style="display: flex; justify-content: space-between; align-items: center; padding: 0.6rem; background: var(--bg-secondary); border-radius: var(--radius-xs);">
+                <div>
+                  <div style="font-size: 0.85rem; font-weight: 600;">Frankfurt CBD Grade-A Review</div>
+                  <div style="font-size: 0.72rem; color: var(--color-muted);">Published Oct 12, 2026</div>
+                </div>
+                <span class="dash-status-pill status-verified" style="font-size: 0.7rem;">Published</span>
+              </div>
+              <div style="display: flex; justify-content: space-between; align-items: center; padding: 0.6rem; background: var(--bg-secondary); border-radius: var(--radius-xs);">
+                <div>
+                  <div style="font-size: 0.85rem; font-weight: 600;">London Residential Yield Trends</div>
+                  <div style="font-size: 0.72rem; color: var(--color-muted);">Published Sep 28, 2026</div>
+                </div>
+                <span class="dash-status-pill status-verified" style="font-size: 0.7rem;">Published</span>
+              </div>
+              <div style="display: flex; justify-content: space-between; align-items: center; padding: 0.6rem; background: var(--bg-secondary); border-radius: var(--radius-xs);">
+                <div>
+                  <div style="font-size: 0.85rem; font-weight: 600;">Q3 2026 Portfolio Performance</div>
+                  <div style="font-size: 0.72rem; color: var(--color-muted);">Published Aug 15, 2026</div>
+                </div>
+                <span class="dash-status-pill status-verified" style="font-size: 0.7rem;">Published</span>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -613,25 +1116,141 @@
             <h2>Incoming Client Inquiries</h2>
             <p>Confidential consultation requests dispatched through the contact page.</p>
           </div>
+          <div class="dash-header-actions">
+            <button class="btn btn-primary btn-sm" onclick="showToast('Compose response to selected enquiry. Demo mode.', 'info')">
+              <span class="material-symbols-outlined" style="font-size: 1.1rem;">reply</span> Respond to Selected
+            </button>
+          </div>
         </div>
 
-        <div class="dash-table-card">
-          <div class="dash-table-wrap">
-            <table class="dash-table">
-              <thead>
-                <tr>
-                  <th>Enquiry ID</th>
-                  <th>Client Name & Email</th>
-                  <th>Classification</th>
-                  <th>Message Preview</th>
-                  <th>Received Date</th>
-                  <th>Status Action</th>
-                </tr>
-              </thead>
-              <tbody id="enquiryTableBody">
-                <!-- Dynamically populated from demo_enquiries in localStorage -->
-              </tbody>
-            </table>
+        <!-- Enquiry Summary Cards -->
+        <div class="dash-scroll-row" style="margin-bottom: 2rem;">
+          <div class="dash-scroll-item" style="background: var(--bg-surface); border: 1px solid var(--border-light); border-radius: var(--radius-xs); padding: 1.4rem;">
+            <div class="dash-stat-icon-wrap" style="margin-bottom: 1rem;"><span class="material-symbols-outlined">contact_mail</span></div>
+            <div class="dash-stat-label">Total Enquiries</div>
+            <div class="dash-stat-val" style="font-size: 1.6rem;">3</div>
+            <div class="dash-stat-sub">All time</div>
+          </div>
+          <div class="dash-scroll-item" style="background: var(--bg-surface); border: 1px solid var(--border-light); border-radius: var(--radius-xs); padding: 1.4rem;">
+            <div class="dash-stat-icon-wrap" style="margin-bottom: 1rem;"><span class="material-symbols-outlined" style="color: var(--accent-rust, #E06840);">pending_actions</span></div>
+            <div class="dash-stat-label">New / Unread</div>
+            <div class="dash-stat-val" style="font-size: 1.6rem; color: var(--accent-rust, #E06840);">3</div>
+            <div class="dash-stat-sub">Requires review</div>
+          </div>
+          <div class="dash-scroll-item" style="background: var(--bg-surface); border: 1px solid var(--border-light); border-radius: var(--radius-xs); padding: 1.4rem;">
+            <div class="dash-stat-icon-wrap" style="margin-bottom: 1rem;"><span class="material-symbols-outlined">rate_review</span></div>
+            <div class="dash-stat-label">In Review</div>
+            <div class="dash-stat-val" style="font-size: 1.6rem;">0</div>
+            <div class="dash-stat-sub">Under consideration</div>
+          </div>
+          <div class="dash-scroll-item" style="background: var(--bg-surface); border: 1px solid var(--border-light); border-radius: var(--radius-xs); padding: 1.4rem;">
+            <div class="dash-stat-icon-wrap" style="margin-bottom: 1rem;"><span class="material-symbols-outlined" style="color: var(--accent-emerald);">check_circle</span></div>
+            <div class="dash-stat-label">Closed</div>
+            <div class="dash-stat-val" style="font-size: 1.6rem; color: var(--accent-emerald, #208850);">0</div>
+            <div class="dash-stat-sub">Resolved</div>
+          </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 300px; gap: 1.8rem; align-items: start;">
+          <!-- Main Table -->
+          <div class="dash-table-card">
+            <div class="dash-filter-bar">
+              <div class="dash-search-input-wrap">
+                <span class="material-symbols-outlined">search</span>
+                <input type="text" class="dash-search-input" placeholder="Search by enquiry ID, client name, or type...">
+              </div>
+              <div class="dash-filters-group">
+                <select class="dash-filter-select">
+                  <option value="All">All Statuses</option>
+                  <option value="New">New</option>
+                  <option value="In Review">In Review</option>
+                  <option value="Closed">Closed</option>
+                </select>
+                <button class="btn btn-outline btn-sm" onclick="showToast('Mark all as read. Demo mode.', 'info')">Mark All Read</button>
+              </div>
+            </div>
+            <div class="dash-table-wrap">
+              <table class="dash-table">
+                <thead>
+                  <tr>
+                    <th>Enquiry ID</th>
+                    <th>Client Name & Email</th>
+                    <th>Classification</th>
+                    <th>Message Preview</th>
+                    <th>Received Date</th>
+                    <th>Status Action</th>
+                  </tr>
+                </thead>
+                <tbody id="enquiryTableBody">
+                  <!-- Dynamically populated from demo_enquiries in localStorage -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Sidebar: Enquiry Pipeline & Quick Responses -->
+          <div>
+            <!-- Pipeline Overview -->
+            <div style="background: var(--bg-surface); border: 1px solid var(--border-light); border-radius: var(--radius-xs); padding: 1.5rem; margin-bottom: 1.5rem;">
+              <h4 style="font-size: 1rem; margin-bottom: 1rem; color: var(--color-heading);">Pipeline Overview</h4>
+              <div style="display: flex; flex-direction: column; gap: 0.9rem;">
+                <div>
+                  <div style="display: flex; justify-content: space-between; font-size: 0.85rem; margin-bottom: 0.2rem;">
+                    <span>New Enquiries</span>
+                    <span style="color: var(--accent-rust); font-weight: 600;">3</span>
+                  </div>
+                  <div style="height: 5px; background: var(--bg-secondary); border-radius: 3px; overflow: hidden;">
+                    <div style="width: 100%; height: 100%; background: var(--accent-rust); opacity: 0.15;"></div>
+                  </div>
+                </div>
+                <div>
+                  <div style="display: flex; justify-content: space-between; font-size: 0.85rem; margin-bottom: 0.2rem;">
+                    <span>Response Rate (24h)</span>
+                    <span style="color: var(--accent-emerald); font-weight: 600;">100%</span>
+                  </div>
+                  <div style="height: 5px; background: var(--bg-secondary); border-radius: 3px; overflow: hidden;">
+                    <div style="width: 100%; height: 100%; background: var(--accent-emerald); opacity: 0.2;"></div>
+                  </div>
+                </div>
+                <div>
+                  <div style="display: flex; justify-content: space-between; font-size: 0.85rem; margin-bottom: 0.2rem;">
+                    <span>Avg Response Time</span>
+                    <span style="font-weight: 600;">2.4 hours</span>
+                  </div>
+                  <div style="height: 5px; background: var(--bg-secondary); border-radius: 3px; overflow: hidden;">
+                    <div style="width: 48%; height: 100%; background: var(--color-heading); opacity: 0.15;"></div>
+                  </div>
+                </div>
+                <div>
+                  <div style="display: flex; justify-content: space-between; font-size: 0.85rem;">
+                    <span>Conversion to Investment</span>
+                    <span style="color: var(--accent-emerald); font-weight: 600;">64%</span>
+                  </div>
+                  <div style="height: 5px; background: var(--bg-secondary); border-radius: 3px; overflow: hidden;">
+                    <div style="width: 64%; height: 100%; background: var(--accent-emerald); opacity: 0.2;"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Quick Response Templates -->
+            <div style="background: var(--bg-surface); border: 1px solid var(--border-light); border-radius: var(--radius-xs); padding: 1.5rem;">
+              <h4 style="font-size: 1rem; margin-bottom: 1rem; color: var(--color-heading);">Quick Responses</h4>
+              <div style="display: flex; flex-direction: column; gap: 0.6rem;">
+                <button class="btn btn-outline btn-sm" style="width: 100%;" onclick="showToast('Sending acknowledgement email. Demo mode.', 'info')">
+                  <span class="material-symbols-outlined" style="font-size: 1rem;">send</span> Acknowledge Receipt
+                </button>
+                <button class="btn btn-outline btn-sm" style="width: 100%;" onclick="showToast('Sending prospectus link. Demo mode.', 'info')">
+                  <span class="material-symbols-outlined" style="font-size: 1rem;">description</span> Send Prospectus Link
+                </button>
+                <button class="btn btn-outline btn-sm" style="width: 100%;" onclick="showToast('Scheduling call back. Demo mode.', 'info')">
+                  <span class="material-symbols-outlined" style="font-size: 1rem;">calendar_today</span> Schedule Call Back
+                </button>
+                <button class="btn btn-outline btn-sm" style="width: 100%;" onclick="showToast('Adding to investor nurture sequence. Demo mode.', 'info')">
+                  <span class="material-symbols-outlined" style="font-size: 1rem;">campaign</span> Add to Nurture Sequence
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -645,25 +1264,137 @@
             <h2>Investor Concierge Support Tickets</h2>
             <p>Operational requests, tax certificate inquiries, and banking details.</p>
           </div>
+          <div class="dash-header-actions">
+            <button class="btn btn-primary btn-sm" onclick="showToast('Open ticket creation form. Demo mode.', 'info')">
+              <span class="material-symbols-outlined" style="font-size: 1.1rem;">add</span> Log New Ticket
+            </button>
+          </div>
         </div>
 
-        <div class="dash-table-card">
-          <div class="dash-table-wrap">
-            <table class="dash-table">
-              <thead>
-                <tr>
-                  <th>Ticket ID</th>
-                  <th>Investor</th>
-                  <th>Subject</th>
-                  <th>Priority</th>
-                  <th>Resolution Status</th>
-                  <th>Logged Date</th>
-                </tr>
-              </thead>
-              <tbody id="adminTicketTableBody">
-                <!-- Dynamically populated from localStorage -->
-              </tbody>
-            </table>
+        <!-- Ticket Summary Cards -->
+        <div class="dash-scroll-row" style="margin-bottom: 2rem;">
+          <div class="dash-scroll-item" style="background: var(--bg-surface); border: 1px solid var(--border-light); border-radius: var(--radius-xs); padding: 1.4rem;">
+            <div class="dash-stat-icon-wrap" style="margin-bottom: 1rem;"><span class="material-symbols-outlined">support_agent</span></div>
+            <div class="dash-stat-label">Total Tickets</div>
+            <div class="dash-stat-val" style="font-size: 1.6rem;">4</div>
+            <div class="dash-stat-sub">All time</div>
+          </div>
+          <div class="dash-scroll-item" style="background: var(--bg-surface); border: 1px solid var(--border-light); border-radius: var(--radius-xs); padding: 1.4rem;">
+            <div class="dash-stat-icon-wrap" style="margin-bottom: 1rem;"><span class="material-symbols-outlined" style="color: var(--accent-rust);">pending_actions</span></div>
+            <div class="dash-stat-label">Open / Action Required</div>
+            <div class="dash-stat-val" style="font-size: 1.6rem; color: var(--accent-rust, #E06840);">4</div>
+            <div class="dash-stat-sub">Awaiting response</div>
+          </div>
+          <div class="dash-scroll-item" style="background: var(--bg-surface); border: 1px solid var(--border-light); border-radius: var(--radius-xs); padding: 1.4rem;">
+            <div class="dash-stat-icon-wrap" style="margin-bottom: 1rem;"><span class="material-symbols-outlined" style="color: var(--accent-amber);">priority_high</span></div>
+            <div class="dash-stat-label">High Priority</div>
+            <div class="dash-stat-val" style="font-size: 1.6rem; color: var(--accent-amber, #E89200);">1</div>
+            <div class="dash-stat-sub">Urgent</div>
+          </div>
+          <div class="dash-scroll-item" style="background: var(--bg-surface); border: 1px solid var(--border-light); border-radius: var(--radius-xs); padding: 1.4rem;">
+            <div class="dash-stat-icon-wrap" style="margin-bottom: 1rem;"><span class="material-symbols-outlined" style="color: var(--accent-emerald);">check_circle</span></div>
+            <div class="dash-stat-label">Resolved</div>
+            <div class="dash-stat-val" style="font-size: 1.6rem; color: var(--accent-emerald, #208850);">0</div>
+            <div class="dash-stat-sub">Closed</div>
+          </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 300px; gap: 1.8rem; align-items: start;">
+          <!-- Main Table -->
+          <div class="dash-table-card">
+            <div class="dash-filter-bar">
+              <div class="dash-search-input-wrap">
+                <span class="material-symbols-outlined">search</span>
+                <input type="text" class="dash-search-input" placeholder="Search by ticket ID, investor, subject...">
+              </div>
+              <div class="dash-filters-group">
+                <select class="dash-filter-select">
+                  <option value="All">All Statuses</option>
+                  <option value="Open">Open</option>
+                  <option value="In Progress">In Progress</option>
+                  <option value="Resolved">Resolved</option>
+                </select>
+                <select class="dash-filter-select">
+                  <option value="All">All Priorities</option>
+                  <option value="Low">Low</option>
+                  <option value="Medium">Medium</option>
+                  <option value="High">High</option>
+                </select>
+              </div>
+            </div>
+            <div class="dash-table-wrap">
+              <table class="dash-table">
+                <thead>
+                  <tr>
+                    <th>Ticket ID</th>
+                    <th>Investor</th>
+                    <th>Subject</th>
+                    <th>Priority</th>
+                    <th>Resolution Status</th>
+                    <th>Logged Date</th>
+                  </tr>
+                </thead>
+                <tbody id="adminTicketTableBody">
+                  <!-- Dynamically populated from localStorage -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Sidebar: Ticket Category & Quick Actions -->
+          <div>
+            <!-- Category Breakdown -->
+            <div style="background: var(--bg-surface); border: 1px solid var(--border-light); border-radius: var(--radius-xs); padding: 1.5rem; margin-bottom: 1.5rem;">
+              <h4 style="font-size: 1rem; margin-bottom: 1rem; color: var(--color-heading);">Category Breakdown</h4>
+              <div style="display: flex; flex-direction: column; gap: 0.8rem;">
+                <div>
+                  <div style="display: flex; justify-content: space-between; font-size: 0.85rem; margin-bottom: 0.3rem;">
+                    <span>Account & Access</span>
+                    <span style="font-weight: 600;">1</span>
+                  </div>
+                  <div style="height: 6px; background: var(--bg-secondary); border-radius: 3px; overflow: hidden;">
+                    <div style="width: 25%; height: 100%; background: var(--color-heading); opacity: 0.15;"></div>
+                  </div>
+                </div>
+                <div>
+                  <div style="display: flex; justify-content: space-between; font-size: 0.85rem; margin-bottom: 0.3rem;">
+                    <span>Investment Documents</span>
+                    <span style="font-weight: 600;">2</span>
+                  </div>
+                  <div style="height: 6px; background: var(--bg-secondary); border-radius: 3px; overflow: hidden;">
+                    <div style="width: 50%; height: 100%; background: var(--accent-rust, #E06840); opacity: 0.4;"></div>
+                  </div>
+                </div>
+                <div>
+                  <div style="display: flex; justify-content: space-between; font-size: 0.85rem; margin-bottom: 0.3rem;">
+                    <span>Payouts & Banking</span>
+                    <span style="font-weight: 600;">1</span>
+                  </div>
+                  <div style="height: 6px; background: var(--bg-secondary); border-radius: 3px; overflow: hidden;">
+                    <div style="width: 25%; height: 100%; background: var(--accent-amber, #E89200); opacity: 0.4;"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Quick Actions -->
+            <div style="background: var(--bg-surface); border: 1px solid var(--border-light); border-radius: var(--radius-xs); padding: 1.5rem;">
+              <h4 style="font-size: 1rem; margin-bottom: 1rem; color: var(--color-heading);">Ticket Actions</h4>
+              <div style="display: flex; flex-direction: column; gap: 0.6rem;">
+                <button class="btn btn-outline btn-sm" style="width: 100%;" onclick="showToast('Assigning to operator. Demo mode.', 'info')">
+                  <span class="material-symbols-outlined" style="font-size: 1rem;">person</span> Assign to Operator
+                </button>
+                <button class="btn btn-outline btn-sm" style="width: 100%;" onclick="showToast('Creating internal note. Demo mode.', 'info')">
+                  <span class="material-symbols-outlined" style="font-size: 1rem;">notes</span> Add Internal Note
+                </button>
+                <button class="btn btn-outline btn-sm" style="width: 100%;" onclick="showToast('Marking resolved. Demo mode.', 'info')">
+                  <span class="material-symbols-outlined" style="font-size: 1rem;">check_circle</span> Mark Resolved
+                </button>
+                <button class="btn btn-outline btn-sm" style="width: 100%;" onclick="showToast('Closing ticket. Demo mode.', 'info')">
+                  <span class="material-symbols-outlined" style="font-size: 1rem;">close</span> Close Ticket
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -684,21 +1415,21 @@
           </div>
         </div>
 
-        <div class="dash-stat-grid">
-          <div class="dash-stat-card">
-            <div class="dash-stat-label">Average Deal Internal Rate of Return (IRR)</div>
-            <div class="dash-stat-val" style="color: var(--accent-emerald, #208850);">12.8%</div>
+        <div class="dash-scroll-row">
+          <div class="dash-scroll-item" style="background: var(--bg-surface); border: 1px solid var(--border-light); border-radius: var(--radius-xs); padding: 1.6rem;">
+            <div class="dash-stat-label">Average Deal IRR</div>
+            <div class="dash-stat-val" style="font-size: 1.8rem; color: var(--accent-emerald, #208850);">12.8%</div>
             <div class="dash-stat-sub">Historical weighted return</div>
           </div>
-          <div class="dash-stat-card">
-            <div class="dash-stat-label">Average Senior Leverage (LTV)</div>
-            <div class="dash-stat-val">46.5%</div>
-            <div class="dash-stat-sub">Strictly below 55% mandate</div>
+          <div class="dash-scroll-item" style="background: var(--bg-surface); border: 1px solid var(--border-light); border-radius: var(--radius-xs); padding: 1.6rem;">
+            <div class="dash-stat-label">Average Senior LTV</div>
+            <div class="dash-stat-val" style="font-size: 1.8rem;">46.5%</div>
+            <div class="dash-stat-sub">Below 55% mandate</div>
           </div>
-          <div class="dash-stat-card">
+          <div class="dash-scroll-item" style="background: var(--bg-surface); border: 1px solid var(--border-light); border-radius: var(--radius-xs); padding: 1.6rem;">
             <div class="dash-stat-label">Repeat Allocation Rate</div>
-            <div class="dash-stat-val" style="color: var(--accent-emerald, #208850);">84.2%</div>
-            <div class="dash-stat-sub">Existing partners co-investing</div>
+            <div class="dash-stat-val" style="font-size: 1.8rem; color: var(--accent-emerald, #208850);">84.2%</div>
+            <div class="dash-stat-sub">Existing partners reinvesting</div>
           </div>
         </div>
       </section>
@@ -714,21 +1445,37 @@
           </div>
         </div>
 
-        <div style="background: var(--bg-surface); border: 1px solid var(--border-light); border-radius: var(--radius-xs); overflow: hidden;">
-          <div class="notification-item unread">
-            <div class="notif-dot"></div>
-            <div>
-              <div style="font-weight: 600; color: var(--color-heading); margin-bottom: 0.2rem;">Escrow Settlement Completed for Mayfair Syndicate</div>
-              <div style="font-size: 0.88rem; color: var(--color-body); margin-bottom: 0.3rem;">£12,500,000 senior escrow account closed and registered with UK Land Registry.</div>
-              <div style="font-size: 0.78rem; color: var(--color-muted);">Today at 11:00 AM</div>
+        <div class="dash-scroll-row">
+          <div class="dash-scroll-item" style="background: var(--bg-surface); border: 1px solid var(--border-light); border-radius: var(--radius-xs); padding: 1.4rem;">
+            <div class="notification-item unread" style="padding: 0;">
+              <div class="notif-dot"></div>
+              <div>
+                <div style="font-weight: 600; color: var(--color-heading); margin-bottom: 0.2rem;">Escrow Settlement Completed</div>
+                <div style="font-size: 0.85rem; color: var(--color-body); margin-bottom: 0.3rem;">£12.5M senior escrow account closed and registered with UK Land Registry.</div>
+                <div style="font-size: 0.75rem; color: var(--color-muted);">Today at 11:00 AM</div>
+              </div>
             </div>
           </div>
-          <div class="notification-item unread">
-            <div class="notif-dot"></div>
-            <div>
-              <div style="font-weight: 600; color: var(--color-heading); margin-bottom: 0.2rem;">New High-Net-Worth KYC Submission</div>
-              <div style="font-size: 0.88rem; color: var(--color-body); margin-bottom: 0.3rem;">Dr. Vivienne Rothschild submitted verified Swiss passport dossier.</div>
-              <div style="font-size: 0.78rem; color: var(--color-muted);">Yesterday at 02:40 PM</div>
+
+          <div class="dash-scroll-item" style="background: var(--bg-surface); border: 1px solid var(--border-light); border-radius: var(--radius-xs); padding: 1.4rem;">
+            <div class="notification-item unread" style="padding: 0;">
+              <div class="notif-dot"></div>
+              <div>
+                <div style="font-weight: 600; color: var(--color-heading); margin-bottom: 0.2rem;">New High-Net-Worth KYC Submission</div>
+                <div style="font-size: 0.85rem; color: var(--color-body); margin-bottom: 0.3rem;">Dr. Vivienne Rothschild submitted verified Swiss passport dossier.</div>
+                <div style="font-size: 0.75rem; color: var(--color-muted);">Yesterday at 02:40 PM</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="dash-scroll-item" style="background: var(--bg-surface); border: 1px solid var(--border-light); border-radius: var(--radius-xs); padding: 1.4rem;">
+            <div class="notification-item" style="padding: 0;">
+              <div class="notif-dot" style="background-color: var(--accent-emerald);"></div>
+              <div>
+                <div style="font-weight: 600; color: var(--color-heading); margin-bottom: 0.2rem;">Platform Security Audit Passed</div>
+                <div style="font-size: 0.85rem; color: var(--color-body); margin-bottom: 0.3rem;">Annual ISO 27001 compliance audit completed with zero findings.</div>
+                <div style="font-size: 0.75rem; color: var(--color-muted);">3 days ago</div>
+              </div>
             </div>
           </div>
         </div>
@@ -745,37 +1492,92 @@
           </div>
         </div>
 
-        <div style="background: var(--bg-surface); padding: 2.5rem; border: 1px solid var(--border-light); border-radius: var(--radius-xs); max-width: 800px;">
-          <form id="adminSettingsForm" class="auth-form">
-            <div class="settings-form-grid">
-              <div class="form-group">
-                <label class="form-label">Platform Operating Currency</label>
-                <select class="auth-select">
+        <div class="dash-scroll-row">
+          <!-- Settings Card 1: Finance -->
+          <div class="dash-scroll-item" style="background: var(--bg-primary); border: 1px solid var(--border-light); border-radius: var(--radius-xs); padding: 1.6rem;">
+            <div style="display: flex; align-items: center; gap: 0.6rem; margin-bottom: 1rem;">
+              <span class="material-symbols-outlined" style="color: var(--accent-gold-dark);">account_balance</span>
+              <h4 style="font-size: 1rem; color: var(--color-heading);">Financial Settings</h4>
+            </div>
+            <form id="adminSettingsForm" class="auth-form" onsubmit="event.preventDefault(); showToast('Financial settings saved.', 'success');">
+              <div class="form-group" style="margin-bottom: 0.8rem;">
+                <label class="form-label" style="font-size: 0.8rem;">Operating Currency</label>
+                <select class="auth-select" style="font-size: 0.85rem;">
                   <option selected>USD ($)</option>
                   <option>EUR (€)</option>
                   <option>GBP (£)</option>
                   <option>CHF (CHF)</option>
                 </select>
               </div>
-              <div class="form-group">
-                <label class="form-label">Maximum Senior Loan-To-Value (LTV)</label>
-                <input type="text" class="auth-input" value="55%">
+              <div class="form-group" style="margin-bottom: 0.8rem;">
+                <label class="form-label" style="font-size: 0.8rem;">Max Senior LTV</label>
+                <input type="text" class="auth-input" value="55%" style="font-size: 0.85rem;">
               </div>
-              <div class="form-group">
-                <label class="form-label">Default Quarterly Distribution Cycle</label>
-                <select class="auth-select">
+              <div class="form-group" style="margin-bottom: 0.8rem;">
+                <label class="form-label" style="font-size: 0.8rem;">Distribution Cycle</label>
+                <select class="auth-select" style="font-size: 0.85rem;">
                   <option selected>Quarterly (Jan/Apr/Jul/Oct)</option>
                   <option>Monthly</option>
                   <option>Semi-Annual</option>
                 </select>
               </div>
-              <div class="form-group">
-                <label class="form-label">Escrow Custodian Bank</label>
-                <input type="text" class="auth-input" value="Barclays Corporate & UBS AG">
-              </div>
+              <button type="submit" class="btn btn-primary btn-sm" style="width: 100%;">Save Finance</button>
+            </form>
+          </div>
+
+          <!-- Settings Card 2: Escrow -->
+          <div class="dash-scroll-item" style="background: var(--bg-primary); border: 1px solid var(--border-light); border-radius: var(--radius-xs); padding: 1.6rem;">
+            <div style="display: flex; align-items: center; gap: 0.6rem; margin-bottom: 1rem;">
+              <span class="material-symbols-outlined" style="color: var(--accent-gold-dark);">security</span>
+              <h4 style="font-size: 1rem; color: var(--color-heading);">Escrow & Custody</h4>
             </div>
-            <button type="submit" class="btn btn-primary" style="margin-top: 1.5rem;">Save Platform Configurations</button>
-          </form>
+            <form onsubmit="event.preventDefault(); showToast('Escrow settings saved.', 'success');">
+              <div class="form-group" style="margin-bottom: 0.8rem;">
+                <label class="form-label" style="font-size: 0.8rem;">Escrow Custodian Bank</label>
+                <input type="text" class="auth-input" value="Barclays Corporate & UBS AG" style="font-size: 0.85rem;">
+              </div>
+              <div class="form-group" style="margin-bottom: 0.8rem;">
+                <label class="form-label" style="font-size: 0.8rem;">Escrow Account Number</label>
+                <input type="text" class="auth-input" value="ES-987654321" style="font-size: 0.85rem;">
+              </div>
+              <div class="form-group" style="margin-bottom: 0.8rem;">
+                <label class="form-label" style="font-size: 0.8rem;">Compliance Officer</label>
+                <input type="text" class="auth-input" value="Julian Sterling" style="font-size: 0.85rem;">
+              </div>
+              <button type="submit" class="btn btn-primary btn-sm" style="width: 100%;">Save Escrow</button>
+            </form>
+          </div>
+
+          <!-- Settings Card 3: Compliance -->
+          <div class="dash-scroll-item" style="background: var(--bg-primary); border: 1px solid var(--border-light); border-radius: var(--radius-xs); padding: 1.6rem;">
+            <div style="display: flex; align-items: center; gap: 0.6rem; margin-bottom: 1rem;">
+              <span class="material-symbols-outlined" style="color: var(--accent-gold-dark);">verified</span>
+              <h4 style="font-size: 1rem; color: var(--color-heading);">Compliance & Governance</h4>
+            </div>
+            <form onsubmit="event.preventDefault(); showToast('Compliance settings saved.', 'success');">
+              <div class="form-group" style="margin-bottom: 0.8rem;">
+                <label class="form-label" style="font-size: 0.8rem;">Jurisdiction</label>
+                <select class="auth-select" style="font-size: 0.85rem;">
+                  <option>United Kingdom (FCA Regulated)</option>
+                  <option>Germany (BaFin)</option>
+                  <option>Switzerland (FINMA)</option>
+                </select>
+              </div>
+              <div class="form-group" style="margin-bottom: 0.8rem;">
+                <label class="form-label" style="font-size: 0.8rem;">Accreditation Standard</label>
+                <select class="auth-select" style="font-size: 0.85rem;">
+                  <option selected>SEC Rule 506(c)</option>
+                  <option>EU Prospecus Regulation</option>
+                  <option>UK FSMA Compliant</option>
+                </select>
+              </div>
+              <div class="form-group" style="margin-bottom: 0.8rem;">
+                <label class="form-label" style="font-size: 0.8rem;">Audit Firm</label>
+                <input type="text" class="auth-input" value="PwC UK Limited" style="font-size: 0.85rem;">
+              </div>
+              <button type="submit" class="btn btn-primary btn-sm" style="width: 100%;">Save Compliance</button>
+            </form>
+          </div>
         </div>
       </section>
 

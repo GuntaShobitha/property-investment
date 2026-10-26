@@ -112,6 +112,29 @@ document.addEventListener('DOMContentLoaded', () => {
   let investments = getStoredData('user_investments', defaultInvestments);
   let transactions = getStoredData('user_transactions', defaultTransactions);
 
+  // --- Dynamic User Profile from Session ---
+  function loadUserProfile() {
+    try {
+      const session = JSON.parse(localStorage.getItem('stackly_current_session'));
+      if (session) {
+        const nameEl = document.getElementById('dashUserName');
+        const emailEl = document.getElementById('dashUserEmail');
+        const roleEl = document.getElementById('dashUserRole');
+        const settingsNameEl = document.getElementById('settingsUserName');
+        const settingsEmailEl = document.getElementById('settingsUserEmail');
+        if (nameEl) nameEl.textContent = session.name || 'Investor';
+        if (emailEl) emailEl.textContent = session.email || '—';
+        if (roleEl) {
+          roleEl.textContent = session.role === 'Admin' ? 'Executive' : 'Investor';
+        }
+        // Populate settings form with session data
+        if (settingsNameEl) settingsNameEl.value = session.name || '';
+        if (settingsEmailEl) settingsEmailEl.value = session.email || '';
+      }
+    } catch (e) { /* ignore */ }
+  }
+  loadUserProfile();
+
   // 1. Navigation / View Switcher (12 Views)
   const navButtons = document.querySelectorAll('.dash-nav-btn');
   const viewSections = document.querySelectorAll('.dash-view-section');

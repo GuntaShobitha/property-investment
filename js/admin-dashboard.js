@@ -99,6 +99,24 @@ document.addEventListener('DOMContentLoaded', () => {
 
   let adminTickets = getStoredData('admin_tickets', defaultTickets);
 
+  // --- Dynamic Admin Profile from Session ---
+  function loadAdminProfile() {
+    try {
+      const session = JSON.parse(localStorage.getItem('stackly_current_session'));
+      if (session) {
+        const nameEl = document.getElementById('adminDashUserName');
+        const emailEl = document.getElementById('adminDashUserEmail');
+        const roleEl = document.getElementById('adminDashUserRole');
+        if (nameEl) nameEl.textContent = session.name || 'Administrator';
+        if (emailEl) emailEl.textContent = session.email || '—';
+        if (roleEl) {
+          roleEl.textContent = session.role === 'Admin' ? 'Executive' : 'Administrator';
+        }
+      }
+    } catch (e) { /* ignore */ }
+  }
+  loadAdminProfile();
+
   // 1. Navigation / View Switcher (13 Views)
   const navButtons = document.querySelectorAll('.dash-nav-btn');
   const viewSections = document.querySelectorAll('.dash-view-section');
