@@ -150,7 +150,66 @@ function setStoredData(key, data) {
   }
 }
 
+// Global Preloader Controller
+const Preloader = {
+  element: null,
+  isDismissed: false,
+
+  init() {
+    this.element = document.getElementById('site-preloader');
+    if (!this.element) return;
+
+    // Minimum display time (in ms) to provide a smooth, premium feel without visual flicker
+    const minDisplayTime = 400;
+    const startTime = performance.now();
+
+    const dismiss = () => {
+      if (this.isDismissed) return;
+      this.isDismissed = true;
+
+      const elapsed = performance.now() - startTime;
+      const delay = Math.max(0, minDisplayTime - elapsed);
+
+      setTimeout(() => {
+        if (!this.element) return;
+        this.element.classList.add('preloader-hidden');
+        document.body.classList.remove('preloader-active');
+
+        // Complete DOM hide after CSS transition
+        setTimeout(() => {
+          if (this.element) {
+            this.element.style.display = 'none';
+          }
+        }, 700);
+      }, delay);
+    };
+
+    // If window is already loaded
+    if (document.readyState === 'complete') {
+      dismiss();
+    } else {
+      window.addEventListener('load', dismiss);
+    }
+
+    // Safety fallback: ensure dismissal within 3 seconds max under any network latency
+    setTimeout(dismiss, 3000);
+
+    // Support for browser Back/Forward Cache (BFCache)
+    window.addEventListener('pageshow', (event) => {
+      if (event.persisted && this.element) {
+        this.element.classList.add('preloader-hidden');
+        document.body.classList.remove('preloader-active');
+        this.element.style.display = 'none';
+      }
+    });
+  }
+};
+
+// Run Preloader immediately
+Preloader.init();
+
 // Initialize components on DOMContentLoaded
 document.addEventListener('DOMContentLoaded', () => {
+  Preloader.init();
   Modal.initGlobalListeners();
 });

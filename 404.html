@@ -20,10 +20,37 @@
   <link rel="stylesheet" href="./css/animations.css">
   <link rel="stylesheet" href="./css/responsive.css">
 </head>
-<body style="min-height: 100vh; display: flex; flex-direction: column; justify-content: space-between; background-color: var(--bg-primary); position: relative; overflow-x: hidden;">
+<body class="preloader-active" style="min-height: 100vh; display: flex; flex-direction: column; justify-content: space-between; background-color: var(--bg-primary); position: relative; overflow-x: hidden;">
+
+  <!-- ==========================================================================
+       SITE PRELOADER
+       ========================================================================== -->
+  <div id="site-preloader" class="site-preloader" aria-label="Loading page" role="status">
+    <div class="preloader-inner">
+      <div class="preloader-brand">
+        <img src="./images/logo-dark.webp" alt="STACKLY" class="preloader-logo" />
+        <span class="preloader-tagline">Premier Luxury Property Investment</span>
+      </div>
+      <div class="preloader-loader-box">
+        <div class="preloader-spinner">
+          <div class="spinner-ring"></div>
+          <div class="spinner-core"></div>
+        </div>
+        <div class="preloader-progress-track">
+          <div class="preloader-progress-bar"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <noscript>
+    <style>
+      #site-preloader { display: none !important; }
+      body.preloader-active { overflow: auto !important; }
+    </style>
+  </noscript>
 
   <!-- Header -->
-  <header class="header-site">
+  <!-- <header class="header-site">
     <div class="container header-inner">
       <a href="index.html" class="nav-logo">
         <img src="./images/logo-dark.webp" alt="STACKLY Logo" class="nav-logo-img" />
@@ -39,7 +66,7 @@
         <a href="login.html" class="nav-login-btn">Investor Portal</a>
       </div>
     </div>
-  </header>
+  </header> -->
 
   <!-- 404 Visual Content Hero -->
   <main style="flex-grow: 1; display: flex; align-items: center; justify-content: center; padding: 10rem 1.5rem 5rem; text-align: center; position: relative;">

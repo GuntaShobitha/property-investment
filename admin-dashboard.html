@@ -20,7 +20,34 @@
   <link rel="stylesheet" href="./css/dashboard.css">
   <link rel="stylesheet" href="./css/responsive.css">
 </head>
-<body class="dashboard-layout">
+<body class="dashboard-layout preloader-active">
+
+  <!-- ==========================================================================
+       SITE PRELOADER
+       ========================================================================== -->
+  <div id="site-preloader" class="site-preloader" aria-label="Loading page" role="status">
+    <div class="preloader-inner">
+      <div class="preloader-brand">
+        <img src="./images/logo-dark.webp" alt="STACKLY" class="preloader-logo" />
+        <span class="preloader-tagline">Premier Luxury Property Investment</span>
+      </div>
+      <div class="preloader-loader-box">
+        <div class="preloader-spinner">
+          <div class="spinner-ring"></div>
+          <div class="spinner-core"></div>
+        </div>
+        <div class="preloader-progress-track">
+          <div class="preloader-progress-bar"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <noscript>
+    <style>
+      #site-preloader { display: none !important; }
+      body.preloader-active { overflow: auto !important; }
+    </style>
+  </noscript>
 
   <!-- ==========================================================================
        PERSISTENT ADMIN SIDEBAR (13 NAVIGATION ITEMS)
