@@ -109,7 +109,7 @@
         <div style="max-width: 780px;">
           <span class="eyebrow eyebrow-light">Asset Solutions & Advisory</span>
           <h1 style="color: #FFFFFF; margin-bottom: 1.5rem; font-size: clamp(2.8rem, 5vw, 4.6rem);">Institutional Syndication Across Prime Asset Classes.</h1>
-          <p class="text-light lead-text">
+          <p class="text-light lead-text" >
             STACKLY designs tailored real estate co-investment strategies that balance capital preservation, steady quarterly cashflow yields, and long-term tax-efficient capital growth.
           </p>
         </div>
@@ -125,7 +125,7 @@
           <div class="split-content reveal-init">
             <span class="eyebrow">Strategic Guidance</span>
             <h2>Comprehensive Wealth & Real Estate Structuring</h2>
-            <p class="lead-text" style="margin-bottom: 1.2rem;">
+            <p class="lead-text" style="margin-bottom: 1.2rem; color: #000 !important;">
               Our investment advisory practice works directly with family offices, private wealth advisors, and high-net-worth individuals to construct bespoke property allocations.
             </p>
             <p style="margin-bottom: 1.8rem;">
@@ -172,7 +172,7 @@
           <div class="split-content reveal-init">
             <span class="eyebrow">Prime Residential</span>
             <h2>Tier-1 Capital Residential Enclaves</h2>
-            <p class="lead-text" style="margin-bottom: 1.2rem;">
+            <p class="lead-text" style="margin-bottom: 1.2rem; color: #000 !important;">
               We focus our residential syndication efforts exclusively within prime central locations: London (Mayfair, Kensington, Belgravia), Paris (8th and 16th Arrondissements), and Geneva.
             </p>
             <p style="margin-bottom: 1.8rem;">
@@ -205,7 +205,7 @@
           <div class="split-content reveal-init">
             <span class="eyebrow">Grade-A Corporate</span>
             <h2>Commercial Real Estate & Institutional Leases</h2>
-            <p class="lead-text" style="margin-bottom: 1.2rem;">
+            <p class="lead-text" style="margin-bottom: 1.2rem; color: #000 !important;">
               Our commercial acquisitions prioritize prime central business district (CBD) offices and corporate headquarters in Frankfurt, Zurich, and Amsterdam.
             </p>
             <p style="margin-bottom: 1.8rem;">
@@ -250,10 +250,10 @@
           <div class="split-content reveal-init">
             <span class="eyebrow">Hospitality & Yield</span>
             <h2>Luxury Rental Income Portfolios</h2>
-            <p class="lead-text" style="margin-bottom: 1.2rem;">
+            <p class="lead-text" style="margin-bottom: 1.2rem; color: #000 !important;">
               For investors prioritizing immediate cashflow generation, STACKLY aggregates prime vacation estates and boutique serviced hospitality properties across the French Riviera, Tuscany, and the Swiss Alps.
             </p>
-            <p style="margin-bottom: 1.8rem;">
+            <p style="margin-bottom: 1.8rem; ">
               Every estate is operated by premier hospitality management brands with proven seasonal occupancy records, delivering attractive double-digit target cash yields directly to syndicate co-investors.
             </p>
             <div style="background: var(--bg-surface); padding: 1.6rem; border: 1px solid var(--border-light); border-radius: var(--radius-xs); margin-bottom: 2rem;">
@@ -275,7 +275,7 @@
           <div class="split-content reveal-init">
             <span class="eyebrow">Proprietary Intelligence</span>
             <h2>Algorithmic Market Research & Demographic Analysis</h2>
-            <p class="lead-text" style="margin-bottom: 1.2rem;">
+            <p class="lead-text" style="margin-bottom: 1.2rem; color: #000 !important;">
               Data-backed conviction is the bedrock of our underwriting. We combine public municipal records with private transaction feeds, foot-traffic telemetry, and spatial demographic shifts.
             </p>
             <p style="margin-bottom: 1.8rem;">
@@ -311,7 +311,7 @@
           <div class="split-content reveal-init">
             <span class="eyebrow">Capital Preservation</span>
             <h2>Disciplined Risk Management & Downside Mitigation</h2>
-            <p class="lead-text" style="margin-bottom: 1.2rem;">
+            <p class="lead-text" style="margin-bottom: 1.2rem; color: #000 !important;">
               We believe superior risk-adjusted returns stem from what an investor chooses not to buy. We reject 98% of off-market real estate submissions due to covenant flaws, over-leverage, or speculative exit assumptions.
             </p>
             <div style="display: flex; flex-direction: column; gap: 1rem; margin-top: 1.5rem;">
@@ -465,12 +465,22 @@
         <div class="footer-col footer-newsletter">
           <h4>Private Briefings</h4>
           <p>Receive confidential quarterly real estate market reports and off-market placement notifications.</p>
-          <form class="newsletter-form">
-            <input type="email" class="newsletter-input" placeholder="Your executive email..." required aria-label="Email Address">
-            <button type="submit" class="newsletter-btn" aria-label="Subscribe">
-              <span class="material-symbols-outlined">arrow_forward</span>
-            </button>
-          </form>
+        <form class="newsletter-form" id="newsletterForm" novalidate>
+  <input
+    type="email"
+    class="newsletter-input"
+    id="newsletterEmail"
+    placeholder="Your executive email..."
+    aria-label="Email Address"
+  />
+
+  <button type="submit" class="newsletter-btn" aria-label="Subscribe">
+    <span class="material-symbols-outlined">arrow_forward</span>
+  </button>
+
+  
+</form>
+<span class="newsletter-error" id="newsletterError"></span>
         </div>
       </div>
 

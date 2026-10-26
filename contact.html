@@ -24,6 +24,24 @@
   <link rel="stylesheet" href="./css/animations.css">
   <link rel="stylesheet" href="./css/responsive.css">
 </head>
+<style>
+  .field-error {
+  display: block;
+  color: #e53935;
+  font-size: 12px;
+  margin-top: 6px;
+  line-height: 1.4;
+}
+
+.auth-input.is-invalid,
+.auth-select.is-invalid {
+  border-color: #e53935 !important;
+}
+
+.field-error:empty {
+  display: none;
+}
+</style>
 <body class="preloader-active">
 
   <!-- ==========================================================================
@@ -128,7 +146,7 @@
         <div class="section-header text-center reveal-init" style="max-width: 800px; margin: 0 auto;">
           <span class="eyebrow eyebrow-center">Direct Partner Access</span>
           <h2>Tailored Private Client Service</h2>
-          <p class="lead-text text-muted">
+          <p class="lead-text text-muted" style="color: #000 !important;">
             Whether inquiring about active residential syndications, commercial co-ownership tranches, or custom institutional mandates, our acquisitions committee will respond within one business day.
           </p>
         </div>
@@ -448,12 +466,22 @@ Salem, Tamil Nadu 636008
         <div class="footer-col footer-newsletter">
           <h4>Private Briefings</h4>
           <p>Receive confidential quarterly real estate market reports and off-market placement notifications.</p>
-          <form class="newsletter-form">
-            <input type="email" class="newsletter-input" placeholder="Your executive email..." required aria-label="Email Address">
-            <button type="submit" class="newsletter-btn" aria-label="Subscribe">
-              <span class="material-symbols-outlined">arrow_forward</span>
-            </button>
-          </form>
+           <form class="newsletter-form" id="newsletterForm" novalidate>
+  <input
+    type="email"
+    class="newsletter-input"
+    id="newsletterEmail"
+    placeholder="Your executive email..."
+    aria-label="Email Address"
+  />
+
+  <button type="submit" class="newsletter-btn" aria-label="Subscribe">
+    <span class="material-symbols-outlined">arrow_forward</span>
+  </button>
+
+  
+</form>
+<span class="newsletter-error" id="newsletterError"></span>
         </div>
       </div>
 

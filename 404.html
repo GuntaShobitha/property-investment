@@ -20,7 +20,7 @@
   <link rel="stylesheet" href="./css/animations.css">
   <link rel="stylesheet" href="./css/responsive.css">
 </head>
-<body class="preloader-active" style="min-height: 100vh; display: flex; flex-direction: column; justify-content: space-between; background-color: var(--bg-primary); position: relative; overflow-x: hidden;">
+<body class="preloader-active" style=" display: flex; flex-direction: column; justify-content: space-between; background-color: var(--bg-primary); position: relative; overflow: hidden;">
 
   <!-- ==========================================================================
        SITE PRELOADER
@@ -45,7 +45,7 @@
   <noscript>
     <style>
       #site-preloader { display: none !important; }
-      body.preloader-active { overflow: auto !important; }
+      body.preloader-active { overflow: hidden !important; }
     </style>
   </noscript>
 
@@ -69,7 +69,7 @@
   </header> -->
 
   <!-- 404 Visual Content Hero -->
-  <main style="flex-grow: 1; display: flex; align-items: center; justify-content: center; padding: 10rem 1.5rem 5rem; text-align: center; position: relative;">
+  <main style="flex-grow: 1; display: flex; align-items: center; justify-content: center; text-align: center; position: relative;">
     <div class="container" style="max-width: 780px; position: relative; z-index: 2;">
       
       <!-- Architectural Grid Backdrop -->
@@ -78,16 +78,16 @@
       <!-- Animated 404 Canvas Element -->
       <div class="anim-404-canvas">
         <div class="huge-404-text">404</div>
-        <div style="display: flex; justify-content: center; align-items: center; gap: 0.6rem; color: var(--accent-gold-dark); text-transform: uppercase; letter-spacing: 0.2em; font-size: 0.85rem; font-weight: 700; margin-top: -1rem;">
+        <!-- <div style="display: flex; justify-content: center; align-items: center; gap: 0.6rem; color: var(--accent-gold-dark); text-transform: uppercase; letter-spacing: 0.2em; font-size: 0.85rem; font-weight: 700; margin-top: -1rem;">
           <span class="material-symbols-outlined" style="font-size: 1.1rem;">architecture</span>
           Unmapped Coordinate
-        </div>
+        </div> -->
       </div>
 
       <h1 style="font-size: clamp(2rem, 3.8vw, 2.8rem); margin-bottom: 1rem; color: var(--color-heading);">
         Asset Record Not Located
       </h1>
-      <p class="lead-text text-muted" style="max-width: 580px; margin: 0 auto 2.5rem; line-height: 1.7;">
+      <p class="lead-text text-muted" style=" color: #000 !important; max-width: 580px; margin: 0 auto 2.5rem; line-height: 1.7;">
         The requested parcel, syndicate prospectus, or external link does not exist within the active STACKLY registry. It may have retired from circulation or relocated.
       </p>
 
@@ -104,25 +104,12 @@
       </div>
 
       <!-- Additional Navigation Links -->
-      <div style="margin-top: 3.5rem; border-top: 1px solid var(--border-medium); padding-top: 2rem; display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; font-size: 0.9rem;">
-        <a href="services.html" class="btn-link">View Asset Classes</a>
-        <a href="blog.html" class="btn-link">Research Journal</a>
-        <a href="contact.html" class="btn-link">Contact Advisory</a>
-      </div>
+      
     </div>
   </main>
 
   <!-- Simplified Luxury Footer -->
-  <footer style="background-color: var(--bg-dark); color: var(--color-muted-light); padding: 2rem 0; text-align: center; font-size: 0.84rem; border-top: 1px solid var(--border-dark);">
-    <div class="container" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
-      <div>&copy; 2026 STACKLY Property Investment Ltd. All rights reserved.</div>
-      <div style="display: flex; gap: 1.5rem;">
-        <a href="index.html" style="color: var(--color-body-light);">Home</a>
-        <a href="login.html" style="color: var(--color-body-light);">Investor Portal</a>
-        <a href="contact.html" style="color: var(--color-body-light);">Contact</a>
-      </div>
-    </div>
-  </footer>
+
 
   <!-- Scripts -->
   <script src="./js/components.js"></script>

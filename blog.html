@@ -173,10 +173,10 @@
             <button class="btn btn-outline btn-sm blog-filter-btn" data-category="Education">Investor Education</button>
           </div>
 
-          <div class="dash-search-input-wrap" style="min-width: 260px;">
+          <!-- <div class="dash-search-input-wrap" style="min-width: 260px;">
             <span class="material-symbols-outlined">search</span>
             <input type="text" id="blogSearchInput" class="dash-search-input" placeholder="Search research articles..." aria-label="Search articles">
-          </div>
+          </div> -->
         </div>
       </div>
     </section>
@@ -313,7 +313,7 @@
           <div class="split-content reveal-init">
             <span class="eyebrow">Deep Dive</span>
             <h2>Prime Residential: The Economics of Perpetual Supply Caps</h2>
-            <p class="lead-text" style="margin-bottom: 1.2rem;">
+            <p class="lead-text" style="margin-bottom: 1.2rem; color: #000 !important;">
               Unlike suburban developments where additional master-planned phases can be permitted indefinitely, prime central metropolitan residential is physically bounded by geography and heritage listings.
             </p>
             <p style="margin-bottom: 1.8rem;">
@@ -344,7 +344,7 @@
           <div class="split-content reveal-init">
             <span class="eyebrow">Institutional Analysis</span>
             <h2>Commercial Bifurcation: Tier-1 Assets vs Secondary Stress</h2>
-            <p class="lead-text" style="margin-bottom: 1.2rem;">
+            <p class="lead-text" style="margin-bottom: 1.2rem; color: #000 !important;">
               The post-pandemic commercial office sector has bifurcated dramatically. Secondary, obsolete suburban office parks face structural vacancy, while trophy CBD headquarters command historic peak rents.
             </p>
             <p style="margin-bottom: 1.8rem;">
@@ -401,12 +401,23 @@
         <p class="text-light lead-text" style="margin-bottom: 2.5rem;">
           Join over 4,500 private investors, wealth advisors, and family office principals who receive our monthly real estate dispatch and off-market placement previews.
         </p>
-        <form class="newsletter-form" style="max-width: 520px; margin: 0 auto;">
-          <input type="email" class="newsletter-input" placeholder="Enter your executive email..." required aria-label="Email Address">
-          <button type="submit" class="newsletter-btn" style="padding: 0.9rem 2rem;">
-            Subscribe Now <span class="material-symbols-outlined" style="margin-left: 0.4rem;">arrow_forward</span>
-          </button>
-        </form>
+        <form class="newsletter-form" id="newsletterForm" novalidate>
+  <input
+    type="email"
+    class="newsletter-input"
+    id="newsletterEmail"
+    placeholder="Your executive email..."
+    aria-label="Email Address"
+  />
+
+  <button type="submit" class="newsletter-btn" aria-label="Subscribe">
+    <span>Subscribe</span>
+    <span class="material-symbols-outlined">arrow_forward</span>
+  </button>
+
+  
+</form>
+<span class="newsletter-error" id="newsletterError"></span>
       </div>
     </section>
 
@@ -488,12 +499,8 @@
         <div class="footer-col footer-newsletter">
           <h4>Private Briefings</h4>
           <p>Receive confidential quarterly real estate market reports and off-market placement notifications.</p>
-          <form class="newsletter-form">
-            <input type="email" class="newsletter-input" placeholder="Your executive email..." required aria-label="Email Address">
-            <button type="submit" class="newsletter-btn" aria-label="Subscribe">
-              <span class="material-symbols-outlined">arrow_forward</span>
-            </button>
-          </form>
+
+<span class="newsletter-error" id="newsletterError"></span>
         </div>
       </div>
 

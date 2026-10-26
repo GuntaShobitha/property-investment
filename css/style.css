@@ -207,7 +207,7 @@ p:last-child {
 .lead-text {
   font-size: 1.15rem;
   line-height: 1.7;
-  color: var(--color-body);
+  color: #fff !important;
 }
 
 .text-muted {
@@ -215,7 +215,7 @@ p:last-child {
 }
 
 .text-light {
-  color: var(--color-body-light);
+  color: #000;
 }
 
 /* ==========================================================================
@@ -1463,6 +1463,27 @@ p:last-child {
   border-radius: 16px;
   box-shadow: 0 12px 40px rgba(15, 23, 42, 0.06);
   box-sizing: border-box;
+  margin-bottom: 20px;
+}
+
+.newsletter-form {
+  position: relative;
+}
+
+.newsletter-error {
+  display: block;
+  color: #e53935;
+  font-size: 13px;
+  margin-top: 6px;
+  text-align: left;
+}
+
+.newsletter-error:empty {
+  display: none;
+}
+
+.newsletter-input.error {
+  border: 1px solid #e53935;
 }
 
 /* Eyebrow */

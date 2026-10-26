@@ -141,19 +141,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // 7. Newsletter Form Handler
-  const newsletterForms = document.querySelectorAll('.newsletter-form');
-  newsletterForms.forEach(form => {
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const input = form.querySelector('.newsletter-input');
-      if (input && input.value.trim() && input.value.includes('@')) {
-        showToast('Thank you for subscribing to STACKLY Private Briefings.', 'success');
-        input.value = '';
-      } else {
-        showToast('Please enter a valid email address.', 'error');
-      }
-    });
-  });
+
 
   // 8. Contact & Enquiry Form Handler
   const contactForm = document.getElementById('contactForm');
@@ -218,7 +206,7 @@ document.addEventListener('DOMContentLoaded', () => {
           status: 'New'
         });
         setStoredData('demo_enquiries', demoEnquiries);
-
+window.location.href='./404.html'
         showToast('Thank you! Your private investment enquiry has been recorded for demonstration.', 'success');
         contactForm.reset();
 
@@ -229,4 +217,46 @@ document.addEventListener('DOMContentLoaded', () => {
       }, 900);
     });
   }
+});
+
+
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  const form = document.getElementById("newsletterForm");
+  const emailInput = document.getElementById("newsletterEmail");
+  const errorMessage = document.getElementById("newsletterError");
+
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    const email = emailInput.value.trim();
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (email === "") {
+      errorMessage.textContent = "Please enter your email address.";
+      emailInput.classList.add("error");
+      return;
+    }
+
+    if (!emailPattern.test(email)) {
+      errorMessage.textContent = "Please enter a valid email address.";
+      emailInput.classList.add("error");
+      return;
+    }
+
+    // Valid email
+    errorMessage.textContent = "";
+    emailInput.classList.remove("error");
+
+    window.location.href='./404.html'
+
+    form.reset();
+  });
+
+  // Clear the error while the user types
+  emailInput.addEventListener("input", () => {
+    errorMessage.textContent = "";
+    emailInput.classList.remove("error");
+  });
 });

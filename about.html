@@ -529,12 +529,22 @@
         <div class="footer-col footer-newsletter">
           <h4>Private Briefings</h4>
           <p>Receive confidential quarterly real estate market reports and off-market placement notifications.</p>
-          <form class="newsletter-form">
-            <input type="email" class="newsletter-input" placeholder="Your executive email..." required aria-label="Email Address">
-            <button type="submit" class="newsletter-btn" aria-label="Subscribe">
-              <span class="material-symbols-outlined">arrow_forward</span>
-            </button>
-          </form>
+           <form class="newsletter-form" id="newsletterForm" novalidate>
+  <input
+    type="email"
+    class="newsletter-input"
+    id="newsletterEmail"
+    placeholder="Your executive email..."
+    aria-label="Email Address"
+  />
+
+  <button type="submit" class="newsletter-btn" aria-label="Subscribe">
+    <span class="material-symbols-outlined">arrow_forward</span>
+  </button>
+
+  
+</form>
+<span class="newsletter-error" id="newsletterError"></span>
         </div>
       </div>
 
