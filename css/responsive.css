@@ -316,7 +316,9 @@
   .auth-header-bar {
     margin-bottom: 1.5rem;
   }
-
+  .stagger-grid-columns {
+    grid-template-columns: repeat(1, 1fr) !important;
+  }
   .huge-404-text {
     font-size: 5.5rem;
   }

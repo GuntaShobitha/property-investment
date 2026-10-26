@@ -1078,6 +1078,7 @@ p:last-child {
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  margin-top: 20px;
 }
 
 .accordion-item {
@@ -1442,4 +1443,344 @@ p:last-child {
   align-items: center;
   justify-content: flex-end;
   gap: 1rem;
+}
+
+
+
+/* =========================================
+   INVESTMENT ENQUIRY FORM
+   Responsive CSS
+========================================= */
+
+/* Container */
+.reveal-init {
+  width: 100%;
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 40px;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  box-shadow: 0 12px 40px rgba(15, 23, 42, 0.06);
+  box-sizing: border-box;
+}
+
+/* Eyebrow */
+.eyebrow {
+  display: inline-block;
+  margin-bottom: 12px;
+  color: #a17c42;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+/* Heading */
+.reveal-init h2 {
+  margin: 0 0 14px;
+  color: #17212b;
+  font-size: clamp(26px, 4vw, 36px);
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: -0.8px;
+}
+
+/* Description */
+.reveal-init .text-muted {
+  color: #687385;
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+/* Form */
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 20px;
+}
+
+/* Form Group */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-width: 0;
+  gap: 9px;
+}
+
+/* Labels */
+.form-label {
+  color: #263445;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+/* Input Wrapper */
+.input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  min-width: 0;
+}
+
+/* Input Icons */
+.input-icon {
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #8b96a5;
+  font-size: 21px;
+  pointer-events: none;
+}
+
+/* Inputs, Select, Textarea */
+.auth-input,
+.auth-select {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  min-height: 50px;
+  padding: 13px 15px 13px 48px;
+  border: 1px solid #dce2e9;
+  border-radius: 8px;
+  outline: none;
+  background-color: #ffffff;
+  color: #17212b;
+  font-family: inherit;
+  font-size: 14px;
+  line-height: 1.5;
+  box-sizing: border-box;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    background-color 0.2s ease;
+}
+
+/* Placeholder */
+.auth-input::placeholder {
+  color: #9aa3af;
+  opacity: 1;
+}
+
+/* Focus State */
+.auth-input:focus,
+.auth-select:focus {
+  border-color: #a17c42;
+  box-shadow: 0 0 0 3px rgba(161, 124, 66, 0.12);
+}
+
+/* Select */
+.auth-select {
+  appearance: none;
+  -webkit-appearance: none;
+  cursor: pointer;
+  padding-right: 36px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23687385' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+}
+
+/* Textarea */
+textarea.auth-input {
+  width: 100%;
+  min-height: 130px;
+  resize: vertical;
+  padding: 14px 15px;
+  line-height: 1.7;
+}
+
+/* Button */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: auto;
+  padding: 14px 24px;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.5;
+  text-align: center;
+  cursor: pointer;
+  text-decoration: none;
+  box-sizing: border-box;
+  transition:
+    background-color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+}
+
+.btn-primary {
+  color: #ffffff;
+  background: #172b3a;
+  border-color: #172b3a;
+}
+
+.btn-primary:hover {
+  background: #a17c42;
+  border-color: #a17c42;
+  box-shadow: 0 6px 18px rgba(23, 43, 58, 0.15);
+}
+
+.btn-primary:active {
+  transform: translateY(1px);
+}
+
+.btn-lg {
+  min-height: 54px;
+  font-size: 15px;
+}
+
+.btn .material-symbols-outlined {
+  font-size: 20px;
+  transition: transform 0.2s ease;
+}
+
+.btn:hover .material-symbols-outlined {
+  transform: translateX(4px);
+}
+
+/* Keyboard Accessibility */
+.btn:focus-visible {
+  outline: 3px solid rgba(161, 124, 66, 0.5);
+  outline-offset: 3px;
+}
+
+/* Small Demonstration Note */
+.auth-form > div[style*="font-size"] {
+  line-height: 1.7;
+}
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 768px) {
+  .reveal-init {
+    max-width: 100%;
+    padding: 30px 24px;
+    border-radius: 12px;
+  }
+
+  .reveal-init h2 {
+    font-size: 29px;
+  }
+
+  .reveal-init .text-muted {
+    font-size: 14px;
+  }
+
+  .auth-form {
+    gap: 18px;
+  }
+
+  .auth-input,
+  .auth-select {
+    min-height: 48px;
+  }
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 480px) {
+  .reveal-init {
+    padding: 24px 18px;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(15, 23, 42, 0.05);
+  }
+
+  .eyebrow {
+    font-size: 11px;
+    letter-spacing: 1.5px;
+  }
+
+  .reveal-init h2 {
+    font-size: 25px;
+    letter-spacing: -0.4px;
+  }
+
+  .reveal-init .text-muted {
+    font-size: 14px;
+    line-height: 1.7;
+  }
+
+  .form-group {
+    gap: 7px;
+  }
+
+  .form-label {
+    font-size: 13px;
+  }
+
+  .auth-input,
+  .auth-select {
+    min-height: 48px;
+    padding-left: 42px;
+    font-size: 14px;
+  }
+
+  .input-icon {
+    left: 12px;
+    font-size: 19px;
+  }
+
+  .auth-select {
+    padding-right: 30px;
+  }
+
+  textarea.auth-input {
+    min-height: 115px;
+    padding: 12px;
+  }
+
+  .btn,
+  .btn-lg {
+    width: 100%;
+    min-height: 50px;
+    padding: 12px 16px;
+    font-size: 14px;
+  }
+
+  .auth-form > div[style*="font-size"] {
+    font-size: 11px !important;
+  }
+}
+
+/* =========================================
+   EXTRA SMALL MOBILE
+========================================= */
+
+@media (max-width: 360px) {
+  .reveal-init {
+    padding: 20px 14px;
+  }
+
+  .reveal-init h2 {
+    font-size: 23px;
+  }
+
+  .auth-input,
+  .auth-select {
+    font-size: 13px;
+  }
+}
+
+/* Respect Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .auth-input,
+  .auth-select,
+  .btn,
+  .btn .material-symbols-outlined {
+    transition: none;
+  }
 }
