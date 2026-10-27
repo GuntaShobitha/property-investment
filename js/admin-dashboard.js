@@ -478,7 +478,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (adminSettingsForm) {
     adminSettingsForm.addEventListener('submit', (e) => {
       e.preventDefault();
-      showToast('Global platform configurations saved.', 'success');
+      onclick="window.location.href='./404.html'";
     });
   }
 

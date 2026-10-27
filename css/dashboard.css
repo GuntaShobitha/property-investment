@@ -40,6 +40,7 @@
 .dash-logo-img {
   height: 32px;
   width: auto;
+  filter: brightness(0) invert(0);
 }
 
 .dash-role-tag {
