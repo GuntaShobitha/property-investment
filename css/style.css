@@ -457,6 +457,7 @@ p:last-child {
   width: auto;
   object-fit: contain;
   transition: transform var(--transition-fast);
+  filter: brightness(0) invert(0);
 }
 
 .nav-logo:hover .nav-logo-img {
